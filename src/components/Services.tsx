@@ -23,7 +23,7 @@ const Services = () => {
       title: "Custom AI Workflows",
       description: "Automate your unique business processes—from invoice processing and data entry to inventory management and customer follow-ups. Built specifically for your needs.",
       tags: ["Process Automation", "API Integration"],
-      benefits: ["Save 30+ hours per week", "Zero coding required"]
+      benefits: ["Automated invoice generation", "Smart appointment scheduling"]
     }
   ];
 
@@ -79,13 +79,13 @@ const Services = () => {
 
               {/* Service Content */}
               <div className="space-y-4">
-                <h3 className={`text-2xl font-black leading-tight ${
+                <h3 className={`text-xl sm:text-2xl font-black leading-tight ${
                   service.isSpecial ? 'text-white' : 'text-gray-900'
                 }`}>
                   {service.title}
                 </h3>
                 
-                <p className={`text-base leading-relaxed ${
+                <p className={`text-sm sm:text-base leading-relaxed ${
                   service.isSpecial ? 'text-white/95' : 'text-gray-600'
                 }`}>
                   {service.description}
@@ -94,6 +94,13 @@ const Services = () => {
                 {/* Benefits */}
                 {service.benefits && (
                   <div className="space-y-2 pt-2">
+                    {index === 2 && (
+                      <p className={`text-xs font-semibold mb-2 ${
+                        service.isSpecial ? 'text-white/80' : 'text-gray-500'
+                      }`}>
+                        Example automations:
+                      </p>
+                    )}
                     {service.benefits.map((benefit, idx) => (
                       <div key={idx} className="flex items-start gap-2">
                         <div className={`mt-1 w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0 ${
@@ -103,7 +110,7 @@ const Services = () => {
                             service.isSpecial ? 'bg-white' : 'bg-indigo-600'
                           }`} />
                         </div>
-                        <span className={`text-sm ${
+                        <span className={`text-xs sm:text-sm ${
                           service.isSpecial ? 'text-white/90' : 'text-gray-700'
                         }`}>
                           {benefit}
@@ -118,7 +125,7 @@ const Services = () => {
                   {service.tags.map((tag, tagIndex) => (
                     <span
                       key={tagIndex}
-                      className={`px-4 py-2 rounded-full text-sm font-semibold ${
+                      className={`px-3 py-1.5 sm:px-4 sm:py-2 rounded-full text-xs sm:text-sm font-semibold ${
                         service.isSpecial
                           ? 'bg-white/20 text-white backdrop-blur-sm'
                           : 'bg-indigo-100 text-indigo-700'
