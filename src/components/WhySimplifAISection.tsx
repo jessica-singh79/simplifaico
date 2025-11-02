@@ -1,7 +1,7 @@
 import React from 'react';
 import { Clock, Zap, DollarSign, Shield, Users, TrendingUp } from 'lucide-react';
 
-const WhySimplifAI = () => {
+export function WhySimplifAISection() {
   const reasons = [
     {
       icon: Clock,
@@ -135,6 +135,4 @@ const WhySimplifAI = () => {
       </div>
     </section>
   );
-};
-
-export default WhySimplifAI;
+}
