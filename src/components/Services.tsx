@@ -1,158 +1,273 @@
-import React from 'react';
-import { Bot, Globe, Wrench, MessageSquare, ArrowRight } from 'lucide-react';
+import React, { useState, useEffect, useRef } from 'react';
+import { ChevronLeft, ChevronRight, Cog } from 'lucide-react';
 
 const Services = () => {
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [isAutoPlaying, setIsAutoPlaying] = useState(true);
+  const [cardWidth, setCardWidth] = useState(410);
+  const carouselRef = useRef<HTMLDivElement>(null);
+  const autoplayRef = useRef<NodeJS.Timeout | null>(null);
+  const touchStartX = useRef(0);
+  const touchEndX = useRef(0);
+
   const services = [
     {
-      icon: Bot,
+      icon: "📅",
+      title: "Effortless Client Booking",
+      description: "Automated scheduling that syncs with your calendar, sends confirmations, and handles reschedules.",
+      tags: ["Auto-sync", "Smart calendar"],
+      color: {
+        iconGradient: "from-blue-500 to-cyan-500",
+        tagBg: "bg-blue-100",
+        tagText: "text-blue-700"
+      }
+    },
+    {
+      icon: "🎯",
+      title: "Lead Capture & Management",
+      description: "Capture leads from any channel, qualify them automatically, and nurture with intelligent follow-ups.",
+      tags: ["Multi-channel", "Auto-qualify"],
+      color: {
+        iconGradient: "from-green-500 to-teal-500",
+        tagBg: "bg-green-100",
+        tagText: "text-green-700"
+      }
+    },
+    {
+      icon: "🔄",
+      title: "Automated Follow Ups",
+      description: "Never miss a follow-up. AI sends personalized messages at the perfect time to keep leads warm.",
+      tags: ["Smart timing", "Personalized"],
+      color: {
+        iconGradient: "from-orange-500 to-red-500",
+        tagBg: "bg-orange-100",
+        tagText: "text-orange-700"
+      }
+    },
+    {
+      icon: "🌐",
+      title: "Dynamic Content & Websites",
+      description: "Your website adapts to each visitor, showing the right content to the right person at the right time.",
+      tags: ["Personalization", "Real-time"],
+      color: {
+        iconGradient: "from-indigo-500 to-purple-500",
+        tagBg: "bg-indigo-100",
+        tagText: "text-indigo-700"
+      }
+    },
+    {
+      icon: "🤖",
       title: "Smart AI Assistant",
-      description: "24/7 intelligent support that handles customer queries, schedules appointments, qualifies leads, and seamlessly escalates complex issues to your team.",
-      tags: ["24/7 Support", "Multi-language"],
-      benefits: ["Reduce response time by 90%", "Handle 100+ conversations simultaneously"],
+      description: "24/7 intelligent support that handles queries, provides information, and seamlessly hands off to humans.",
+      tags: ["24/7 support", "Multi-language"],
       isSpecial: true
     },
     {
-      icon: Globe,
-      title: "Personalized Website Experiences",
-      description: "Your website adapts to each visitor in real-time, showing personalized content, recommendations, and CTAs based on their behavior—increasing conversions by up to 40%.",
-      tags: ["Real-time", "Behavior-based"],
-      benefits: ["Increase conversions up to 40%", "Personalized for each visitor"]
-    },
-    {
-      icon: Wrench,
-      title: "Custom AI Workflows",
-      description: "Automate your unique business processes—from invoice processing and data entry to inventory management and customer follow-ups. Built specifically for your needs.",
-      tags: ["Process Automation", "API Integration"],
-      benefits: ["Automated invoice generation", "Smart appointment scheduling"]
+      icon: "✨",
+      title: "Not What You're Looking For?",
+      description: "We provide tailored AI solutions designed specifically for your unique business needs and workflows.",
+      tags: ["Custom solutions", "Bespoke AI"],
+      color: {
+        iconGradient: "from-purple-500 to-pink-500",
+        tagBg: "bg-purple-100",
+        tagText: "text-purple-700"
+      }
     }
   ];
 
-  const IconComponent = ({ icon: Icon, isSpecial }: { icon: any, isSpecial?: boolean }) => (
-    <div className={`w-14 h-14 rounded-2xl flex items-center justify-center mb-5 shadow-lg transition-transform duration-300 group-hover:scale-110 ${
-      isSpecial
-        ? 'bg-white/20 backdrop-blur-sm'
-        : 'bg-gradient-to-br from-indigo-500 to-violet-600'
-    }`}>
-      <Icon className={`w-7 h-7 ${isSpecial ? 'text-white' : 'text-white'}`} />
-    </div>
-  );
+  const totalCards = services.length;
+
+  // Calculate card width based on screen size
+  useEffect(() => {
+    const updateCardWidth = () => {
+      if (window.innerWidth < 640) {
+        // Mobile: use viewport width minus padding
+        setCardWidth(window.innerWidth - 16); // 16px = 1rem padding on each side
+      } else {
+        // Desktop: use fixed width (380px card + 32px gap)
+        setCardWidth(412);
+      }
+    };
+
+    updateCardWidth();
+    window.addEventListener('resize', updateCardWidth);
+    return () => window.removeEventListener('resize', updateCardWidth);
+  }, []);
+
+  // Auto-play functionality
+  useEffect(() => {
+    if (isAutoPlaying) {
+      autoplayRef.current = setInterval(() => {
+        setCurrentIndex(prev => (prev + 1) % totalCards);
+      }, 4000);
+    }
+
+    return () => {
+      if (autoplayRef.current) {
+        clearInterval(autoplayRef.current);
+      }
+    };
+  }, [isAutoPlaying, totalCards]);
+
+  const updateCarousel = (index: number) => {
+    setCurrentIndex(index);
+  };
+
+  const goToPrevious = () => {
+    setCurrentIndex(prev => (prev > 0 ? prev - 1 : totalCards - 1));
+  };
+
+  const goToNext = () => {
+    setCurrentIndex(prev => (prev < totalCards - 1 ? prev + 1 : 0));
+  };
+
+  const handleMouseEnter = () => {
+    setIsAutoPlaying(false);
+  };
+
+  const handleMouseLeave = () => {
+    setIsAutoPlaying(true);
+  };
+
+  const handleTouchStart = (e: React.TouchEvent) => {
+    touchStartX.current = e.changedTouches[0].screenX;
+  };
+
+  const handleTouchEnd = (e: React.TouchEvent) => {
+    touchEndX.current = e.changedTouches[0].screenX;
+    const diff = touchStartX.current - touchEndX.current;
+    
+    if (Math.abs(diff) > 50) {
+      if (diff > 0) {
+        // Swipe left
+        goToNext();
+      } else {
+        // Swipe right
+        goToPrevious();
+      }
+    }
+  };
+
+  const scrollToContact = () => {
+    document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+  };
 
   return (
-    <section id="services" className="py-24 bg-gray-50 relative overflow-hidden">
+    <section id="services" className="py-24 bg-gradient-to-br from-slate-50 to-purple-50 relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-6">
         {/* Section Header */}
         <div className="text-center mb-16">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-indigo-100 text-indigo-600 text-sm font-semibold mb-6">
-            <MessageSquare className="w-4 h-4" />
-            Our Services
+          <div className="inline-flex items-center bg-gradient-to-r from-purple-100 to-blue-100 px-4 py-2 rounded-full mb-6">
+            <Cog className="w-4 h-4 text-purple-600 mr-2" />
+            <span className="text-sm font-semibold text-purple-800">Our Services</span>
           </div>
 
-          <h2 className="text-4xl sm:text-5xl md:text-6xl font-black mb-6 leading-tight">
-            <span className="bg-gradient-to-r from-gray-900 via-indigo-800 to-violet-800 bg-clip-text text-transparent">
+          <h2 className="text-4xl sm:text-5xl md:text-6xl font-heading font-bold mb-6 px-4 leading-tight">
+            <span className="bg-gradient-to-r from-gray-900 to-purple-800 bg-clip-text text-transparent break-words">
               Automate Your Business Tasks
             </span>
           </h2>
-          <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
-            From customer support to operational workflows, SimplifAI builds intelligent automation that works 24/7—so you can focus on growth.
+          <p className="text-base sm:text-lg md:text-xl font-body text-gray-600 max-w-3xl mx-auto px-4">
+            From admin work to customer support, SimplifAI builds tools that handle the repetitive stuff for you.
           </p>
         </div>
 
-        {/* Services Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8 mb-20">
-          {services.map((service, index) => (
-            <div
-              key={index}
-              className={`group rounded-3xl p-6 lg:p-8 relative overflow-hidden transition-all duration-300 hover:-translate-y-2 ${
-                service.isSpecial
-                  ? 'bg-gradient-to-br from-indigo-600 via-violet-600 to-indigo-700 text-white shadow-2xl md:scale-105'
-                  : 'bg-white border border-gray-200 shadow-xl hover:shadow-2xl'
-              }`}
-            >
-              {service.isSpecial && (
-                <div className="absolute top-4 right-4 bg-white/20 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-semibold text-white">
-                  Most Popular
+        {/* Carousel Wrapper */}
+        <div className="relative overflow-hidden py-10">
+          <div
+            ref={carouselRef}
+            className="flex gap-8 transition-transform duration-500 ease-out px-2"
+            style={{ transform: `translateX(-${currentIndex * cardWidth}px)` }}
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
+            onTouchStart={handleTouchStart}
+            onTouchEnd={handleTouchEnd}
+          >
+            {services.map((service, index) => (
+              <div
+                key={index}
+                className={`w-[calc(100vw-1rem)] sm:w-[380px] flex-shrink-0 rounded-3xl p-6 sm:p-8 relative overflow-hidden transition-all duration-300 hover:transform hover:-translate-y-2 ${
+                  service.isSpecial
+                    ? 'bg-gradient-to-br from-blue-600 via-purple-600 to-blue-700 text-white shadow-2xl hover:scale-105 transition-transform'
+                    : 'bg-white border border-gray-100 shadow-xl hover:shadow-2xl transition-shadow'
+                }`}
+              >
+                {/* Service Icon */}
+                <div className={`w-16 h-16 rounded-2xl flex items-center justify-center text-3xl mb-6 shadow-lg ${
+                  service.isSpecial
+                    ? 'bg-white/20 backdrop-blur-sm'
+                    : `bg-gradient-to-br ${service.color.iconGradient}`
+                }`}>
+                  <span>{service.icon}</span>
                 </div>
-              )}
 
-              {/* Service Icon */}
-              <IconComponent icon={service.icon} isSpecial={service.isSpecial} />
+                {/* Service Content */}
+                <div className="space-y-4">
+                  <h3 className={`text-xl sm:text-2xl font-heading font-bold leading-tight ${
+                    service.isSpecial ? 'text-white' : 'text-gray-900'
+                  }`}>
+                    {service.title}
+                  </h3>
+                  
+                  <p className={`text-sm sm:text-base font-body leading-relaxed ${
+                    service.isSpecial ? 'text-white/90' : 'text-gray-600'
+                  }`}>
+                    {service.description}
+                  </p>
 
-              {/* Service Content */}
-              <div className="space-y-4">
-                <h3 className={`text-xl sm:text-2xl font-black leading-tight ${
-                  service.isSpecial ? 'text-white' : 'text-gray-900'
-                }`}>
-                  {service.title}
-                </h3>
-                
-                <p className={`text-sm sm:text-base leading-relaxed ${
-                  service.isSpecial ? 'text-white/95' : 'text-gray-600'
-                }`}>
-                  {service.description}
-                </p>
-
-                {/* Benefits */}
-                {service.benefits && (
-                  <div className="space-y-2 pt-2">
-                    {index === 2 && (
-                      <p className={`text-xs font-semibold mb-2 ${
-                        service.isSpecial ? 'text-white/80' : 'text-gray-500'
-                      }`}>
-                        Example automations:
-                      </p>
-                    )}
-                    {service.benefits.map((benefit, idx) => (
-                      <div key={idx} className="flex items-start gap-2">
-                        <div className={`mt-1 w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0 ${
-                          service.isSpecial ? 'bg-white/20' : 'bg-indigo-100'
-                        }`}>
-                          <div className={`w-2 h-2 rounded-full ${
-                            service.isSpecial ? 'bg-white' : 'bg-indigo-600'
-                          }`} />
-                        </div>
-                        <span className={`text-xs sm:text-sm ${
-                          service.isSpecial ? 'text-white/90' : 'text-gray-700'
-                        }`}>
-                          {benefit}
-                        </span>
-                      </div>
+                  {/* Service Tags */}
+                  <div className="flex flex-wrap gap-2 pt-2">
+                    {service.tags.map((tag, tagIndex) => (
+                      <span
+                        key={tagIndex}
+                       className={`px-4 py-2 rounded-full text-sm font-body font-semibold ${
+                          service.isSpecial
+                            ? 'bg-white/20 text-white backdrop-blur-sm'
+                            : `${service.color.tagBg} ${service.color.tagText}`
+                        }`}
+                      >
+                        {tag}
+                      </span>
                     ))}
                   </div>
-                )}
-
-                {/* Service Tags */}
-                <div className="flex flex-wrap gap-2 pt-4">
-                  {service.tags.map((tag, tagIndex) => (
-                    <span
-                      key={tagIndex}
-                      className={`px-3 py-1.5 sm:px-4 sm:py-2 rounded-full text-xs sm:text-sm font-semibold ${
-                        service.isSpecial
-                          ? 'bg-white/20 text-white backdrop-blur-sm'
-                          : 'bg-indigo-100 text-indigo-700'
-                      }`}
-                    >
-                      {tag}
-                    </span>
-                  ))}
                 </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
 
-        {/* Custom Solutions CTA */}
-        <div className="text-center">
-          <p className="text-lg text-gray-600 mb-6">
-            Have a unique process to automate? We build tailored AI solutions for your specific needs.
-          </p>
+        {/* Carousel Controls */}
+        <div className="flex justify-center items-center gap-4 mt-10">
           <button
-            onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
-            className="inline-flex items-center gap-3 bg-gradient-to-r from-indigo-500 to-violet-600 text-white px-8 py-4 rounded-full text-lg font-semibold shadow-lg hover:scale-105 transition-transform duration-300"
+            onClick={goToPrevious}
+            className="w-12 h-12 rounded-full bg-white border-2 border-purple-200 text-purple-600 flex items-center justify-center hover:bg-gradient-to-r hover:from-blue-500 hover:to-purple-600 hover:text-white hover:border-transparent transition-all duration-300 hover:scale-110"
           >
-            <span>Let's Talk About Your Needs</span>
-            <ArrowRight className="w-5 h-5" />
+            <ChevronLeft className="w-6 h-6" />
+          </button>
+          
+          {/* Dots */}
+          <div className="flex gap-2">
+            {services.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => updateCarousel(index)}
+                className={`h-3 rounded-full transition-all duration-300 ${
+                  index === currentIndex
+                    ? 'w-8 bg-gradient-to-r from-blue-500 to-purple-600'
+                    : 'w-3 bg-gray-300 hover:bg-gray-400'
+                }`}
+              />
+            ))}
+          </div>
+          
+          <button
+            onClick={goToNext}
+            className="w-12 h-12 rounded-full bg-white border-2 border-purple-200 text-purple-600 flex items-center justify-center hover:bg-gradient-to-r hover:from-blue-500 hover:to-purple-600 hover:text-white hover:border-transparent transition-all duration-300 hover:scale-110"
+          >
+            <ChevronRight className="w-6 h-6" />
           </button>
         </div>
+
       </div>
     </section>
   );
