@@ -1,7 +1,27 @@
-import React from 'react';
+import React, { useRef, useEffect, useState } from 'react';
+import { useScroll, useTransform, motion } from 'framer-motion';
 import { Clock, Zap, DollarSign, Shield, Users, TrendingUp } from 'lucide-react';
 
 export function WhySimplifAISection() {
+  const ref = useRef<HTMLDivElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const [height, setHeight] = useState(0);
+
+  useEffect(() => {
+    if (ref.current) {
+      const rect = ref.current.getBoundingClientRect();
+      setHeight(rect.height);
+    }
+  }, [ref]);
+
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start 10%", "end 50%"],
+  });
+
+  const heightTransform = useTransform(scrollYProgress, [0, 1], [0, height]);
+  const opacityTransform = useTransform(scrollYProgress, [0, 0.1], [0, 1]);
+
   const reasons = [
     {
       icon: Clock,
@@ -72,15 +92,11 @@ export function WhySimplifAISection() {
   ];
 
   return (
-    <section id="why-simplifai" className="bg-gray-50 py-20">
-      <div className="max-w-7xl mx-auto px-4 md:px-8 lg:px-10">
-        {/* Header */}
-        <div className="text-center mb-16">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-indigo-100 text-indigo-600 text-sm font-semibold mb-6">
-            <Shield className="w-4 h-4" />
-            Why Choose Us
-          </div>
-          <h2 className="text-4xl sm:text-5xl md:text-6xl font-black mb-6 leading-tight">
+    <section id="why-simplifai" className="bg-gray-50" ref={containerRef}>
+      <div className="max-w-7xl mx-auto pt-20 pb-10 px-4 md:px-8 lg:px-10">
+        {/* Header - More Compact */}
+        <div className="text-center mb-12">
+          <h2 className="text-4xl sm:text-5xl md:text-6xl font-black mb-4 leading-tight">
             <span className="bg-gradient-to-r from-gray-900 via-indigo-800 to-violet-800 bg-clip-text text-transparent">
               Why SimplifAI?
             </span>
@@ -89,48 +105,71 @@ export function WhySimplifAISection() {
             We're not the biggest AI agency, but we're the fastest, most transparent, and most focused on businesses like yours.
           </p>
         </div>
+      </div>
 
-        {/* Timeline List */}
-        <div className="space-y-12 md:space-y-16">
-          {reasons.map((reason, index) => {
-            const Icon = reason.icon;
-            return (
-              <div key={index} className="flex flex-col md:flex-row gap-6 md:gap-8">
-                {/* Left - Icon and Title */}
-                <div className="md:w-1/3 flex items-start gap-4">
-                  <div className="w-14 h-14 rounded-full bg-gradient-to-br from-indigo-500 to-violet-600 flex items-center justify-center flex-shrink-0">
-                    <Icon className="w-7 h-7 text-white" />
+      {/* Timeline */}
+      <div ref={ref} className="relative max-w-7xl mx-auto pb-10">
+        {reasons.map((reason, index) => {
+          const IconComponent = reason.icon;
+          return (
+            <div
+              key={index}
+              className="flex justify-start pt-10 md:pt-40 md:gap-10"
+            >
+              <div className="sticky flex flex-col md:flex-row z-40 items-center top-40 self-start max-w-xs lg:max-w-sm md:w-full">
+                <div className="h-10 absolute left-3 md:left-3 w-10 rounded-full bg-white flex items-center justify-center shadow-lg">
+                  <div className="h-8 w-8 rounded-full bg-gradient-to-br from-indigo-500 to-violet-600 flex items-center justify-center">
+                    <IconComponent className="w-4 h-4 text-white" />
                   </div>
-                  <div>
-                    <h3 className="text-xl md:text-2xl font-black text-gray-900 mb-2">
-                      {reason.title}
-                    </h3>
-                    <span className="inline-block text-xs font-bold text-indigo-600 bg-indigo-50 px-3 py-1 rounded-full">
+                </div>
+                <h3 className="hidden md:block text-xl md:pl-20 md:text-4xl font-bold text-gray-800">
+                  {reason.title}
+                </h3>
+              </div>
+
+              <div className="relative pl-20 pr-4 md:pl-4 w-full">
+                <h3 className="md:hidden block text-2xl mb-4 text-left font-bold text-gray-800">
+                  {reason.title}
+                </h3>
+                
+                {/* Content Card */}
+                <div className="bg-white rounded-2xl p-6 md:p-8 shadow-lg border border-gray-200 mb-4">
+                  <div className="flex items-center gap-3 mb-4">
+                    <span className="text-sm font-bold text-indigo-600 bg-indigo-50 px-3 py-1 rounded-full">
                       {reason.stat}
                     </span>
                   </div>
-                </div>
+                  
+                  <p className="text-gray-600 text-base leading-relaxed mb-6">
+                    {reason.description}
+                  </p>
 
-                {/* Right - Content */}
-                <div className="md:w-2/3">
-                  <div className="bg-white rounded-2xl p-6 md:p-8 shadow-lg border border-gray-200">
-                    <p className="text-gray-600 text-base leading-relaxed mb-6">
-                      {reason.description}
-                    </p>
-
-                    <div className="space-y-3 pt-4 border-t border-gray-100">
-                      {reason.details.map((detail, idx) => (
-                        <div key={idx} className="flex items-start gap-3">
-                          <div className="mt-1.5 w-2 h-2 rounded-full bg-indigo-600 flex-shrink-0" />
-                          <span className="text-sm text-gray-700">{detail}</span>
-                        </div>
-                      ))}
-                    </div>
+                  <div className="space-y-3 pt-4 border-t border-gray-100">
+                    {reason.details.map((detail, idx) => (
+                      <div key={idx} className="flex items-start gap-3">
+                        <div className="mt-1.5 w-2 h-2 rounded-full bg-indigo-600 flex-shrink-0" />
+                        <span className="text-sm text-gray-700">{detail}</span>
+                      </div>
+                    ))}
                   </div>
                 </div>
               </div>
-            );
-          })}
+            </div>
+          );
+        })}
+        
+        {/* Animated Line */}
+        <div
+          style={{ height: height + "px" }}
+          className="absolute md:left-8 left-8 top-0 overflow-hidden w-[2px] bg-gradient-to-b from-transparent via-gray-200 to-transparent [mask-image:linear-gradient(to_bottom,transparent_0%,black_10%,black_90%,transparent_100%)]"
+        >
+          <motion.div
+            style={{
+              height: heightTransform,
+              opacity: opacityTransform,
+            }}
+            className="absolute inset-x-0 top-0 w-[2px] bg-gradient-to-b from-indigo-500 via-violet-500 to-transparent rounded-full"
+          />
         </div>
       </div>
     </section>
