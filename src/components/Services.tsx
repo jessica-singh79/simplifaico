@@ -147,7 +147,7 @@ const Services = () => {
               <Wrench className="w-8 h-8 text-indigo-600" />
             </div>
             <h3 className="text-2xl md:text-3xl font-black text-gray-900 mb-4">
-              Need Something Custom?
+              Have a Unique Process to Automate?
             </h3>
             <p className="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
               We build tailored AI solutions designed specifically for your unique business processes and workflows. No two businesses are the same—your automation shouldn't be either.
