@@ -141,25 +141,17 @@ const Services = () => {
         </div>
 
         {/* Custom Solutions CTA */}
-        <div className="max-w-4xl mx-auto">
-          <div className="bg-white rounded-3xl p-8 md:p-12 shadow-xl border border-gray-200 text-center">
-            <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-gradient-to-br from-indigo-100 to-violet-100 mb-6">
-              <Wrench className="w-8 h-8 text-indigo-600" />
-            </div>
-            <h3 className="text-2xl md:text-3xl font-black text-gray-900 mb-4">
-              Have a Unique Process to Automate?
-            </h3>
-            <p className="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
-              We build tailored AI solutions designed specifically for your unique business processes and workflows. No two businesses are the same—your automation shouldn't be either.
-            </p>
-            <button
-              onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
-              className="inline-flex items-center gap-3 bg-gradient-to-r from-indigo-500 to-violet-600 text-white px-8 py-4 rounded-full text-lg font-semibold shadow-lg hover:scale-105 transition-transform duration-300"
-            >
-              <span>Let's Talk About Your Needs</span>
-              <ArrowRight className="w-5 h-5" />
-            </button>
-          </div>
+        <div className="text-center">
+          <p className="text-lg text-gray-600 mb-6">
+            Have a unique process to automate? We build tailored AI solutions for your specific needs.
+          </p>
+          <button
+            onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+            className="inline-flex items-center gap-3 bg-gradient-to-r from-indigo-500 to-violet-600 text-white px-8 py-4 rounded-full text-lg font-semibold shadow-lg hover:scale-105 transition-transform duration-300"
+          >
+            <span>Let's Talk About Your Needs</span>
+            <ArrowRight className="w-5 h-5" />
+          </button>
         </div>
       </div>
     </section>
