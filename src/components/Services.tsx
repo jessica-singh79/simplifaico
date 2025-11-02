@@ -1,15 +1,7 @@
-import React, { useState, useEffect, useRef } from 'react';
-import { ChevronLeft, ChevronRight, Bot, Globe, Wrench, MessageSquare, ArrowRight } from 'lucide-react';
+import React from 'react';
+import { Bot, Globe, Wrench, MessageSquare, ArrowRight } from 'lucide-react';
 
 const Services = () => {
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [isAutoPlaying, setIsAutoPlaying] = useState(true);
-  const [cardWidth, setCardWidth] = useState(410);
-  const carouselRef = useRef<HTMLDivElement>(null);
-  const autoplayRef = useRef<NodeJS.Timeout | null>(null);
-  const touchStartX = useRef(0);
-  const touchEndX = useRef(0);
-
   const services = [
     {
       icon: Bot,
@@ -35,78 +27,8 @@ const Services = () => {
     }
   ];
 
-  const totalCards = services.length;
-
-  useEffect(() => {
-    const updateCardWidth = () => {
-      if (window.innerWidth < 640) {
-        setCardWidth(window.innerWidth - 32);
-      } else {
-        setCardWidth(360);
-      }
-    };
-
-    updateCardWidth();
-    window.addEventListener('resize', updateCardWidth);
-    return () => window.removeEventListener('resize', updateCardWidth);
-  }, []);
-
-  useEffect(() => {
-    if (isAutoPlaying) {
-      autoplayRef.current = setInterval(() => {
-        setCurrentIndex(prev => (prev + 1) % totalCards);
-      }, 5000);
-    }
-
-    return () => {
-      if (autoplayRef.current) {
-        clearInterval(autoplayRef.current);
-      }
-    };
-  }, [isAutoPlaying, totalCards]);
-
-  const updateCarousel = (index: number) => {
-    setCurrentIndex(index);
-    setIsAutoPlaying(false);
-  };
-
-  const goToPrevious = () => {
-    setCurrentIndex(prev => (prev > 0 ? prev - 1 : totalCards - 1));
-    setIsAutoPlaying(false);
-  };
-
-  const goToNext = () => {
-    setCurrentIndex(prev => (prev < totalCards - 1 ? prev + 1 : 0));
-    setIsAutoPlaying(false);
-  };
-
-  const handleMouseEnter = () => {
-    setIsAutoPlaying(false);
-  };
-
-  const handleMouseLeave = () => {
-    setIsAutoPlaying(true);
-  };
-
-  const handleTouchStart = (e: React.TouchEvent) => {
-    touchStartX.current = e.changedTouches[0].screenX;
-  };
-
-  const handleTouchEnd = (e: React.TouchEvent) => {
-    touchEndX.current = e.changedTouches[0].screenX;
-    const diff = touchStartX.current - touchEndX.current;
-    
-    if (Math.abs(diff) > 50) {
-      if (diff > 0) {
-        goToNext();
-      } else {
-        goToPrevious();
-      }
-    }
-  };
-
   const IconComponent = ({ icon: Icon, isSpecial }: { icon: any, isSpecial?: boolean }) => (
-    <div className={`w-14 h-14 rounded-2xl flex items-center justify-center mb-5 shadow-lg transition-transform duration-300 ${
+    <div className={`w-14 h-14 rounded-2xl flex items-center justify-center mb-5 shadow-lg transition-transform duration-300 group-hover:scale-110 ${
       isSpecial
         ? 'bg-white/20 backdrop-blur-sm'
         : 'bg-gradient-to-br from-indigo-500 to-violet-600'
@@ -135,129 +57,84 @@ const Services = () => {
           </p>
         </div>
 
-        {/* Carousel Wrapper */}
-        <div className="relative overflow-hidden py-10">
-          <div
-            ref={carouselRef}
-            className="flex gap-8 transition-transform duration-500 ease-out px-2"
-            style={{ transform: `translateX(-${currentIndex * cardWidth}px)` }}
-            onMouseEnter={handleMouseEnter}
-            onMouseLeave={handleMouseLeave}
-            onTouchStart={handleTouchStart}
-            onTouchEnd={handleTouchEnd}
-          >
-            {services.map((service, index) => (
-              <div
-                key={index}
-                className={`w-[calc(100vw-2rem)] sm:w-[328px] flex-shrink-0 rounded-3xl p-6 relative overflow-hidden transition-all duration-300 ${
-                  service.isSpecial
-                    ? 'bg-gradient-to-br from-indigo-600 via-violet-600 to-indigo-700 text-white shadow-2xl hover:scale-[1.02]'
-                    : 'bg-white border border-gray-200 shadow-xl hover:shadow-2xl hover:-translate-y-1'
-                }`}
-              >
-                {service.isSpecial && (
-                  <div className="absolute top-4 right-4 bg-white/20 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-semibold text-white">
-                    Most Popular
+        {/* Services Grid */}
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8 mb-20">
+          {services.map((service, index) => (
+            <div
+              key={index}
+              className={`group rounded-3xl p-6 lg:p-8 relative overflow-hidden transition-all duration-300 hover:-translate-y-2 ${
+                service.isSpecial
+                  ? 'bg-gradient-to-br from-indigo-600 via-violet-600 to-indigo-700 text-white shadow-2xl md:scale-105'
+                  : 'bg-white border border-gray-200 shadow-xl hover:shadow-2xl'
+              }`}
+            >
+              {service.isSpecial && (
+                <div className="absolute top-4 right-4 bg-white/20 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-semibold text-white">
+                  Most Popular
+                </div>
+              )}
+
+              {/* Service Icon */}
+              <IconComponent icon={service.icon} isSpecial={service.isSpecial} />
+
+              {/* Service Content */}
+              <div className="space-y-4">
+                <h3 className={`text-2xl font-black leading-tight ${
+                  service.isSpecial ? 'text-white' : 'text-gray-900'
+                }`}>
+                  {service.title}
+                </h3>
+                
+                <p className={`text-base leading-relaxed ${
+                  service.isSpecial ? 'text-white/95' : 'text-gray-600'
+                }`}>
+                  {service.description}
+                </p>
+
+                {/* Benefits */}
+                {service.benefits && (
+                  <div className="space-y-2 pt-2">
+                    {service.benefits.map((benefit, idx) => (
+                      <div key={idx} className="flex items-start gap-2">
+                        <div className={`mt-1 w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0 ${
+                          service.isSpecial ? 'bg-white/20' : 'bg-indigo-100'
+                        }`}>
+                          <div className={`w-2 h-2 rounded-full ${
+                            service.isSpecial ? 'bg-white' : 'bg-indigo-600'
+                          }`} />
+                        </div>
+                        <span className={`text-sm ${
+                          service.isSpecial ? 'text-white/90' : 'text-gray-700'
+                        }`}>
+                          {benefit}
+                        </span>
+                      </div>
+                    ))}
                   </div>
                 )}
 
-                {/* Service Icon */}
-                <IconComponent icon={service.icon} isSpecial={service.isSpecial} />
-
-                {/* Service Content */}
-                <div className="space-y-4">
-                  <h3 className={`text-2xl sm:text-3xl font-black leading-tight ${
-                    service.isSpecial ? 'text-white' : 'text-gray-900'
-                  }`}>
-                    {service.title}
-                  </h3>
-                  
-                  <p className={`text-base leading-relaxed ${
-                    service.isSpecial ? 'text-white/95' : 'text-gray-600'
-                  }`}>
-                    {service.description}
-                  </p>
-
-                  {/* Benefits */}
-                  {service.benefits && (
-                    <div className="space-y-2 pt-2">
-                      {service.benefits.map((benefit, idx) => (
-                        <div key={idx} className="flex items-start gap-2">
-                          <div className={`mt-1 w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0 ${
-                            service.isSpecial ? 'bg-white/20' : 'bg-indigo-100'
-                          }`}>
-                            <div className={`w-2 h-2 rounded-full ${
-                              service.isSpecial ? 'bg-white' : 'bg-indigo-600'
-                            }`} />
-                          </div>
-                          <span className={`text-sm ${
-                            service.isSpecial ? 'text-white/90' : 'text-gray-700'
-                          }`}>
-                            {benefit}
-                          </span>
-                        </div>
-                      ))}
-                    </div>
-                  )}
-
-                  {/* Service Tags */}
-                  <div className="flex flex-wrap gap-2 pt-4">
-                    {service.tags.map((tag, tagIndex) => (
-                      <span
-                        key={tagIndex}
-                        className={`px-4 py-2 rounded-full text-sm font-semibold ${
-                          service.isSpecial
-                            ? 'bg-white/20 text-white backdrop-blur-sm'
-                            : 'bg-indigo-100 text-indigo-700'
-                        }`}
-                      >
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
+                {/* Service Tags */}
+                <div className="flex flex-wrap gap-2 pt-4">
+                  {service.tags.map((tag, tagIndex) => (
+                    <span
+                      key={tagIndex}
+                      className={`px-4 py-2 rounded-full text-sm font-semibold ${
+                        service.isSpecial
+                          ? 'bg-white/20 text-white backdrop-blur-sm'
+                          : 'bg-indigo-100 text-indigo-700'
+                      }`}
+                    >
+                      {tag}
+                    </span>
+                  ))}
                 </div>
               </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Carousel Controls */}
-        <div className="flex justify-center items-center gap-4 mt-10">
-          <button
-            onClick={goToPrevious}
-            aria-label="Previous service"
-            className="w-12 h-12 rounded-full bg-white border-2 border-indigo-200 text-indigo-600 flex items-center justify-center hover:bg-gradient-to-r hover:from-indigo-500 hover:to-violet-600 hover:text-white hover:border-transparent transition-all duration-300 hover:scale-110 shadow-md"
-          >
-            <ChevronLeft className="w-6 h-6" />
-          </button>
-          
-          {/* Dots */}
-          <div className="flex gap-2">
-            {services.map((_, index) => (
-              <button
-                key={index}
-                onClick={() => updateCarousel(index)}
-                aria-label={`Go to service ${index + 1}`}
-                className={`h-3 rounded-full transition-all duration-300 ${
-                  index === currentIndex
-                    ? 'w-8 bg-gradient-to-r from-indigo-500 to-violet-600'
-                    : 'w-3 bg-gray-300 hover:bg-gray-400'
-                }`}
-              />
-            ))}
-          </div>
-          
-          <button
-            onClick={goToNext}
-            aria-label="Next service"
-            className="w-12 h-12 rounded-full bg-white border-2 border-indigo-200 text-indigo-600 flex items-center justify-center hover:bg-gradient-to-r hover:from-indigo-500 hover:to-violet-600 hover:text-white hover:border-transparent transition-all duration-300 hover:scale-110 shadow-md"
-          >
-            <ChevronRight className="w-6 h-6" />
-          </button>
+            </div>
+          ))}
         </div>
 
         {/* Custom Solutions CTA */}
-        <div className="mt-20 max-w-4xl mx-auto">
+        <div className="max-w-4xl mx-auto">
           <div className="bg-white rounded-3xl p-8 md:p-12 shadow-xl border border-gray-200 text-center">
             <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-gradient-to-br from-indigo-100 to-violet-100 mb-6">
               <Wrench className="w-8 h-8 text-indigo-600" />
