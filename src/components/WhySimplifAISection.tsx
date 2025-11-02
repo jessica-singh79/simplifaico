@@ -1,27 +1,7 @@
-import React, { useRef, useEffect, useState } from 'react';
-import { useScroll, useTransform, motion } from 'framer-motion';
+import React from 'react';
 import { Clock, Zap, DollarSign, Shield, Users, TrendingUp } from 'lucide-react';
 
 const WhySimplifAITimeline = () => {
-  const ref = useRef<HTMLDivElement>(null);
-  const containerRef = useRef<HTMLDivElement>(null);
-  const [height, setHeight] = useState(0);
-
-  useEffect(() => {
-    if (ref.current) {
-      const rect = ref.current.getBoundingClientRect();
-      setHeight(rect.height);
-    }
-  }, [ref]);
-
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start 10%", "end 50%"],
-  });
-
-  const heightTransform = useTransform(scrollYProgress, [0, 1], [0, height]);
-  const opacityTransform = useTransform(scrollYProgress, [0, 0.1], [0, 1]);
-
   const reasons = [
     {
       icon: Clock,
@@ -92,8 +72,8 @@ const WhySimplifAITimeline = () => {
   ];
 
   return (
-    <section id="why-simplifai" className="bg-gray-50" ref={containerRef}>
-      <div className="max-w-7xl mx-auto py-20 px-4 md:px-8 lg:px-10">
+    <section id="why-simplifai" className="bg-gray-50 py-20">
+      <div className="max-w-7xl mx-auto px-4 md:px-8 lg:px-10">
         {/* Header */}
         <div className="text-center mb-16">
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-indigo-100 text-indigo-600 text-sm font-semibold mb-6">
@@ -109,71 +89,71 @@ const WhySimplifAITimeline = () => {
             We're not the biggest AI agency, but we're the fastest, most transparent, and most focused on businesses like yours.
           </p>
         </div>
-      </div>
 
-      {/* Timeline */}
-      <div ref={ref} className="relative max-w-7xl mx-auto pb-10">
-        {reasons.map((reason, index) => {
-          const IconComponent = reason.icon;
-          return (
-            <div
-              key={index}
-              className="flex justify-start pt-10 md:pt-40 md:gap-10"
-            >
-              <div className="sticky flex flex-col md:flex-row z-40 items-center top-40 self-start max-w-xs lg:max-w-sm md:w-full">
-                <div className="h-10 absolute left-3 md:left-3 w-10 rounded-full bg-white flex items-center justify-center shadow-lg">
-                  <div className="h-8 w-8 rounded-full bg-gradient-to-br from-indigo-500 to-violet-600 flex items-center justify-center">
-                    <IconComponent className="w-4 h-4 text-white" />
-                  </div>
-                </div>
-                <h3 className="hidden md:block text-xl md:pl-20 md:text-4xl font-bold text-gray-800">
-                  {reason.title}
-                </h3>
-              </div>
+        {/* Timeline */}
+        <div className="relative">
+          {/* Vertical Line */}
+          <div className="hidden md:block absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-indigo-500 via-violet-500 to-transparent" />
 
-              <div className="relative pl-20 pr-4 md:pl-4 w-full">
-                <h3 className="md:hidden block text-2xl mb-4 text-left font-bold text-gray-800">
-                  {reason.title}
-                </h3>
-                
-                {/* Content Card */}
-                <div className="bg-white rounded-2xl p-6 md:p-8 shadow-lg border border-gray-200 mb-4">
-                  <div className="flex items-center gap-3 mb-4">
-                    <span className="text-sm font-bold text-indigo-600 bg-indigo-50 px-3 py-1 rounded-full">
-                      {reason.stat}
-                    </span>
-                  </div>
-                  
-                  <p className="text-gray-600 text-base leading-relaxed mb-6">
-                    {reason.description}
-                  </p>
-
-                  <div className="space-y-3 pt-4 border-t border-gray-100">
-                    {reason.details.map((detail, idx) => (
-                      <div key={idx} className="flex items-start gap-3">
-                        <div className="mt-1.5 w-2 h-2 rounded-full bg-indigo-600 flex-shrink-0" />
-                        <span className="text-sm text-gray-700">{detail}</span>
+          {reasons.map((reason, index) => {
+            const IconComponent = reason.icon;
+            return (
+              <div
+                key={index}
+                className="relative mb-12 md:mb-20 last:mb-0"
+              >
+                <div className="flex flex-col md:flex-row md:gap-10">
+                  {/* Left side - Icon and Title (Desktop) */}
+                  <div className="md:w-1/3 flex items-start">
+                    <div className="flex items-center gap-4 md:gap-6">
+                      {/* Icon Circle */}
+                      <div className="relative">
+                        <div className="w-16 h-16 rounded-full bg-white flex items-center justify-center shadow-lg border-4 border-gray-50 relative z-10">
+                          <div className="w-12 h-12 rounded-full bg-gradient-to-br from-indigo-500 to-violet-600 flex items-center justify-center">
+                            <IconComponent className="w-6 h-6 text-white" />
+                          </div>
+                        </div>
                       </div>
-                    ))}
+                      
+                      {/* Title (Mobile) */}
+                      <h3 className="md:hidden text-xl font-bold text-gray-800">
+                        {reason.title}
+                      </h3>
+                    </div>
+                    
+                    {/* Title (Desktop) */}
+                    <h3 className="hidden md:block text-2xl lg:text-3xl font-bold text-gray-800 ml-6">
+                      {reason.title}
+                    </h3>
+                  </div>
+
+                  {/* Right side - Content Card */}
+                  <div className="md:w-2/3 mt-4 md:mt-0 ml-20 md:ml-0">
+                    <div className="bg-white rounded-2xl p-6 md:p-8 shadow-lg border border-gray-200 hover:shadow-xl transition-shadow duration-300">
+                      <div className="flex items-center gap-3 mb-4">
+                        <span className="text-sm font-bold text-indigo-600 bg-indigo-50 px-3 py-1 rounded-full">
+                          {reason.stat}
+                        </span>
+                      </div>
+                      
+                      <p className="text-gray-600 text-base leading-relaxed mb-6">
+                        {reason.description}
+                      </p>
+
+                      <div className="space-y-3 pt-4 border-t border-gray-100">
+                        {reason.details.map((detail, idx) => (
+                          <div key={idx} className="flex items-start gap-3">
+                            <div className="mt-1.5 w-2 h-2 rounded-full bg-indigo-600 flex-shrink-0" />
+                            <span className="text-sm text-gray-700">{detail}</span>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-          );
-        })}
-        
-        {/* Animated Line */}
-        <div
-          style={{ height: height + "px" }}
-          className="absolute md:left-8 left-8 top-0 overflow-hidden w-[2px] bg-gradient-to-b from-transparent via-gray-200 to-transparent [mask-image:linear-gradient(to_bottom,transparent_0%,black_10%,black_90%,transparent_100%)]"
-        >
-          <motion.div
-            style={{
-              height: heightTransform,
-              opacity: opacityTransform,
-            }}
-            className="absolute inset-x-0 top-0 w-[2px] bg-gradient-to-b from-indigo-500 via-violet-500 to-transparent rounded-full"
-          />
+            );
+          })}
         </div>
       </div>
     </section>
