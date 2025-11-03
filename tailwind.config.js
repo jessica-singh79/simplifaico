@@ -6,27 +6,23 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        heading: ['Montserrat', 'sans-serif'],
-        body: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+        heading: ['Work Sans', 'sans-serif'], // Zapier-style heading font
+        body: ['Inter', 'system-ui', '-apple-system', 'sans-serif'], // Clean body font
       },
       colors: {
-        // Flattened color keys for Tailwind utilities generation
-        'background-primary': '#ffffff',   // White
-        'background-secondary': '#f8fafc', // Slate-50
-        'background-subtle': '#eef2ff',    // Indigo-50
-
-        foreground: '#1f2937',              // Original slate-800
-
-        primary: '#4F46E5',                 // Indigo-600
-        secondary: '#7C3AED',               // Violet-600
-        accent: '#06B6D4',                  // Cyan-500
-
+        // Flattened color keys
+        'background-primary': '#ffffff',  
+        'background-secondary': '#f8fafc',
+        'background-subtle': '#eef2ff',
+        foreground: '#1f2937',
+        primary: '#4F46E5',
+        secondary: '#7C3AED',
+        accent: '#06B6D4',
         muted: '#f3f4f6',
         border: '#e5e7eb',
-
-        'text-primary': '#0F172A',          // Slate-900
-        'text-secondary': '#475569',        // Slate-600
-        'text-tertiary': '#94A3B8',         // Slate-400
+        'text-primary': '#0F172A',
+        'text-secondary': '#475569',
+        'text-tertiary': '#94A3B8',
       },
       animation: {
         float: 'float 6s ease-in-out infinite',
@@ -53,7 +49,6 @@ module.exports = {
   plugins: [addVariablesForColors],
 };
 
-// CSS variable injection for dynamic theming
 function addVariablesForColors({ addBase, theme }) {
   let allColors = flattenColorPalette(theme("colors"));
   let newVars = Object.fromEntries(
