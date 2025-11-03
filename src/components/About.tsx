@@ -17,13 +17,10 @@ const About = () => {
           </h2>
         </div>
 
-        {/* Problem → Solution (Authentic) */}
+        {/* New Mission Statement */}
         <div className="max-w-3xl mx-auto mb-16">
-          <p className="text-xl md:text-2xl text-gray-700 leading-relaxed text-center mb-8">
-            Running a business means taking on all kinds of work—some of it energizing, but much of it repetitive and time-consuming.
-          </p>
           <p className="text-xl md:text-2xl text-gray-700 leading-relaxed text-center">
-            We build tools that take care of the routine tasks, so you and your team can spend more time on the parts of your business you care about.
+            SimplifAI started with a mission: to help businesses overcome tedious processes and missed opportunities by building tools that make everyday work easier and more efficient.
           </p>
         </div>
 
