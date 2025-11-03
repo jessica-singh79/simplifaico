@@ -147,8 +147,11 @@ export const BackgroundGradientAnimation = ({
             `opacity-100`
           )}
         ></div>
-        <div
+       <div
   className={cn(
     'absolute [background:radial-gradient(circle_at_center,_rgba(var(--third-color),_0.8)_0,_rgba(var(--third-color),_0)_50%)_no-repeat]'
   )}
->
+/>
+    </div> {/* closes gradients-container */}
+  </div> {/* closes main container */}
+);
