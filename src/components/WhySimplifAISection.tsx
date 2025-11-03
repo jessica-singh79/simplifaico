@@ -70,7 +70,7 @@ export function WhySimplifAISection() {
   ];
 
   return (
-    <section id="why-simplifai" className="bg-gray-50" ref={containerRef}>
+    <section id="why-simplifai" className="bg-background-primary" ref={containerRef}>
       <div className="max-w-7xl mx-auto pt-20 pb-10 px-4 md:px-8 lg:px-10">
         {/* Header - More Compact */}
         <div className="text-center mb-4">
@@ -97,13 +97,13 @@ export function WhySimplifAISection() {
                     <IconComponent className="w-4 h-4 text-white" />
                   </div>
                 </div>
-                <h3 className="hidden md:block text-xl md:pl-20 md:text-4xl font-bold text-gray-800">
+                <h3 className="hidden md:block text-xl md:pl-20 md:text-4xl font-bold text-text-primary">
                   {reason.title}
                 </h3>
               </div>
 
               <div className="relative pl-20 pr-4 md:pl-4 w-full">
-                <h3 className="md:hidden block text-2xl mb-4 text-left font-bold text-gray-800">
+                <h3 className="md:hidden block text-2xl mb-4 text-left font-bold text-text-primary">
                   {reason.title}
                 </h3>
                 
