@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { MapPin, Mail, Send, CheckCircle, ArrowRight } from 'lucide-react';
+import { MapPin, Mail, ArrowRight, CheckCircle } from 'lucide-react';
 
 // ADD YOUR CLOUDFLARE WORKER URL
 const WORKER_URL = 'https://simplify-form-submission.jessicasingh7900.workers.dev';
@@ -132,7 +132,7 @@ const Footer = () => {
                     id="name"
                     value={formData.name}
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                    className="w-full px-4 py-3 bg-gray-800/50 border border-gray-700 rounded-lg focus:outline-none focus:border-blue-500 transition-colors"
+                    className="w-full px-4 py-3 bg-gray-800/50 border border-gray-700 rounded-lg focus:outline-none focus:border-blue-500 transition-colors text-white"
                     placeholder="John Doe"
                   />
                   {errors.name && <p className="mt-1 text-sm text-red-400">{errors.name}</p>}
@@ -147,7 +147,7 @@ const Footer = () => {
                     id="email"
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                    className="w-full px-4 py-3 bg-gray-800/50 border border-gray-700 rounded-lg focus:outline-none focus:border-blue-500 transition-colors"
+                    className="w-full px-4 py-3 bg-gray-800/50 border border-gray-700 rounded-lg focus:outline-none focus:border-blue-500 transition-colors text-white"
                     placeholder="your@email.com"
                   />
                   {errors.email && <p className="mt-1 text-sm text-red-400">{errors.email}</p>}
@@ -162,7 +162,7 @@ const Footer = () => {
                     id="phone"
                     value={formData.phone}
                     onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                    className="w-full px-4 py-3 bg-gray-800/50 border border-gray-700 rounded-lg focus:outline-none focus:border-blue-500 transition-colors"
+                    className="w-full px-4 py-3 bg-gray-800/50 border border-gray-700 rounded-lg focus:outline-none focus:border-blue-500 transition-colors text-white"
                     placeholder="+1 (555) 000-0000"
                   />
                   {errors.phone && <p className="mt-1 text-sm text-red-400">{errors.phone}</p>}
@@ -176,7 +176,7 @@ const Footer = () => {
                     id="service"
                     value={formData.service}
                     onChange={(e) => setFormData({ ...formData, service: e.target.value })}
-                    className="w-full px-4 py-3 bg-gray-800/50 border border-gray-700 rounded-lg focus:outline-none focus:border-blue-500 transition-colors"
+                    className="w-full px-4 py-3 bg-gray-800/50 border border-gray-700 rounded-lg focus:outline-none focus:border-blue-500 transition-colors text-white"
                   >
                     <option value="">Select a service</option>
                     <option value="Workflow Automation">Workflow Automation</option>
@@ -191,7 +191,7 @@ const Footer = () => {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="group relative w-full px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg font-semibold text-white hover:shadow-lg hover:shadow-blue-500/50 transition-all duration-300 transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
+                  className="group relative w-full px-8 py-4 bg-gradient-to-r from-indigo-600 to-violet-600 rounded-lg font-semibold text-white hover:shadow-lg hover:shadow-indigo-500/50 transition-all duration-300 transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
                 >
                   <span className="flex items-center justify-center gap-2">
                     {isSubmitting ? 'Submitting...' : "Let's Simplify It"}
@@ -216,7 +216,7 @@ const Footer = () => {
             <div className="flex items-center gap-2 mb-4">
               <div className="h-10 w-10">
                 <img
-                  src="/SimplifAI Logo.png"
+                  src="https://raw.githubusercontent.com/jessica-singh79/simplifaico/main/Adobe%20Express%20-%20file.png"
                   alt="SimplifAI Logo"
                   className="w-full h-full object-contain"
                 />
@@ -227,10 +227,10 @@ const Footer = () => {
               Transforming businesses through intelligent automation and custom AI solutions.
             </p>
             <div className="flex gap-4">
-              <a href="#" className="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-blue-600 transition-colors">
+              <a href="#" className="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-indigo-600 transition-colors">
                 <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/></svg>
               </a>
-              <a href="#" className="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-blue-600 transition-colors">
+              <a href="#" className="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-indigo-600 transition-colors">
                 <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
               </a>
             </div>
@@ -243,7 +243,7 @@ const Footer = () => {
               <li>
                 <button
                   onClick={() => document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' })}
-                  className="text-gray-400 hover:text-blue-400 transition-colors text-left cursor-pointer"
+                  className="text-gray-400 hover:text-indigo-400 transition-colors text-left cursor-pointer"
                 >
                   Services
                 </button>
@@ -251,7 +251,7 @@ const Footer = () => {
               <li>
                 <button
                   onClick={() => document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' })}
-                  className="text-gray-400 hover:text-blue-400 transition-colors text-left cursor-pointer"
+                  className="text-gray-400 hover:text-indigo-400 transition-colors text-left cursor-pointer"
                 >
                   About Us
                 </button>
@@ -259,7 +259,7 @@ const Footer = () => {
               <li>
                 <button
                   onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
-                  className="text-gray-400 hover:text-blue-400 transition-colors text-left cursor-pointer"
+                  className="text-gray-400 hover:text-indigo-400 transition-colors text-left cursor-pointer"
                 >
                   Contact
                 </button>
@@ -272,12 +272,12 @@ const Footer = () => {
             <h3 className="text-lg font-semibold mb-4">Contact</h3>
             <ul className="space-y-3">
               <li className="flex items-start gap-2 text-gray-400">
-                <MapPin className="w-5 h-5 text-blue-400 flex-shrink-0 mt-0.5" />
+                <MapPin className="w-5 h-5 text-indigo-400 flex-shrink-0 mt-0.5" />
                 <span>Middletown, NY 10940</span>
               </li>
               <li className="flex items-start gap-2 text-gray-400">
-                <Mail className="w-5 h-5 text-blue-400 flex-shrink-0 mt-0.5" />
-                <a href="mailto:info@simplifaico.com" className="hover:text-blue-400 transition-colors">
+                <Mail className="w-5 h-5 text-indigo-400 flex-shrink-0 mt-0.5" />
+                <a href="mailto:info@simplifaico.com" className="hover:text-indigo-400 transition-colors">
                   info@simplifaico.com
                 </a>
               </li>
