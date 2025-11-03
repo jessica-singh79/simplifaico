@@ -1,10 +1,8 @@
 import React from "react";
 import { ArrowRight } from "lucide-react";
-// import GooeyText safely
 import { GooeyText } from "@/components/ui/gooey-text-morphing";
 
 const Hero = () => {
-  // fallback texts if GooeyText fails
   const morphTexts = ["Repetitive Tasks", "Manual Work", "Busywork", "Data Entry"];
 
   return (
@@ -13,22 +11,17 @@ const Hero = () => {
       className="relative min-h-[80vh] flex flex-col items-center justify-center px-4 md:px-8 py-32 overflow-hidden text-center bg-background-primary"
     >
       <div className="relative z-10 max-w-5xl w-full mx-auto p-8 rounded-lg bg-background-primary">
-        
         {/* Headline */}
         <h1 className="text-[#1E1E1E] font-heading font-semibold tracking-tight sm:tracking-normal md:tracking-wide text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-tight mb-2">
           Your Team Drowns in{" "}
           <span className="inline-block align-middle">
-            {GooeyText ? (
-              <GooeyText
-                texts={morphTexts}
-                morphTime={1}
-                cooldownTime={1.5}
-                className="inline-block"
-                textClassName="text-[#1E1E1E] font-heading font-semibold"
-              />
-            ) : (
-              morphTexts[0]
-            )}
+            <GooeyText
+              texts={morphTexts}
+              morphTime={1}
+              cooldownTime={1.5}
+              className="inline-block"
+              textClassName="text-[#1E1E1E] font-heading font-semibold"
+            />
           </span>
         </h1>
 
@@ -44,19 +37,42 @@ const Hero = () => {
           </span>
         </p>
 
+        {/* Trust Badges */}
+        <div className="flex flex-wrap justify-center items-center gap-4 mb-8 text-sm text-[#475569] font-body">
+          <span className="inline-flex items-center gap-1">
+            <span className="text-yellow-400">★★★★★</span>
+            <span className="font-medium">Trusted by small businesses</span>
+          </span>
+          <span className="hidden sm:inline mx-2">|</span>
+          <span className="hidden sm:inline">AI-Powered Automation</span>
+          <span className="hidden sm:inline mx-2">|</span>
+          <span className="hidden sm:inline">Average 40% cost reduction</span>
+        </div>
+
         {/* Main CTA Button */}
         <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-6">
           <button
             onClick={() =>
               document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })
             }
-            className="inline-flex items-center justify-center space-x-2 bg-primary text-white px-8 py-4 rounded-full text-lg font-semibold shadow-xl hover:bg-accent transition-transform duration-300"
+            className="inline-flex items-center justify-center space-x-2 bg-primary text-white px-8 py-4 rounded-full text-lg font-semibold shadow-xl hover:bg-accent hover:scale-105 transition-transform duration-300"
           >
             <span>Get Free Automation Audit</span>
             <ArrowRight className="w-5 h-5" />
           </button>
         </div>
+
+        {/* Micro-Details */}
+        <div className="flex flex-wrap gap-4 justify-center mt-4 text-sm text-[#64748B] font-body">
+          <span>• Average 40% cost reduction</span>
+          <span>• Custom web solutions</span>
+          <span>• Workflow automation</span>
+        </div>
       </div>
+
+      {/* Optional Floating Background Shape */}
+      <div className="absolute -top-24 -left-24 w-72 h-72 rounded-full bg-gradient-to-br from-indigo-300 to-violet-400 opacity-30 blur-3xl pointer-events-none" />
+      <div className="absolute -bottom-24 -right-24 w-96 h-96 rounded-full bg-gradient-to-tr from-pink-300 to-yellow-300 opacity-20 blur-3xl pointer-events-none" />
     </section>
   );
 };
