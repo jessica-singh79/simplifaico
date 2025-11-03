@@ -1,16 +1,17 @@
 import React from "react";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Play } from "lucide-react";
 import { GooeyText } from "@/components/ui/gooey-text-morphing";
 
 const Hero = () => {
   return (
     <section
       id="hero"
-      className="relative min-h-screen overflow-hidden flex items-center z-10 bg-gradient-to-br from-[#5e2497] via-[#58278e] to-[#421c6d]" // Your current background utility or custom class
+      className="relative min-h-[80vh] flex flex-col items-center justify-center px-4 md:px-8 py-32 bg-gradient-to-br from-[#5e2497] via-[#58278e] to-[#421c6d] text-center"
     >
-      <div className="relative z-10 max-w-6xl mx-auto px-4 md:px-8 py-32 text-center">
-        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black leading-[1.1] mb-8 tracking-tight">
-          <span className="block text-gray-900 mb-4">
+      <div className="max-w-5xl w-full mx-auto">
+        {/* Hero Headline with GooeyText typing effect */}
+        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black leading-tight mb-5">
+          <span className="block text-white/90">
             Your Team Drowns in{" "}
             <span className="inline-block">
               <GooeyText
@@ -23,15 +24,57 @@ const Hero = () => {
                 morphTime={1}
                 cooldownTime={1.5}
                 className="inline-block"
-                textClassName="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent font-black"
+                textClassName="bg-gradient-to-r from-blue-500 to-purple-500 bg-clip-text text-transparent font-black"
               />
             </span>
           </span>
-          <span className="block mt-6 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+          <span className="block mt-4 bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
             Let's Fix That.
           </span>
         </h1>
-        {/* ...rest of your content */}
+
+        {/* Subheadline */}
+        <p className="max-w-2xl mx-auto text-lg sm:text-xl md:text-2xl text-white/80 font-light leading-relaxed mb-10">
+          Build websites that convert. Automate workflows that scale.
+          <span className="block mt-2 font-semibold text-white/90">Grow your business without the technical headaches.</span>
+        </p>
+
+        {/* Trust Badges */}
+        <div className="flex flex-wrap justify-center items-center gap-4 mb-8 text-sm text-white/70">
+          <span className="inline-flex items-center gap-1">
+            <span className="text-yellow-400">★★★★★</span>
+            <span className="font-medium">Trusted by small businesses</span>
+          </span>
+          <span className="hidden sm:inline mx-2">|</span>
+          <span className="hidden sm:inline">AI-Powered Automation</span>
+          <span className="hidden sm:inline mx-2">|</span>
+          <span className="hidden sm:inline">Average 40% cost reduction</span>
+        </div>
+
+        {/* CTA Buttons */}
+        <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-6">
+          <button
+            onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })}
+            className="inline-flex items-center justify-center space-x-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-4 rounded-full text-lg font-bold shadow-2xl hover:scale-105 transition-transform duration-300"
+          >
+            <span>Get Free Automation Audit</span>
+            <ArrowRight className="w-5 h-5" />
+          </button>
+          <a
+            href="#services"
+            className="inline-flex items-center justify-center space-x-2 bg-white/20 border border-white/40 text-white px-8 py-4 rounded-full text-lg font-bold hover:bg-white/30 transition"
+          >
+            <Play className="w-5 h-5" />
+            <span>See How It Works</span>
+          </a>
+        </div>
+
+        {/* Micro-Details */}
+        <div className="flex flex-wrap gap-4 justify-center mt-4 text-sm text-white/60">
+          <span>• Average 40% cost reduction</span>
+          <span>• Custom web solutions</span>
+          <span>• Workflow automation</span>
+        </div>
       </div>
     </section>
   );
