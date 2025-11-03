@@ -1,5 +1,5 @@
 import React from "react";
-import { ArrowRight, Play } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { GooeyText } from "@/components/ui/gooey-text-morphing";
 
 const Hero = () => {
@@ -51,7 +51,7 @@ const Hero = () => {
           <span className="hidden sm:inline">Average 40% cost reduction</span>
         </div>
 
-        {/* CTA Buttons */}
+        {/* Single Main CTA Button */}
         <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-6">
           <button
             onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })}
@@ -60,13 +60,6 @@ const Hero = () => {
             <span>Get Free Automation Audit</span>
             <ArrowRight className="w-5 h-5" />
           </button>
-          <a
-            href="#services"
-            className="inline-flex items-center justify-center space-x-2 bg-white/20 border border-white/40 text-white px-8 py-4 rounded-full text-lg font-bold hover:bg-white/30 transition"
-          >
-            <Play className="w-5 h-5" />
-            <span>See How It Works</span>
-          </a>
         </div>
 
         {/* Micro-Details */}
