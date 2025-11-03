@@ -13,13 +13,13 @@ interface NavBarProps {
 export const NavBar: React.FC<NavBarProps> = ({ items, className = "" }) => {
   return (
     <nav
-      className={`fixed top-6 right-6 z-50 flex gap-4 p-2 bg-white/5 backdrop-blur-md rounded-full shadow-lg ${className}`}
+      className={`fixed top-6 right-6 z-50 flex gap-4 p-2 bg-white/90 backdrop-blur-md rounded-full shadow-lg ${className}`}
     >
       {items.map((item, idx) => (
         <a
           key={idx}
           href={item.url}
-          className="group px-4 py-2 rounded-full text-white font-medium text-sm transition-all duration-300 hover:bg-white/20 hover:shadow-md"
+          className="group px-4 py-2 rounded-full text-gray-800 font-medium text-sm transition-all duration-300 hover:bg-indigo-100 hover:shadow-md"
         >
           {item.name}
         </a>
