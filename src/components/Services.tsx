@@ -33,13 +33,23 @@ const Services = () => {
         ? 'bg-white/20 backdrop-blur-sm'
         : 'bg-gradient-to-br from-indigo-500 to-violet-600'
     }`}>
-      <Icon className={`w-7 h-7 ${isSpecial ? 'text-white' : 'text-white'}`} />
+      <Icon className={`w-7 h-7 text-white`} />
     </div>
   );
 
   return (
-    <section id="services" className="py-24 bg-gray-50 relative overflow-hidden">
-      <div className="max-w-7xl mx-auto px-6">
+    <section id="services" className="py-24 relative overflow-hidden">
+      {/* Background Image */}
+      <img
+        src="https://github.com/jessica-singh79/simplifaico/raw/main/pexels-cottonbro-6153344.jpg"
+        alt="Services background"
+        className="absolute inset-0 w-full h-full object-cover z-0"
+        draggable={false}
+      />
+      {/* Overlay for readability/contrast */}
+      <div className="absolute inset-0 bg-gradient-to-b from-white/90 via-gray-50/80 to-gray-200/90 z-0 pointer-events-none" />
+
+      <div className="relative z-10 max-w-7xl mx-auto px-6">
         {/* Section Header */}
         <div className="text-center mb-16">
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-indigo-100 text-indigo-600 text-sm font-semibold mb-6">
