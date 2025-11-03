@@ -9,12 +9,12 @@ const Hero = () => {
       className="relative min-h-[80vh] flex flex-col items-center justify-center px-4 md:px-8 py-32 overflow-hidden text-center
                  bg-gradient-to-r from-primary to-secondary"
     >
-      {/* Removed background image and overlay for uniform Tailwind background */}
+      {/* Uniform hero - no images or blur overlays */}
 
-      {/* Hero content container */}
-      <div className="relative z-10 max-w-5xl w-full mx-auto p-8 rounded-lg bg-black/30 backdrop-blur-md">
+      {/* Hero content container - clean, readable */}
+      <div className="relative z-10 max-w-5xl w-full mx-auto p-8 rounded-lg bg-white/80">
         {/* Headline */}
-        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black leading-tight mb-1 text-white/90">
+        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black leading-tight mb-1 text-primary">
           Your Team Drowns in{" "}
           <span className="inline-block align-middle">
             <GooeyText
@@ -36,15 +36,15 @@ const Hero = () => {
         </h2>
 
         {/* Subheadline */}
-        <p className="max-w-2xl mx-auto text-lg sm:text-xl md:text-2xl text-white/80 font-light leading-relaxed mb-10">
+        <p className="max-w-2xl mx-auto text-lg sm:text-xl md:text-2xl text-slate-700 font-light leading-relaxed mb-10">
           Build websites that convert. Automate workflows that scale.
-          <span className="block mt-2 font-semibold text-white/90">
+          <span className="block mt-2 font-semibold text-primary">
             Grow your business without the technical headaches.
           </span>
         </p>
 
         {/* Trust Badges */}
-        <div className="flex flex-wrap justify-center items-center gap-4 mb-8 text-sm text-white/70">
+        <div className="flex flex-wrap justify-center items-center gap-4 mb-8 text-sm text-slate-500">
           <span className="inline-flex items-center gap-1">
             <span className="text-yellow-400">★★★★★</span>
             <span className="font-medium">Trusted by small businesses</span>
@@ -61,7 +61,7 @@ const Hero = () => {
             onClick={() =>
               document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })
             }
-            className="inline-flex items-center justify-center space-x-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-4 rounded-full text-lg font-bold shadow-2xl hover:scale-105 transition-transform duration-300"
+            className="inline-flex items-center justify-center space-x-2 bg-gradient-to-r from-primary to-secondary text-white px-8 py-4 rounded-full text-lg font-bold shadow-2xl hover:scale-105 transition-transform duration-300"
           >
             <span>Get Free Automation Audit</span>
             <ArrowRight className="w-5 h-5" />
@@ -69,7 +69,7 @@ const Hero = () => {
         </div>
 
         {/* Micro-Details */}
-        <div className="flex flex-wrap gap-4 justify-center mt-4 text-sm text-white/60">
+        <div className="flex flex-wrap gap-4 justify-center mt-4 text-sm text-slate-400">
           <span>• Average 40% cost reduction</span>
           <span>• Custom web solutions</span>
           <span>• Workflow automation</span>
