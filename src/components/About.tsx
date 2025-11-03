@@ -1,61 +1,63 @@
 import React from 'react';
 import { ArrowRight, Clock, DollarSign, TrendingUp } from 'lucide-react';
 
-const About = () => {
+const StatCard = ({ icon: Icon, title, subtitle }: { icon: any; title: React.ReactNode; subtitle: string }) => (
+  <div className="text-center p-6 rounded-2xl bg-white border border-gray-100 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300">
+    <div className="w-12 h-12 bg-blue-50 rounded-full flex items-center justify-center mx-auto mb-4">
+      <Icon className="w-6 h-6 text-blue-600" aria-hidden />
+    </div>
+    <div className="text-3xl font-semibold text-text-primary mb-2">{title}</div>
+    <p className="text-sm text-text-secondary">{subtitle}</p>
+  </div>
+);
+
+const About: React.FC = () => {
   return (
-    <section id="about" className="py-20 bg-white">
+    <section id="about" className="py-16 sm:py-20 bg-white">
       <div className="max-w-5xl mx-auto px-6">
-
         {/* Header */}
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-text-primary mb-6">
-            The Story Behind SimplifAI
+        <header className="text-center mb-12">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold text-text-primary leading-tight mb-4">
+            The story behind SimplifAI
           </h2>
-        </div>
-
-        {/* Mission Statement */}
-        <div className="max-w-3xl mx-auto mb-16">
-          <p className="text-xl md:text-2xl text-text-secondary leading-relaxed text-center">
-            SimplifAI started with a mission: to help businesses overcome tedious processes and missed opportunities by building tools that make everyday work easier and more efficient.
+          <p className="max-w-3xl mx-auto text-lg md:text-xl text-text-secondary">
+            We build automations that give teams their time back — not more software to manage. From the first conversation to a working workflow, we design tools that reduce busywork and drive measurable impact.
           </p>
-        </div>
+        </header>
 
-        {/* Stats/Results Grid */}
-        <div className="grid md:grid-cols-3 gap-8 mb-16">
-          <div className="text-center p-6 bg-white rounded-2xl shadow-sm border border-gray-100">
-            <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-              <Clock className="w-6 h-6 text-blue-600" />
-            </div>
-            <div className="text-3xl font-bold text-text-primary mb-2">2–3 Weeks</div>
-            <p className="text-text-secondary">From first idea to working automation</p>
-          </div>
-          <div className="text-center p-6 bg-white rounded-2xl shadow-sm border border-gray-100">
-            <div className="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
-              <DollarSign className="w-6 h-6 text-purple-600" />
-            </div>
-            <div className="text-3xl font-bold text-text-primary mb-2">40% Less</div>
-            <p className="text-text-secondary">Average operational costs saved</p>
-          </div>
-          <div className="text-center p-6 bg-white rounded-2xl shadow-sm border border-gray-100">
-            <div className="w-12 h-12 bg-indigo-100 rounded-full flex items-center justify-center mx-auto mb-4">
-              <TrendingUp className="w-6 h-6 text-indigo-600" />
-            </div>
-            <div className="text-3xl font-bold text-text-primary mb-2">25+ Hours</div>
-            <p className="text-text-secondary">Time freed up each week</p>
-          </div>
+        {/* Stats */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+          <StatCard
+            icon={Clock}
+            title="2–3 weeks"
+            subtitle="From discovery to a working automation — fast, iterative delivery."
+          />
+          <StatCard
+            icon={DollarSign}
+            title="40% less"
+            subtitle="Average operational cost reduction our customers see in the first 3 months."
+          />
+          <StatCard
+            icon={TrendingUp}
+            title="25+ hours"
+            subtitle="Time freed up per week for teams that automate with us."
+          />
         </div>
 
         {/* CTA */}
         <div className="text-center">
           <button
             onClick={() => document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' })}
-            className="group bg-primary text-white px-8 py-4 rounded-full text-lg font-bold hover:bg-accent transition-all duration-300 inline-flex items-center space-x-2 shadow-xl"
+            className="inline-flex items-center gap-3 bg-indigo-600 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-full text-base sm:text-lg font-semibold shadow-lg hover:scale-105 transform transition"
+            aria-label="See our services"
           >
-            <span>See What We Do</span>
-            <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+            <span>Explore Our Work</span>
+            <ArrowRight className="w-4 h-4" aria-hidden />
           </button>
+          <p className="mt-4 text-sm text-text-secondary max-w-xl mx-auto">
+            Prefer a tailored plan? <button className="underline text-indigo-600 font-medium" onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}>Let’s design your automation</button>.
+          </p>
         </div>
-
       </div>
     </section>
   );
