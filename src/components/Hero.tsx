@@ -12,7 +12,7 @@ const Hero = () => {
       {/* Background Video */}
       <video
         className="absolute inset-0 w-full h-full object-cover z-0"
-        src="https://github.com/jessica-singh79/simplifaico/raw/main/hero.mp4"
+        src="https://github.com/jessica-singh79/simplifaico/blob/main/12421526_3840_2160_30fps.mp4"
         autoPlay
         loop
         muted
