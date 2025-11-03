@@ -148,5 +148,7 @@ export const BackgroundGradientAnimation = ({
           )}
         ></div>
         <div
-          className={cn(
-          `absolute [background:radial-gradient(circle_at_center,_rgba(var(--third-color),_0.8)_0,_rgba(var(--third-color),_0)_50%)_no-repeat]`
+  className={cn(
+    'absolute [background:radial-gradient(circle_at_center,_rgba(var(--third-color),_0.8)_0,_rgba(var(--third-color),_0)_50%)_no-repeat]'
+  )}
+>
