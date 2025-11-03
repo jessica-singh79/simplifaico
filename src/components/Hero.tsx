@@ -6,17 +6,14 @@ const Hero = () => {
   return (
     <section
       id="hero"
-      className="relative min-h-[80vh] flex flex-col items-center justify-center px-4 md:px-8 py-32 overflow-hidden text-center
-                 bg-gradient-to-r from-primary to-secondary"
+      className="relative min-h-[80vh] flex flex-col items-center justify-center px-4 md:px-8 py-32 overflow-hidden text-center bg-background-primary"
     >
-      {/* Uniform hero - no images or blur overlays */}
-
-      {/* Hero content container - clean, readable */}
-      <div className="relative z-10 max-w-5xl w-full mx-auto p-8 rounded-lg bg-white/80">
+      {/* No image or overlay - pure uniform section */}
+      <div className="relative z-10 max-w-5xl w-full mx-auto p-8 rounded-lg bg-background-primary">
         {/* Headline */}
         <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black leading-tight mb-1 text-primary">
           Your Team Drowns in{" "}
-          <span className="inline-block align-middle">
+          <span className="inline-block align-middle text-accent font-black">
             <GooeyText
               texts={[
                 "Repetitive Tasks",
@@ -27,16 +24,16 @@ const Hero = () => {
               morphTime={1}
               cooldownTime={1.5}
               className="inline-block"
-              textClassName="bg-gradient-to-r from-blue-500 to-purple-500 bg-clip-text text-transparent font-black"
+              textClassName="text-accent font-black"
             />
           </span>
         </h1>
-        <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent mb-6">
+        <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-primary mb-6">
           Let&apos;s Fix That.
         </h2>
 
         {/* Subheadline */}
-        <p className="max-w-2xl mx-auto text-lg sm:text-xl md:text-2xl text-slate-700 font-light leading-relaxed mb-10">
+        <p className="max-w-2xl mx-auto text-lg sm:text-xl md:text-2xl text-text-primary font-light leading-relaxed mb-10">
           Build websites that convert. Automate workflows that scale.
           <span className="block mt-2 font-semibold text-primary">
             Grow your business without the technical headaches.
@@ -44,7 +41,7 @@ const Hero = () => {
         </p>
 
         {/* Trust Badges */}
-        <div className="flex flex-wrap justify-center items-center gap-4 mb-8 text-sm text-slate-500">
+        <div className="flex flex-wrap justify-center items-center gap-4 mb-8 text-sm text-text-secondary">
           <span className="inline-flex items-center gap-1">
             <span className="text-yellow-400">★★★★★</span>
             <span className="font-medium">Trusted by small businesses</span>
@@ -61,7 +58,7 @@ const Hero = () => {
             onClick={() =>
               document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })
             }
-            className="inline-flex items-center justify-center space-x-2 bg-gradient-to-r from-primary to-secondary text-white px-8 py-4 rounded-full text-lg font-bold shadow-2xl hover:scale-105 transition-transform duration-300"
+            className="inline-flex items-center justify-center space-x-2 bg-primary text-white px-8 py-4 rounded-full text-lg font-bold shadow-2xl hover:bg-accent transition-transform duration-300"
           >
             <span>Get Free Automation Audit</span>
             <ArrowRight className="w-5 h-5" />
@@ -69,7 +66,7 @@ const Hero = () => {
         </div>
 
         {/* Micro-Details */}
-        <div className="flex flex-wrap gap-4 justify-center mt-4 text-sm text-slate-400">
+        <div className="flex flex-wrap gap-4 justify-center mt-4 text-sm text-text-tertiary">
           <span>• Average 40% cost reduction</span>
           <span>• Custom web solutions</span>
           <span>• Workflow automation</span>
