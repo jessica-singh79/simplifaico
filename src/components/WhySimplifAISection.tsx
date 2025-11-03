@@ -15,17 +15,24 @@ export function WhySimplifAISection() {
   const heightTransform = useTransform(scrollYProgress, [0, 1], [0, containerHeight]);
   const opacityTransform = useTransform(scrollYProgress, [0, 0.1], [0, 1]);
 
+  // Safe height calculation
   useEffect(() => {
-    if (containerRef.current) {
-      setContainerHeight(containerRef.current.getBoundingClientRect().height);
-    }
+    const updateHeight = () => {
+      if (containerRef.current) {
+        setContainerHeight(containerRef.current.getBoundingClientRect().height);
+      }
+    };
+
+    updateHeight();
+    window.addEventListener("resize", updateHeight);
+    return () => window.removeEventListener("resize", updateHeight);
   }, []);
 
   const reasons = [
     {
       icon: Clock,
       title: "2-3 Week Implementation",
-      stat: 2.5, // weeks
+      stat: 2.5,
       statLabel: "weeks",
       description:
         "Most AI agencies take months to deploy. We have your first automation live in 2-3 weeks with a proven rapid deployment process.",
@@ -77,7 +84,11 @@ export function WhySimplifAISection() {
   ];
 
   return (
-    <section id="why-simplifai" className="bg-background-primary relative" ref={containerRef}>
+    <section
+      id="why-simplifai"
+      className="bg-background-primary relative"
+      ref={containerRef}
+    >
       {/* Header */}
       <div className="max-w-7xl mx-auto pt-20 pb-10 px-4 md:px-8 lg:px-10 text-center">
         <h2 className="text-4xl sm:text-5xl md:text-6xl font-black leading-tight">
@@ -126,7 +137,9 @@ export function WhySimplifAISection() {
                         duration={1.5}
                         decimals={reason.stat % 1 !== 0 ? 1 : 0}
                       />
-                      {reason.statLabel && <span className="ml-1">{reason.statLabel}</span>}
+                      {reason.statLabel && (
+                        <span className="ml-1">{reason.statLabel}</span>
+                      )}
                     </div>
                   )}
 
@@ -151,18 +164,20 @@ export function WhySimplifAISection() {
         })}
 
         {/* Animated Timeline Line */}
-        <div
-          style={{ height: containerHeight + "px" }}
-          className="absolute md:left-16 left-10 top-0 w-[3px] bg-gradient-to-b from-transparent via-gray-200 to-transparent [mask-image:linear-gradient(to_bottom,transparent_0%,black_10%,black_90%,transparent_100%)]"
-        >
-          <motion.div
-            style={{
-              height: heightTransform,
-              opacity: opacityTransform,
-            }}
-            className="absolute inset-x-0 top-0 w-full bg-gradient-to-b from-indigo-500 via-violet-500 to-transparent rounded-full"
-          />
-        </div>
+        {containerHeight > 0 && (
+          <div
+            style={{ height: containerHeight + "px" }}
+            className="absolute md:left-16 left-10 top-0 w-[3px] bg-gradient-to-b from-transparent via-gray-200 to-transparent [mask-image:linear-gradient(to_bottom,transparent_0%,black_10%,black_90%,transparent_100%)]"
+          >
+            <motion.div
+              style={{
+                height: heightTransform,
+                opacity: opacityTransform,
+              }}
+              className="absolute inset-x-0 top-0 w-full bg-gradient-to-b from-indigo-500 via-violet-500 to-transparent rounded-full"
+            />
+          </div>
+        )}
       </div>
     </section>
   );
