@@ -9,8 +9,9 @@ const Hero = () => {
       className="relative min-h-[80vh] flex flex-col items-center justify-center px-4 md:px-8 py-32 overflow-hidden text-center bg-background-primary"
     >
       <div className="relative z-10 max-w-5xl w-full mx-auto p-8 rounded-lg bg-background-primary">
+        
         {/* Headline */}
-        <h1 className="text-black font-heading text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black leading-tight mb-1">
+        <h1 className="text-black font-heading text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold leading-tight mb-1">
           Your Team Drowns in{" "}
           <span className="inline-block align-middle text-black font-heading">
             <GooeyText
@@ -23,12 +24,12 @@ const Hero = () => {
               morphTime={1}
               cooldownTime={1.5}
               className="inline-block"
-              textClassName="text-black font-heading"
+              textClassName="text-black font-heading font-extrabold"
             />
           </span>
         </h1>
 
-        <h2 className="text-black font-heading text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black mb-6">
+        <h2 className="text-black font-heading text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold mb-6">
           Let&apos;s Fix That.
         </h2>
 
@@ -41,7 +42,7 @@ const Hero = () => {
         </p>
 
         {/* Trust Badges */}
-        <div className="flex flex-wrap justify-center items-center gap-4 mb-8 text-sm text-gray-700">
+        <div className="flex flex-wrap justify-center items-center gap-4 mb-8 text-sm text-gray-700 font-body">
           <span className="inline-flex items-center gap-1">
             <span className="text-yellow-400">★★★★★</span>
             <span className="font-medium">Trusted by small businesses</span>
@@ -66,7 +67,7 @@ const Hero = () => {
         </div>
 
         {/* Micro-Details */}
-        <div className="flex flex-wrap gap-4 justify-center mt-4 text-sm text-gray-600">
+        <div className="flex flex-wrap gap-4 justify-center mt-4 text-sm text-gray-600 font-body">
           <span>• Average 40% cost reduction</span>
           <span>• Custom web solutions</span>
           <span>• Workflow automation</span>
