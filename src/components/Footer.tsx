@@ -216,7 +216,7 @@ const Footer = () => {
             <div className="flex items-center gap-2 mb-4">
               <div className="h-10 w-10">
                 <img
-                  src="https://raw.githubusercontent.com/jessica-singh79/simplifaico/main/Adobe%20Express%20-%20file.png"
+                 src="https://raw.githubusercontent.com/jessica-singh79/simplifaico/main/logo.png"
                   alt="SimplifAI Logo"
                   className="w-full h-full object-contain"
                 />
