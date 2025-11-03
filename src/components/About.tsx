@@ -45,19 +45,6 @@ const About = () => {
           </div>
         </div>
 
-        {/* Origin Story Box */}
-        <div className="max-w-3xl mx-auto mb-12">
-          <div className="bg-gradient-to-r from-blue-50 to-purple-50 rounded-2xl p-8 border border-purple-100">
-            <p className="text-gray-700 leading-relaxed text-center">
-              <span className="font-semibold text-gray-900">SimplifAI started with a simple frustration.</span> 
-              After seeing businesses struggle with tedious processes and missed opportunities, we wanted to build something that made everyday work just a little easier.
-              <span className="block mt-4 font-semibold text-purple-700">
-                Our goal: Help people spend less time on tasks that drain their energy, and more on the work that matters to them.
-              </span>
-            </p>
-          </div>
-        </div>
-
         {/* CTA */}
         <div className="text-center">
           <button
