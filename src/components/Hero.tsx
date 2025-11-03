@@ -9,8 +9,8 @@ const Hero = () => {
       className="relative min-h-[80vh] flex flex-col items-center justify-center px-4 md:px-8 py-32 bg-gradient-to-br from-[#5e2497] via-[#58278e] to-[#421c6d] text-center"
     >
       <div className="max-w-5xl w-full mx-auto">
-        {/* Single-Sentence Hero Headline with GooeyText */}
-        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black leading-tight mb-5 text-white/90">
+        {/* Headline on two lines */}
+        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black leading-tight mb-2 text-white/90">
           Your Team Drowns in{" "}
           <span className="inline-block align-middle">
             <GooeyText
@@ -26,13 +26,17 @@ const Hero = () => {
               textClassName="bg-gradient-to-r from-blue-500 to-purple-500 bg-clip-text text-transparent font-black"
             />
           </span>
-          . Let's Fix That.
         </h1>
+        <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent mb-5 mt-2">
+          Let&apos;s Fix That.
+        </h2>
 
         {/* Subheadline */}
         <p className="max-w-2xl mx-auto text-lg sm:text-xl md:text-2xl text-white/80 font-light leading-relaxed mb-10">
           Build websites that convert. Automate workflows that scale.
-          <span className="block mt-2 font-semibold text-white/90">Grow your business without the technical headaches.</span>
+          <span className="block mt-2 font-semibold text-white/90">
+            Grow your business without the technical headaches.
+          </span>
         </p>
 
         {/* Trust Badges */}
