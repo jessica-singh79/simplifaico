@@ -1,5 +1,5 @@
 import React from 'react';
-import { Target, ArrowRight, Clock, DollarSign, TrendingUp } from 'lucide-react';
+import { ArrowRight, Clock, DollarSign, TrendingUp } from 'lucide-react';
 
 const About = () => {
   return (
@@ -8,16 +8,12 @@ const About = () => {
 
         {/* Header */}
         <div className="text-center mb-16">
-          <div className="inline-flex items-center bg-purple-50 px-4 py-2 rounded-full mb-6">
-            <Target className="w-4 h-4 text-purple-600 mr-2" />
-            <span className="text-sm font-semibold text-purple-800">What Drives Us</span>
-          </div>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
             The Story Behind SimplifAI
           </h2>
         </div>
 
-        {/* New Mission Statement */}
+        {/* Mission Statement */}
         <div className="max-w-3xl mx-auto mb-16">
           <p className="text-xl md:text-2xl text-gray-700 leading-relaxed text-center">
             SimplifAI started with a mission: to help businesses overcome tedious processes and missed opportunities by building tools that make everyday work easier and more efficient.
@@ -33,7 +29,6 @@ const About = () => {
             <div className="text-3xl font-bold text-gray-900 mb-2">2–3 Weeks</div>
             <p className="text-gray-600">From first idea to working automation</p>
           </div>
-
           <div className="text-center p-6 bg-white rounded-2xl shadow-sm border border-gray-100">
             <div className="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
               <DollarSign className="w-6 h-6 text-purple-600" />
@@ -41,7 +36,6 @@ const About = () => {
             <div className="text-3xl font-bold text-gray-900 mb-2">40% Less</div>
             <p className="text-gray-600">Average operational costs saved</p>
           </div>
-
           <div className="text-center p-6 bg-white rounded-2xl shadow-sm border border-gray-100">
             <div className="w-12 h-12 bg-indigo-100 rounded-full flex items-center justify-center mx-auto mb-4">
               <TrendingUp className="w-6 h-6 text-indigo-600" />
@@ -51,7 +45,7 @@ const About = () => {
           </div>
         </div>
 
-        {/* Origin Story (Authentic) */}
+        {/* Origin Story Box */}
         <div className="max-w-3xl mx-auto mb-12">
           <div className="bg-gradient-to-r from-blue-50 to-purple-50 rounded-2xl p-8 border border-purple-100">
             <p className="text-gray-700 leading-relaxed text-center">
