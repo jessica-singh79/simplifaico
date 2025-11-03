@@ -9,22 +9,22 @@ const Hero = () => {
       className="relative min-h-[80vh] flex flex-col items-center justify-center px-4 md:px-8 py-32 overflow-hidden text-center"
       style={{ position: "relative" }}
     >
-      {/* Background Video */}
+      {/* Updated Background Video */}
       <video
         className="absolute inset-0 w-full h-full object-cover z-0"
-        src="https://github.com/jessica-singh79/simplifaico/blob/main/12421526_3840_2160_30fps.mp4"
+        src="https://github.com/jessica-singh79/simplifaico/raw/main/12421526_3840_2160_30fps.mp4"
         autoPlay
         loop
         muted
         playsInline
       />
 
-      {/* Uniform blur and semi-transparent overlay applied on entire hero */}
+      {/* Uniform blur and semi-transparent overlay */}
       <div className="absolute inset-0 bg-black/40 backdrop-blur-md z-0 pointer-events-none" />
 
       {/* Hero content */}
-      <div className="relative z-10 max-w-5xl w-full mx-auto">
-        {/* Headline on one line with animated morph */}
+      <div className="relative z-10 max-w-5xl w-full mx-auto p-8 rounded-lg bg-black/30 backdrop-blur-md">
+        {/* Headline */}
         <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black leading-tight mb-1 text-white/90">
           Your Team Drowns in{" "}
           <span className="inline-block align-middle">
