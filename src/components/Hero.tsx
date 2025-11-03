@@ -6,10 +6,24 @@ const Hero = () => {
   return (
     <section
       id="hero"
-      className="relative min-h-[80vh] flex flex-col items-center justify-center px-4 md:px-8 py-32 bg-gradient-to-br from-[#5e2497] via-[#58278e] to-[#421c6d] text-center"
+      className="relative min-h-[80vh] flex flex-col items-center justify-center px-4 md:px-8 py-32 overflow-hidden text-center"
+      style={{ position: "relative" }}
     >
-      <div className="max-w-5xl w-full mx-auto">
-        {/* Headline on two lines */}
+      {/* Video Background */}
+      <video
+        className="absolute inset-0 w-full h-full object-cover z-0"
+        src="https://github.com/jessica-singh79/simplifaico/raw/main/hero.mp4"
+        autoPlay
+        loop
+        muted
+        playsInline
+      />
+
+      {/* Optional: Overlay gradient for readability */}
+      <div className="absolute inset-0 bg-gradient-to-b from-[rgba(50,0,100,0.75)] to-[rgba(80,20,140,0.8)] z-1 pointer-events-none" />
+
+      {/* Hero Content */}
+      <div className="relative z-10 max-w-5xl w-full mx-auto">
         <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black leading-tight mb-2 text-white/90">
           Your Team Drowns in{" "}
           <span className="inline-block align-middle">
