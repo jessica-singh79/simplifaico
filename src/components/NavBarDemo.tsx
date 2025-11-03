@@ -11,5 +11,6 @@ export function NavBarDemo() {
     { name: 'Contact', url: '#contact', icon: Mail }
   ]
 
-  return <NavBar items={navItems} />
+  // Pass className prop to NavBar for white text and icons
+  return <NavBar items={navItems} className="text-white" iconClassName="text-white" />
 }
