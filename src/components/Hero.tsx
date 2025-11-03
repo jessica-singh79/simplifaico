@@ -9,14 +9,12 @@ const Hero = () => {
       className="relative min-h-[80vh] flex flex-col items-center justify-center px-4 md:px-8 py-32 overflow-hidden text-center"
       style={{ position: "relative" }}
     >
-      {/* Updated Background Video */}
-      <video
+      {/* Background Image */}
+      <img
+        src="https://github.com/jessica-singh79/simplifaico/raw/main/pexels-cottonbro-6153344.jpg"
+        alt="Hero background"
         className="absolute inset-0 w-full h-full object-cover z-0"
-        src="https://github.com/jessica-singh79/simplifaico/raw/main/12421526_3840_2160_30fps.mp4"
-        autoPlay
-        loop
-        muted
-        playsInline
+        draggable={false}
       />
 
       {/* Uniform blur and semi-transparent overlay */}
