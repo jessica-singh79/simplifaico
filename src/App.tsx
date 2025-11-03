@@ -7,7 +7,6 @@ import Services from './components/Services';
 import { WhySimplifAISection } from './components/WhySimplifAISection';
 import SimplifAILanding from './components/SimplifAILanding';
 import MiniTestimonials from './components/MiniTestimonials';
-import { FAQCarousel } from './components/FAQCarousel';
 import Footer from './components/Footer';
 
 function App() {
@@ -35,7 +34,6 @@ function App() {
       <About />
       <Services />
       <WhySimplifAISection />
-      <FAQCarousel />
       <Footer />
     </div>
   );
