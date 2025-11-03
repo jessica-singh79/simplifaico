@@ -8,12 +8,11 @@ const Hero = () => {
       id="hero"
       className="relative min-h-[80vh] flex flex-col items-center justify-center px-4 md:px-8 py-32 overflow-hidden text-center bg-background-primary"
     >
-      {/* No image or overlay - pure uniform section */}
       <div className="relative z-10 max-w-5xl w-full mx-auto p-8 rounded-lg bg-background-primary">
         {/* Headline */}
-        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black leading-tight mb-1 text-primary">
+        <h1 className="text-black font-heading text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black leading-tight mb-1">
           Your Team Drowns in{" "}
-          <span className="inline-block align-middle text-accent font-black">
+          <span className="inline-block align-middle text-black font-heading">
             <GooeyText
               texts={[
                 "Repetitive Tasks",
@@ -24,24 +23,25 @@ const Hero = () => {
               morphTime={1}
               cooldownTime={1.5}
               className="inline-block"
-              textClassName="text-accent font-black"
+              textClassName="text-black font-heading"
             />
           </span>
         </h1>
-        <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-primary mb-6">
+
+        <h2 className="text-black font-heading text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black mb-6">
           Let&apos;s Fix That.
         </h2>
 
         {/* Subheadline */}
-        <p className="max-w-2xl mx-auto text-lg sm:text-xl md:text-2xl text-text-primary font-light leading-relaxed mb-10">
+        <p className="max-w-2xl mx-auto text-black font-body text-lg sm:text-xl md:text-2xl font-light leading-relaxed mb-10">
           Build websites that convert. Automate workflows that scale.
-          <span className="block mt-2 font-semibold text-primary">
+          <span className="block mt-2 font-semibold text-black font-body">
             Grow your business without the technical headaches.
           </span>
         </p>
 
         {/* Trust Badges */}
-        <div className="flex flex-wrap justify-center items-center gap-4 mb-8 text-sm text-text-secondary">
+        <div className="flex flex-wrap justify-center items-center gap-4 mb-8 text-sm text-gray-700">
           <span className="inline-flex items-center gap-1">
             <span className="text-yellow-400">★★★★★</span>
             <span className="font-medium">Trusted by small businesses</span>
@@ -66,7 +66,7 @@ const Hero = () => {
         </div>
 
         {/* Micro-Details */}
-        <div className="flex flex-wrap gap-4 justify-center mt-4 text-sm text-text-tertiary">
+        <div className="flex flex-wrap gap-4 justify-center mt-4 text-sm text-gray-600">
           <span>• Average 40% cost reduction</span>
           <span>• Custom web solutions</span>
           <span>• Workflow automation</span>
