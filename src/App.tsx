@@ -9,7 +9,7 @@ import Footer from './components/Footer';
 function App() {
   return (
     <div className="relative min-h-screen overflow-hidden">
-      {/* Floating logo */}
+      {/* Fixed floating logo */}
       <div className="fixed top-4 left-4 z-50 flex items-center bg-white/90 backdrop-blur-sm px-3 py-2 rounded-lg shadow-lg">
         <a href="/" className="flex items-center gap-2 group">
           <div className="h-8 w-8 transition-transform group-hover:scale-110">
@@ -25,15 +25,13 @@ function App() {
         </a>
       </div>
 
-      {/* Navbar always on top */}
+      {/* Tubelight Navbar */}
       <NavBarDemo />
 
-      {/* Hero Section — independent dark gradient */}
-      <section className="relative z-10">
-        <Hero />
-      </section>
+      {/* Hero Section */}
+      <Hero />
 
-      {/* Light gradient background for rest of the page */}
+      {/* Rest of the page */}
       <div className="bg-gradient-to-br from-gray-50 via-blue-50 to-green-50">
         <About />
         <Services />
