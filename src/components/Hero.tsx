@@ -1,66 +1,152 @@
-import React from "react";
-import { ArrowRight } from "lucide-react";
-import { GooeyText } from "@/components/ui/gooey-text-morphing";
+import React, { useRef, useEffect, useState } from 'react';
+import { useScroll, useTransform, motion } from 'framer-motion';
+import { Clock, Zap, Users, TrendingUp } from 'lucide-react';
 
-const Hero = () => {
+export function WhySimplifAISection() {
+  const ref = useRef<HTMLDivElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const [height, setHeight] = useState(0);
+
+  useEffect(() => {
+    if (ref.current) {
+      const rect = ref.current.getBoundingClientRect();
+      setHeight(rect.height);
+    }
+  }, [ref]);
+
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start 10%", "end 50%"],
+  });
+
+  const heightTransform = useTransform(scrollYProgress, [0, 1], [0, height]);
+  const opacityTransform = useTransform(scrollYProgress, [0, 0.1], [0, 1]);
+
+  const reasons = [
+    {
+      icon: Clock,
+      title: "2-3 Week Implementation",
+      stat: "vs 3-6 months",
+      description: "Most AI agencies take months to deploy. We have your first automation live in 2-3 weeks with a proven rapid deployment process.",
+      details: [
+        "Week 1: Discovery & setup with your team",
+        "Week 2: Build & test with your actual data", 
+        "Week 3: Deploy & train your team to use it"
+      ]
+    },
+    {
+      icon: Users,
+      title: "Built for Small-Mid Business",
+      stat: "Not enterprise bloat",
+      description: "Enterprise AI tools are complex, expensive, and require dedicated teams. We build automation that your current team can manage—no new hires needed.",
+      details: [
+        "Simple admin dashboards anyone can use",
+        "Training included in onboarding",
+        "Email & Slack support (no ticketing systems)"
+      ]
+    },
+    {
+      icon: TrendingUp,
+      title: "Measurable ROI From Day One",
+      stat: "Avg. 40% cost reduction",
+      description: "Every client gets a custom dashboard tracking hours saved, costs reduced, and process improvements. Our average client saves 25 hours/week within the first month.",
+      details: [
+        "Real-time analytics dashboard",
+        "Monthly performance reports",
+        "Continuous optimization included"
+      ]
+    },
+    {
+      icon: Zap,
+      title: "Integrations Out of the Box",
+      stat: "50+ tools supported",
+      description: "Works with the tools you already use—no rip-and-replace. We connect to Salesforce, HubSpot, QuickBooks, Stripe, Google Workspace, Slack, and 45+ more platforms.",
+      details: [
+        "Pre-built integrations for popular tools",
+        "Custom API connections available",
+        "Zapier & Make.com compatible"
+      ]
+    }
+  ];
+
   return (
-    <section
-      id="hero"
-      className="relative min-h-[80vh] flex flex-col items-center justify-center px-4 md:px-8 py-32 overflow-hidden text-center bg-gradient-to-b from-indigo-50 via-white to-white"
-    >
-      {/* Fixed Logo */}
-      <img
-        src="/logo.svg"
-        alt="SimplifAI Logo"
-        className="fixed top-6 left-6 w-28 md:w-32 z-[999]"
-      />
-
-      {/* Hero Content */}
-      <div className="relative z-10 max-w-5xl w-full px-4">
-        <h1 className="text-[#1E1E1E] font-heading font-semibold tracking-tight sm:tracking-normal md:tracking-wide text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-tight mb-2">
-          Your Team Drowns in{" "}
-          <span className="inline-block align-middle">
-            <GooeyText
-              texts={["Repetitive Tasks", "Manual Work", "Busywork", "Data Entry"]}
-              morphTime={1}
-              cooldownTime={1.5}
-              className="inline-block"
-              textClassName="text-[#1E1E1E] font-heading font-semibold"
-            />
-          </span>
-        </h1>
-
-        <h2 className="text-[#1E1E1E] font-heading font-semibold text-4xl sm:text-5xl md:text-6xl lg:text-7xl mb-6">
-          Let&apos;s Fix That.
-        </h2>
-
-        <p className="max-w-2xl mx-auto text-[#334155] font-body text-lg sm:text-xl md:text-2xl font-normal leading-relaxed mb-10">
-          Build websites that convert. Automate workflows that scale.
-          <span className="block mt-2 font-semibold text-[#1E1E1E]">
-            Grow your business without the technical headaches.
-          </span>
-        </p>
-
-        <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-6">
-          <button
-            onClick={() =>
-              document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })
-            }
-            className="inline-flex items-center justify-center space-x-2 bg-primary text-white px-8 py-4 rounded-full text-lg font-semibold shadow-xl hover:bg-accent transition-transform duration-300"
-          >
-            <span>Get Free Automation Audit</span>
-            <ArrowRight className="w-5 h-5" />
-          </button>
+    <section id="why-simplifai" className="bg-background-primary" ref={containerRef}>
+      <div className="max-w-7xl mx-auto pt-20 pb-10 px-4 md:px-8 lg:px-10">
+        {/* Header - More Compact */}
+        <div className="text-center mb-4">
+          <h2 className="text-4xl sm:text-5xl md:text-6xl font-black leading-tight">
+            <span className="bg-gradient-to-r from-gray-900 via-indigo-800 to-violet-800 bg-clip-text text-transparent">
+              Why SimplifAI?
+            </span>
+          </h2>
         </div>
+      </div>
 
-        <div className="flex flex-wrap gap-4 justify-center mt-4 text-sm text-[#64748B] font-body">
-          <span>• Average 40% cost reduction</span>
-          <span>• Custom web solutions</span>
-          <span>• Workflow automation</span>
+      {/* Timeline */}
+      <div ref={ref} className="relative max-w-7xl mx-auto pb-10">
+        {reasons.map((reason, index) => {
+          const IconComponent = reason.icon;
+          return (
+            <div
+              key={index}
+              className="flex justify-start pt-4 md:pt-12 md:gap-10"
+            >
+              <div className="sticky flex flex-col md:flex-row z-40 items-center top-40 self-start max-w-xs lg:max-w-sm md:w-full">
+                <div className="h-10 absolute left-3 md:left-3 w-10 rounded-full bg-white flex items-center justify-center shadow-lg">
+                  <div className="h-8 w-8 rounded-full bg-gradient-to-br from-indigo-500 to-violet-600 flex items-center justify-center">
+                    <IconComponent className="w-4 h-4 text-white" />
+                  </div>
+                </div>
+                <h3 className="hidden md:block text-xl md:pl-20 md:text-4xl font-bold text-text-primary">
+                  {reason.title}
+                </h3>
+              </div>
+
+              <div className="relative pl-20 pr-4 md:pl-4 w-full">
+                <h3 className="md:hidden block text-2xl mb-4 text-left font-bold text-text-primary">
+                  {reason.title}
+                </h3>
+                
+                {/* Content Card */}
+                <div className="bg-white rounded-2xl p-6 md:p-8 shadow-lg border border-gray-200 mb-4">
+                  <div className="flex items-center gap-3 mb-4">
+                    <span className="text-sm font-bold text-indigo-600 bg-indigo-50 px-3 py-1 rounded-full">
+                      {reason.stat}
+                    </span>
+                  </div>
+                  
+                  <p className="text-gray-600 text-base leading-relaxed mb-6">
+                    {reason.description}
+                  </p>
+
+                  <div className="space-y-3 pt-4 border-t border-gray-100">
+                    {reason.details.map((detail, idx) => (
+                      <div key={idx} className="flex items-start gap-3">
+                        <div className="mt-1.5 w-2 h-2 rounded-full bg-indigo-600 flex-shrink-0" />
+                        <span className="text-sm text-gray-700">{detail}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+          );
+        })}
+        
+        {/* Animated Line */}
+        <div
+          style={{ height: height + "px" }}
+          className="absolute md:left-8 left-8 top-0 overflow-hidden w-[2px] bg-gradient-to-b from-transparent via-gray-200 to-transparent [mask-image:linear-gradient(to_bottom,transparent_0%,black_10%,black_90%,transparent_100%)]"
+        >
+          <motion.div
+            style={{
+              height: heightTransform,
+              opacity: opacityTransform,
+            }}
+            className="absolute inset-x-0 top-0 w-[2px] bg-gradient-to-b from-indigo-500 via-violet-500 to-transparent rounded-full"
+          />
         </div>
       </div>
     </section>
   );
-};
-
-export default Hero;
+}
