@@ -9,28 +9,24 @@ const Hero = () => {
       className="relative min-h-[80vh] flex flex-col items-center justify-center px-4 md:px-8 py-32 bg-gradient-to-br from-[#5e2497] via-[#58278e] to-[#421c6d] text-center"
     >
       <div className="max-w-5xl w-full mx-auto">
-        {/* Hero Headline with GooeyText typing effect */}
-        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black leading-tight mb-5">
-          <span className="block text-white/90">
-            Your Team Drowns in{" "}
-            <span className="inline-block">
-              <GooeyText
-                texts={[
-                  "Repetitive Tasks",
-                  "Manual Work",
-                  "Busywork",
-                  "Data Entry"
-                ]}
-                morphTime={1}
-                cooldownTime={1.5}
-                className="inline-block"
-                textClassName="bg-gradient-to-r from-blue-500 to-purple-500 bg-clip-text text-transparent font-black"
-              />
-            </span>
+        {/* Single-Sentence Hero Headline with GooeyText */}
+        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black leading-tight mb-5 text-white/90">
+          Your Team Drowns in{" "}
+          <span className="inline-block align-middle">
+            <GooeyText
+              texts={[
+                "Repetitive Tasks",
+                "Manual Work",
+                "Busywork",
+                "Data Entry"
+              ]}
+              morphTime={1}
+              cooldownTime={1.5}
+              className="inline-block"
+              textClassName="bg-gradient-to-r from-blue-500 to-purple-500 bg-clip-text text-transparent font-black"
+            />
           </span>
-          <span className="block mt-4 bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
-            Let's Fix That.
-          </span>
+          . Let's Fix That.
         </h1>
 
         {/* Subheadline */}
@@ -51,10 +47,12 @@ const Hero = () => {
           <span className="hidden sm:inline">Average 40% cost reduction</span>
         </div>
 
-        {/* Single Main CTA Button */}
+        {/* Main CTA Button */}
         <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-6">
           <button
-            onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })}
+            onClick={() =>
+              document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })
+            }
             className="inline-flex items-center justify-center space-x-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-4 rounded-full text-lg font-bold shadow-2xl hover:scale-105 transition-transform duration-300"
           >
             <span>Get Free Automation Audit</span>
