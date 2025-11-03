@@ -30,7 +30,7 @@ const Services = () => {
   const IconComponent = ({ icon: Icon, isSpecial }: { icon: any, isSpecial?: boolean }) => (
     <div className={`w-14 h-14 rounded-2xl flex items-center justify-center mb-5 shadow-lg transition-transform duration-300 group-hover:scale-110 ${
       isSpecial
-        ? 'bg-white/20 backdrop-blur-sm'
+        ? 'bg-white/20'    // Removed backdrop blur here
         : 'bg-gradient-to-br from-indigo-500 to-violet-600'
     }`}>
       <Icon className={`w-7 h-7 text-white`} />
@@ -38,16 +38,8 @@ const Services = () => {
   );
 
   return (
-    <section id="services" className="py-24 relative overflow-hidden">
-      {/* Background Image */}
-      <img
-        src="https://github.com/jessica-singh79/simplifaico/raw/main/pexels-cottonbro-6153344.jpg"
-        alt="Services background"
-        className="absolute inset-0 w-full h-full object-cover z-0"
-        draggable={false}
-      />
-      {/* Overlay for readability/contrast */}
-      <div className="absolute inset-0 bg-gradient-to-b from-white/90 via-gray-50/80 to-gray-200/90 z-0 pointer-events-none" />
+    <section id="services" className="py-24 bg-white relative overflow-hidden">
+      {/* Removed background image and overlay */}
 
       <div className="relative z-10 max-w-7xl mx-auto px-6">
         {/* Section Header */}
@@ -58,7 +50,8 @@ const Services = () => {
           </div>
 
           <h2 className="text-4xl sm:text-5xl md:text-6xl font-black mb-6 leading-tight">
-            <span className="bg-gradient-to-r from-gray-900 via-indigo-800 to-violet-800 bg-clip-text text-transparent">
+            {/* Removed gradient text */}
+            <span className="text-indigo-900">
               Automate Your Business Tasks
             </span>
           </h2>
@@ -74,12 +67,12 @@ const Services = () => {
               key={index}
               className={`group rounded-3xl p-6 lg:p-8 relative overflow-hidden transition-all duration-300 hover:-translate-y-2 ${
                 service.isSpecial
-                  ? 'bg-gradient-to-br from-indigo-600 via-violet-600 to-indigo-700 text-white shadow-2xl md:scale-105'
+                  ? 'bg-indigo-600 text-white shadow-2xl md:scale-105'
                   : 'bg-white border border-gray-200 shadow-xl hover:shadow-2xl'
               }`}
             >
               {service.isSpecial && (
-                <div className="absolute top-4 right-4 bg-white/20 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-semibold text-white">
+                <div className="absolute top-4 right-4 bg-white/20 px-3 py-1 rounded-full text-xs font-semibold text-white">
                   Most Popular
                 </div>
               )}
@@ -137,7 +130,7 @@ const Services = () => {
                       key={tagIndex}
                       className={`px-3 py-1.5 sm:px-4 sm:py-2 rounded-full text-xs sm:text-sm font-semibold ${
                         service.isSpecial
-                          ? 'bg-white/20 text-white backdrop-blur-sm'
+                          ? 'bg-white/20 text-white'
                           : 'bg-indigo-100 text-indigo-700'
                       }`}
                     >
@@ -157,7 +150,7 @@ const Services = () => {
           </p>
           <button
             onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
-            className="inline-flex items-center gap-3 bg-gradient-to-r from-indigo-500 to-violet-600 text-white px-8 py-4 rounded-full text-lg font-semibold shadow-lg hover:scale-105 transition-transform duration-300"
+            className="inline-flex items-center gap-3 bg-indigo-600 text-white px-8 py-4 rounded-full text-lg font-semibold shadow-lg hover:scale-105 transition-transform duration-300"
           >
             <span>Let's Talk About Your Needs</span>
             <ArrowRight className="w-5 h-5" />
