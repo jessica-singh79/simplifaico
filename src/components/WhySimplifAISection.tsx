@@ -73,15 +73,12 @@ export function WhySimplifAISection() {
     <section id="why-simplifai" className="bg-gray-50" ref={containerRef}>
       <div className="max-w-7xl mx-auto pt-20 pb-10 px-4 md:px-8 lg:px-10">
         {/* Header - More Compact */}
-        <div className="text-center mb-8">
-          <h2 className="text-4xl sm:text-5xl md:text-6xl font-black mb-4 leading-tight">
+        <div className="text-center mb-4">
+          <h2 className="text-4xl sm:text-5xl md:text-6xl font-black leading-tight">
             <span className="bg-gradient-to-r from-gray-900 via-indigo-800 to-violet-800 bg-clip-text text-transparent">
               Why SimplifAI?
             </span>
           </h2>
-          <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
-            We're not the biggest AI agency, but we're the fastest, most transparent, and most focused on businesses like yours.
-          </p>
         </div>
       </div>
 
@@ -92,7 +89,7 @@ export function WhySimplifAISection() {
           return (
             <div
               key={index}
-              className="flex justify-start pt-10 md:pt-40 md:gap-10"
+              className="flex justify-start pt-4 md:pt-12 md:gap-10"
             >
               <div className="sticky flex flex-col md:flex-row z-40 items-center top-40 self-start max-w-xs lg:max-w-sm md:w-full">
                 <div className="h-10 absolute left-3 md:left-3 w-10 rounded-full bg-white flex items-center justify-center shadow-lg">
