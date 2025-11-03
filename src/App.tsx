@@ -1,16 +1,15 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { NavBarDemo } from './components/NavBarDemo';
 import Hero from './components/Hero';
 import About from './components/About';
 import Services from './components/Services';
 import { WhySimplifAISection } from './components/WhySimplifAISection';
-import SimplifAILanding from './components/SimplifAILanding';
-import MiniTestimonials from './components/MiniTestimonials';
 import Footer from './components/Footer';
 
 function App() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 via-blue-50 to-green-50 relative overflow-hidden">
+    <div className="relative min-h-screen overflow-hidden">
+      {/* Floating logo */}
       <div className="fixed top-4 left-4 z-50 flex items-center bg-white/90 backdrop-blur-sm px-3 py-2 rounded-lg shadow-lg">
         <a href="/" className="flex items-center gap-2 group">
           <div className="h-8 w-8 transition-transform group-hover:scale-110">
@@ -26,12 +25,21 @@ function App() {
         </a>
       </div>
 
+      {/* Navbar always on top */}
       <NavBarDemo />
-      <Hero />
-      <About />
-      <Services />
-      <WhySimplifAISection />
-      <Footer />
+
+      {/* Hero Section — independent dark gradient */}
+      <section className="relative z-10">
+        <Hero />
+      </section>
+
+      {/* Light gradient background for rest of the page */}
+      <div className="bg-gradient-to-br from-gray-50 via-blue-50 to-green-50">
+        <About />
+        <Services />
+        <WhySimplifAISection />
+        <Footer />
+      </div>
     </div>
   );
 }
