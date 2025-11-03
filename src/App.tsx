@@ -17,7 +17,7 @@ function App() {
         <a href="/" className="flex items-center gap-2 group">
           <div className="h-10 w-10 transition-transform group-hover:scale-110">
             <img
-              src="/SimplifAI Logo.png"
+              src="https://raw.githubusercontent.com/jessica-singh79/simplifaico/main/logo.png"
               alt="SimplifAI Logo"
               className="w-full h-full object-contain"
             />
