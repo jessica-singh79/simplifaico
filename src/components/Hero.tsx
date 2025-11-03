@@ -6,21 +6,12 @@ const Hero = () => {
   return (
     <section
       id="hero"
-      className="relative min-h-[80vh] flex flex-col items-center justify-center px-4 md:px-8 py-32 overflow-hidden text-center"
-      style={{ position: "relative" }}
+      className="relative min-h-[80vh] flex flex-col items-center justify-center px-4 md:px-8 py-32 overflow-hidden text-center
+                 bg-gradient-to-r from-primary to-secondary"
     >
-      {/* Background Image */}
-      <img
-        src="https://github.com/jessica-singh79/simplifaico/raw/main/pexels-cottonbro-6153344.jpg"
-        alt="Hero background"
-        className="absolute inset-0 w-full h-full object-cover z-0"
-        draggable={false}
-      />
+      {/* Removed background image and overlay for uniform Tailwind background */}
 
-      {/* Uniform blur and semi-transparent overlay */}
-      <div className="absolute inset-0 bg-black/40 backdrop-blur-md z-0 pointer-events-none" />
-
-      {/* Hero content */}
+      {/* Hero content container */}
       <div className="relative z-10 max-w-5xl w-full mx-auto p-8 rounded-lg bg-black/30 backdrop-blur-md">
         {/* Headline */}
         <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black leading-tight mb-1 text-white/90">
