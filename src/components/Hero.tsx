@@ -39,13 +39,13 @@ const Hero = () => {
           <div className="flex items-center gap-1">
             <span className="text-yellow-400">★★★★★</span>
           </div>
-          <span className="font-semibold">Trusted by 500+ businesses</span>
+          <span className="font-semibold">Trusted by small businesses</span>
           <span className="hidden sm:inline">•</span>
           <span className="hidden sm:inline">Average 40% cost reduction</span>
         </div>
 
         {/* CTA Buttons */}
-        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16">
+        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
           <button
             onClick={() => document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' })}
             className="w-full sm:w-auto inline-flex items-center justify-center space-x-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-5 rounded-full text-lg font-bold shadow-2xl hover:scale-105 transition-transform duration-300"
@@ -60,15 +60,6 @@ const Hero = () => {
             <Play className="w-5 h-5" />
             <span>Watch 2-Min Demo</span>
           </button>
-        </div>
-
-        {/* Case Study Stat - Centered */}
-        <div className="bg-gradient-to-r from-blue-50 to-purple-50 rounded-2xl p-8 max-w-2xl mx-auto">
-          <p className="text-sm text-gray-600 mb-3 font-semibold tracking-wide">REAL RESULTS</p>
-          <p className="text-lg md:text-xl text-gray-800 font-semibold mb-3">
-            "Saved our team <span className="text-blue-600 font-bold">25 hours per week</span> in the first month. ROI was instant."
-          </p>
-          <p className="text-sm text-gray-500">— Sarah J., Operations Manager</p>
         </div>
 
       </div>
