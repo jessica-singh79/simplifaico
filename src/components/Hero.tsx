@@ -19,11 +19,11 @@ const Hero = () => {
         playsInline
       />
 
-      {/* Optional Overlay for contrast */}
-      <div className="absolute inset-0 bg-gradient-to-b from-[rgba(50,0,100,0.7)] to-[rgba(80,10,160,0.8)] z-0 pointer-events-none" />
+      {/* Uniform blur and semi-transparent overlay applied on entire hero */}
+      <div className="absolute inset-0 bg-black/40 backdrop-blur-md z-0 pointer-events-none" />
 
-      {/* Text Container with blur background for readability */}
-      <div className="relative z-10 max-w-5xl w-full mx-auto p-8 rounded-lg bg-black/30 backdrop-blur-md">
+      {/* Hero content */}
+      <div className="relative z-10 max-w-5xl w-full mx-auto">
         {/* Headline on one line with animated morph */}
         <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black leading-tight mb-1 text-white/90">
           Your Team Drowns in{" "}
@@ -42,7 +42,6 @@ const Hero = () => {
             />
           </span>
         </h1>
-        {/* Second line */}
         <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent mb-6">
           Let&apos;s Fix That.
         </h2>
