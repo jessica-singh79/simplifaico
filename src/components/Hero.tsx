@@ -30,8 +30,8 @@ const Hero = () => {
 
         {/* Subheadline - Clear Benefit */}
         <p className="text-lg sm:text-xl md:text-2xl text-gray-600 font-light leading-relaxed mb-12 max-w-3xl mx-auto">
-          Automate customer support, data entry, and sales follow-ups in 2-3 weeks.
-          <span className="block mt-2 font-semibold text-gray-700">No developers needed.</span>
+          Build websites that convert. Automate workflows that scale.
+          <span className="block mt-2 font-semibold text-gray-700">Drive growth without the technical headaches.</span>
         </p>
 
         {/* Trust Badge */}
@@ -47,18 +47,11 @@ const Hero = () => {
         {/* CTA Buttons */}
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
           <button
-            onClick={() => document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' })}
+            onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
             className="w-full sm:w-auto inline-flex items-center justify-center space-x-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-5 rounded-full text-lg font-bold shadow-2xl hover:scale-105 transition-transform duration-300"
           >
             <span>Get Free Automation Audit</span>
             <ArrowRight className="w-5 h-5" />
-          </button>
-          
-          <button
-            className="w-full sm:w-auto inline-flex items-center justify-center space-x-2 bg-white border-2 border-gray-300 text-gray-700 px-8 py-5 rounded-full text-lg font-semibold hover:border-gray-400 transition-all"
-          >
-            <Play className="w-5 h-5" />
-            <span>Watch 2-Min Demo</span>
           </button>
         </div>
 
