@@ -1,6 +1,6 @@
 import React, { useRef, useEffect, useState } from 'react';
 import { useScroll, useTransform, motion } from 'framer-motion';
-import { Clock, Zap, DollarSign, Shield, Users, TrendingUp } from 'lucide-react';
+import { Clock, Zap, Users, TrendingUp } from 'lucide-react';
 
 export function WhySimplifAISection() {
   const ref = useRef<HTMLDivElement>(null);
@@ -32,28 +32,6 @@ export function WhySimplifAISection() {
         "Week 1: Discovery & setup with your team",
         "Week 2: Build & test with your actual data", 
         "Week 3: Deploy & train your team to use it"
-      ]
-    },
-    {
-      icon: DollarSign,
-      title: "Transparent Pricing",
-      stat: "No surprises",
-      description: "No hidden fees, no surprise costs. Month-to-month contracts mean you're never locked in. Most competitors require 12-month commitments with enterprise pricing.",
-      details: [
-        "Clear pricing before we start",
-        "Cancel anytime after 30 days",
-        "All support included in monthly fee"
-      ]
-    },
-    {
-      icon: Shield,
-      title: "Your Data Stays Private",
-      stat: "100% confidential",
-      description: "We never use your business data to train AI models. Your conversations, documents, and processes stay completely private—unlike platforms that harvest data.",
-      details: [
-        "GDPR & SOC 2 compliant systems",
-        "Data encrypted at rest and in transit",
-        "Your data is never shared or sold"
       ]
     },
     {
