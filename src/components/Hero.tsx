@@ -1,5 +1,5 @@
 import React from "react";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, ChevronDown } from "lucide-react";
 import { GooeyText } from "@/components/ui/gooey-text-morphing";
 
 const Hero = () => {
@@ -28,15 +28,12 @@ const Hero = () => {
 
         {/* Subheadline */}
         <p className="max-w-2xl mx-auto text-text-secondary font-body text-base sm:text-lg md:text-xl leading-relaxed mb-8">
-          We build websites that capture leads, book meetings, and follow up—all on their own. Live in 2-3 weeks.
+          We build websites, booking systems, automated messages, and support that works 24/7. Live in 2-3 weeks.
         </p>
 
-        {/* Trust Badges */}
-        <div className="flex flex-wrap justify-center items-center gap-3 md:gap-4 mb-8 text-xs sm:text-sm md:text-base text-text-secondary font-body">
-          <span className="inline-flex items-center gap-1">
-            <span className="text-yellow-400 text-sm sm:text-base">★★★★★</span>
-            <span className="font-medium">Built for small businesses</span>
-          </span>
+        {/* Trust Badges - No stars */}
+        <div className="flex flex-wrap justify-center items-center gap-3 md:gap-4 mb-8 text-xs sm:text-sm md:text-base text-text-secondary font-body font-medium">
+          <span>Cut costs by 40%</span>
           <span className="hidden sm:inline mx-1">|</span>
           <span>Works 24/7</span>
           <span className="hidden sm:inline mx-1">|</span>
@@ -57,11 +54,9 @@ const Hero = () => {
         </div>
       </div>
 
-      {/* Scroll indicator */}
+      {/* Down Arrow indicator */}
       <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-        <div className="w-6 h-10 border-2 border-text-tertiary rounded-full flex justify-center">
-          <div className="w-1 h-3 bg-text-tertiary rounded-full mt-2"></div>
-        </div>
+        <ChevronDown className="w-8 h-8 text-text-tertiary" />
       </div>
     </section>
   );
