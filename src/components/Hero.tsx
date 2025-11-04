@@ -44,11 +44,11 @@ const Hero = () => {
         <div className="flex justify-center">
           <button
             onClick={() =>
-              document.getElementById("about")?.scrollIntoView({ behavior: "smooth" })
+              document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })
             }
             className="inline-flex items-center justify-center gap-2 bg-primary text-white px-6 sm:px-8 py-3 sm:py-4 rounded-full text-base sm:text-lg font-semibold shadow-xl hover:bg-primary-dark hover:scale-105 transition-all duration-300"
           >
-            <span>See How It Works</span>
+            <span>Get Free Consultation</span>
             <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />
           </button>
         </div>
