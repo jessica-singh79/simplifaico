@@ -2,9 +2,9 @@ import React from 'react';
 import { ArrowRight, Clock, DollarSign, TrendingUp } from 'lucide-react';
 
 const StatCard = ({ icon: Icon, title, subtitle }: { icon: any; title: React.ReactNode; subtitle: string }) => (
-  <div className="text-center p-6 rounded-2xl bg-white border border-gray-100 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300">
-    <div className="w-12 h-12 bg-blue-50 rounded-full flex items-center justify-center mx-auto mb-4">
-      <Icon className="w-6 h-6 text-blue-600" aria-hidden />
+  <div className="text-center p-6 rounded-2xl bg-background-primary border border-border-light shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300">
+    <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+      <Icon className="w-6 h-6 text-primary" aria-hidden />
     </div>
     <div className="text-3xl font-semibold text-text-primary mb-2">{title}</div>
     <p className="text-sm text-text-secondary">{subtitle}</p>
@@ -13,11 +13,11 @@ const StatCard = ({ icon: Icon, title, subtitle }: { icon: any; title: React.Rea
 
 const About: React.FC = () => {
   return (
-    <section id="about" className="py-16 sm:py-20 bg-white">
+    <section id="about" className="py-16 sm:py-20 bg-background-primary">
       <div className="max-w-5xl mx-auto px-6">
         {/* Header */}
         <header className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold text-text-primary leading-tight mb-4">
+          <h2 className="text-3xl md:text-5xl font-semibold text-text-primary leading-tight mb-4">
             The story behind SimplifAI
           </h2>
           <p className="max-w-3xl mx-auto text-lg md:text-xl text-text-secondary">
@@ -48,14 +48,20 @@ const About: React.FC = () => {
         <div className="text-center">
           <button
             onClick={() => document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' })}
-            className="inline-flex items-center gap-3 bg-indigo-600 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-full text-base sm:text-lg font-semibold shadow-lg hover:scale-105 transform transition"
+            className="inline-flex items-center gap-3 bg-primary text-white px-6 sm:px-8 py-3 sm:py-4 rounded-full text-base sm:text-lg font-semibold shadow-lg hover:bg-primary-dark hover:scale-105 transform transition-all duration-300"
             aria-label="See our services"
           >
-            <span>Explore Our Work</span>
+            <span>See What We Automate</span>
             <ArrowRight className="w-4 h-4" aria-hidden />
           </button>
           <p className="mt-4 text-sm text-text-secondary max-w-xl mx-auto">
-            Prefer a tailored plan? <button className="underline text-indigo-600 font-medium" onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}>Let’s design your automation</button>.
+            Prefer a tailored plan?{' '}
+            <button 
+              className="underline text-primary font-medium hover:text-primary-dark transition-colors" 
+              onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+            >
+              Let's design your automation
+            </button>.
           </p>
         </div>
       </div>
