@@ -3,7 +3,7 @@ import { ArrowRight } from "lucide-react";
 import { GooeyText } from "@/components/ui/gooey-text-morphing";
 
 const Hero = () => {
-  const morphTexts = ["Data Entry", "Follow-Ups", "Scheduling", "Admin Work"];
+  const morphTexts = ["Capture Leads", "Book Appointments", "Answer Questions", "Follow Up"];
 
   return (
     <section
@@ -13,24 +13,26 @@ const Hero = () => {
       <div className="relative z-10 max-w-5xl w-full mx-auto p-8 rounded-lg bg-background-primary">
         {/* Headline */}
         <h1 className="text-text-primary font-heading font-semibold tracking-tight text-4xl md:text-6xl leading-tight mb-2">
-          Websites That Work.{" "}
-          <span className="relative inline-block" style={{ verticalAlign: 'baseline' }}>
-            <GooeyText
-              texts={morphTexts}
-              morphTime={1}
-              cooldownTime={1.5}
-              className="inline-block"
-              textClassName="text-text-primary font-heading font-semibold"
-            />
-          </span>{" "}
-          That's Automated.
+          Your Business Should{" "}
+          <GooeyText
+            texts={morphTexts}
+            morphTime={1}
+            cooldownTime={1.5}
+            className="inline-block"
+            textClassName="text-text-primary font-heading font-semibold"
+          />
+          {" "}Automatically
         </h1>
+
+        <h2 className="text-text-primary font-heading font-semibold text-4xl md:text-6xl mb-6">
+          We Build The System That Does It.
+        </h2>
 
         {/* Subheadline */}
         <p className="max-w-3xl mx-auto text-text-secondary font-body text-lg md:text-xl leading-relaxed mb-10 mt-6">
-          We build SEO-optimized websites with built-in automation—smart booking systems, automated follow-ups, and AI chatbots that work 24/7.
+          Smart websites + AI automation that captures leads, books appointments, and follows up 24/7.
           <span className="block mt-2 font-semibold text-text-primary">
-            Get a website that generates leads while you sleep.
+            No extra staff needed. Just results.
           </span>
         </p>
 
@@ -38,12 +40,12 @@ const Hero = () => {
         <div className="flex flex-wrap justify-center items-center gap-4 mb-8 text-sm md:text-base text-text-secondary font-body">
           <span className="inline-flex items-center gap-1">
             <span className="text-yellow-400">★★★★★</span>
-            <span className="font-medium">SEO-Optimized Websites</span>
+            <span className="font-medium">Lead-Generation Systems</span>
           </span>
           <span className="hidden sm:inline mx-2">|</span>
-          <span className="hidden sm:inline">Built-in AI Automation</span>
+          <span className="hidden sm:inline">Works 24/7</span>
           <span className="hidden sm:inline mx-2">|</span>
-          <span className="hidden sm:inline">2-3 Week Delivery</span>
+          <span className="hidden sm:inline">2-3 Week Setup</span>
         </div>
 
         {/* Main CTA Button */}
@@ -54,7 +56,7 @@ const Hero = () => {
             }
             className="inline-flex items-center justify-center space-x-2 bg-primary text-white px-8 py-4 rounded-full text-lg font-semibold shadow-xl hover:bg-primary-dark hover:scale-105 transition-all duration-300"
           >
-            <span>See Our Website + Automation Packages</span>
+            <span>See How It Works</span>
             <ArrowRight className="w-5 h-5" />
           </button>
         </div>
