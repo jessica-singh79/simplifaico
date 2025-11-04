@@ -28,18 +28,18 @@ const Hero = () => {
 
       <div className="relative z-10 max-w-5xl w-full mx-auto p-8 rounded-lg bg-background-primary">
         {/* Headline */}
-        <h1 className="text-text-primary font-heading font-semibold tracking-tight text-4xl md:text-6xl leading-tight mb-2">
-          Your Team Drowns in{" "}
-          <span className="inline-block align-middle">
-            <GooeyText
-              texts={morphTexts}
-              morphTime={1}
-              cooldownTime={1.5}
-              className="inline-block"
-              textClassName="text-text-primary font-heading font-semibold"
-            />
-          </span>
-        </h1>
+       <h1 className="text-text-primary font-heading font-semibold tracking-tight text-4xl md:text-6xl leading-tight mb-2">
+  Your Team Drowns in{" "}
+  <span className="inline-flex items-center align-middle">
+    <GooeyText
+      texts={morphTexts}
+      morphTime={1}
+      cooldownTime={1.5}
+      className="inline-flex items-center"
+      textClassName="text-text-primary font-heading font-semibold"
+    />
+  </span>
+</h1>
 
         <h2 className="text-text-primary font-heading font-semibold text-4xl md:text-6xl mb-6">
           Let's Fix That.
