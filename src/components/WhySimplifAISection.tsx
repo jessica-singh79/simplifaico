@@ -1,6 +1,6 @@
 import React, { useRef, useEffect, useState } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { Clock, Zap, Users, TrendingUp } from "lucide-react";
+import { Clock, Zap, Users, TrendingUp, Shield } from "lucide-react";
 import CountUp from "react-countup";
 
 export function WhySimplifAISection() {
@@ -33,7 +33,7 @@ export function WhySimplifAISection() {
       icon: Clock,
       title: "2-3 Week Implementation",
       stat: 2.5,
-      statLabel: "weeks",
+      statLabel: " weeks",
       description:
         "Most AI agencies take months to deploy. We have your first automation live in 2-3 weeks with a proven rapid deployment process.",
       details: [
@@ -43,23 +43,23 @@ export function WhySimplifAISection() {
       ],
     },
     {
-      icon: Users,
-      title: "Built for Small-Mid Business",
-      stat: 0,
-      statLabel: "",
+      icon: Shield,
+      title: "Your Data Stays Private",
+      stat: 100,
+      statLabel: "% confidential",
       description:
-        "Enterprise AI tools are complex, expensive, and require dedicated teams. We build automation that your current team can manage—no new hires needed.",
+        "We never use your business data to train AI models. Your conversations, documents, and processes stay completely private—unlike platforms that harvest data.",
       details: [
-        "Simple admin dashboards anyone can use",
-        "Training included in onboarding",
-        "Email & Slack support (no ticketing systems)",
+        "GDPR & SOC 2 compliant systems",
+        "Data encrypted at rest and in transit",
+        "Your data is never shared or sold",
       ],
     },
     {
       icon: TrendingUp,
       title: "Measurable ROI From Day One",
       stat: 40,
-      statLabel: "%",
+      statLabel: "% cost reduction",
       description:
         "Every client gets a custom dashboard tracking hours saved, costs reduced, and process improvements. Our average client saves 25 hours/week within the first month.",
       details: [
@@ -86,13 +86,13 @@ export function WhySimplifAISection() {
   return (
     <section
       id="why-simplifai"
-      className="bg-background-primary relative"
+      className="bg-background-secondary relative"
       ref={containerRef}
     >
       {/* Header */}
       <div className="max-w-7xl mx-auto pt-20 pb-10 px-4 md:px-8 lg:px-10 text-center">
-        <h2 className="text-4xl sm:text-5xl md:text-6xl font-black leading-tight">
-          <span className="bg-gradient-to-r from-gray-900 via-indigo-800 to-violet-800 bg-clip-text text-transparent">
+        <h2 className="text-4xl md:text-5xl font-black leading-tight">
+          <span className="bg-gradient-to-r from-text-primary via-primary to-secondary bg-clip-text text-transparent">
             Why SimplifAI?
           </span>
         </h2>
@@ -117,7 +117,7 @@ export function WhySimplifAISection() {
                 <motion.div
                   animate={{ scale: [1, 1.1, 1] }}
                   transition={{ duration: 2, repeat: Infinity }}
-                  className="h-12 w-12 md:h-14 md:w-14 rounded-full bg-gradient-to-br from-indigo-500 to-violet-600 flex items-center justify-center shadow-lg"
+                  className="h-12 w-12 md:h-14 md:w-14 rounded-full bg-gradient-to-br from-primary to-secondary flex items-center justify-center shadow-lg"
                 >
                   <IconComponent className="w-6 h-6 md:w-7 md:h-7 text-white" />
                 </motion.div>
@@ -127,11 +127,11 @@ export function WhySimplifAISection() {
               <div className="relative md:pl-8 flex-1">
                 <motion.div
                   whileHover={{ y: -5, boxShadow: "0px 20px 40px rgba(0,0,0,0.1)" }}
-                  className="bg-white rounded-2xl p-6 md:p-8 shadow-lg border border-gray-200 mt-4 md:mt-0"
+                  className="bg-background-primary rounded-2xl p-6 md:p-8 shadow-lg border border-border mt-4 md:mt-0"
                 >
                   {/* Stat */}
                   {reason.stat > 0 && (
-                    <div className="text-indigo-600 font-bold text-lg md:text-xl mb-3">
+                    <div className="text-primary font-bold text-lg md:text-xl mb-3">
                       <CountUp
                         end={reason.stat}
                         duration={1.5}
@@ -147,13 +147,13 @@ export function WhySimplifAISection() {
                     {reason.title}
                   </h3>
 
-                  <p className="text-gray-600 mb-4">{reason.description}</p>
+                  <p className="text-text-secondary mb-4">{reason.description}</p>
 
-                  <div className="space-y-2 pt-2 border-t border-gray-100">
+                  <div className="space-y-2 pt-2 border-t border-border-light">
                     {reason.details.map((detail, idx) => (
                       <div key={idx} className="flex items-start gap-3">
-                        <div className="mt-1 w-2 h-2 rounded-full bg-indigo-600 flex-shrink-0" />
-                        <span className="text-sm text-gray-700">{detail}</span>
+                        <div className="mt-1 w-2 h-2 rounded-full bg-primary flex-shrink-0" />
+                        <span className="text-sm text-text-secondary">{detail}</span>
                       </div>
                     ))}
                   </div>
@@ -167,14 +167,14 @@ export function WhySimplifAISection() {
         {containerHeight > 0 && (
           <div
             style={{ height: containerHeight + "px" }}
-            className="absolute md:left-16 left-10 top-0 w-[3px] bg-gradient-to-b from-transparent via-gray-200 to-transparent [mask-image:linear-gradient(to_bottom,transparent_0%,black_10%,black_90%,transparent_100%)]"
+            className="absolute md:left-16 left-10 top-0 w-[3px] bg-gradient-to-b from-transparent via-border to-transparent [mask-image:linear-gradient(to_bottom,transparent_0%,black_10%,black_90%,transparent_100%)]"
           >
             <motion.div
               style={{
                 height: heightTransform,
                 opacity: opacityTransform,
               }}
-              className="absolute inset-x-0 top-0 w-full bg-gradient-to-b from-indigo-500 via-violet-500 to-transparent rounded-full"
+              className="absolute inset-x-0 top-0 w-full bg-gradient-to-b from-primary via-secondary to-transparent rounded-full"
             />
           </div>
         )}
