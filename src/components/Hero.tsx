@@ -10,6 +10,22 @@ const Hero = () => {
       id="hero"
       className="relative min-h-[80vh] flex flex-col items-center justify-center px-4 md:px-8 py-32 overflow-hidden text-center bg-background-primary"
     >
+      {/* Static Logo + Name */}
+      <div className="absolute top-6 left-6 flex items-center gap-3 z-50">
+        <a href="/" className="flex items-center gap-3">
+          <div className="h-12 w-12">
+            <img
+              src="https://raw.githubusercontent.com/jessica-singh79/simplifaico/main/logo.png"
+              alt="SimplifAI Logo"
+              className="w-full h-full object-contain"
+            />
+          </div>
+          <span className="text-3xl md:text-4xl font-heading font-bold text-black">
+            SimplifAI
+          </span>
+        </a>
+      </div>
+
       <div className="relative z-10 max-w-5xl w-full mx-auto p-8 rounded-lg bg-background-primary">
         {/* Headline */}
         <h1 className="text-[#1E1E1E] font-heading font-semibold tracking-tight sm:tracking-normal md:tracking-wide text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-tight mb-2">
@@ -70,7 +86,7 @@ const Hero = () => {
         </div>
       </div>
 
-      {/* Optional Floating Background Shape */}
+      {/* Optional Floating Background Shapes */}
       <div className="absolute -top-24 -left-24 w-72 h-72 rounded-full bg-gradient-to-br from-indigo-300 to-violet-400 opacity-30 blur-3xl pointer-events-none" />
       <div className="absolute -bottom-24 -right-24 w-96 h-96 rounded-full bg-gradient-to-tr from-pink-300 to-yellow-300 opacity-20 blur-3xl pointer-events-none" />
     </section>
