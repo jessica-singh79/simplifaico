@@ -3,7 +3,7 @@ import { ArrowRight } from "lucide-react";
 import { GooeyText } from "@/components/ui/gooey-text-morphing";
 
 const Hero = () => {
-  const morphTexts = ["Repetitive Tasks", "Manual Work", "Busywork", "Data Entry"];
+  const morphTexts = ["Busywork", "Data Entry", "Follow-Ups", "Admin Tasks"];
 
   return (
     <section
@@ -20,7 +20,7 @@ const Hero = () => {
               className="w-full h-full object-contain"
             />
           </div>
-          <span className="text-3xl md:text-4xl font-heading font-bold text-black">
+          <span className="text-3xl md:text-4xl font-heading font-bold text-text-primary">
             SimplifAI
           </span>
         </a>
@@ -28,7 +28,7 @@ const Hero = () => {
 
       <div className="relative z-10 max-w-5xl w-full mx-auto p-8 rounded-lg bg-background-primary">
         {/* Headline */}
-        <h1 className="text-[#1E1E1E] font-heading font-semibold tracking-tight sm:tracking-normal md:tracking-wide text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-tight mb-2">
+        <h1 className="text-text-primary font-heading font-semibold tracking-tight text-4xl md:text-6xl leading-tight mb-2">
           Your Team Drowns in{" "}
           <span className="inline-block align-middle">
             <GooeyText
@@ -36,28 +36,28 @@ const Hero = () => {
               morphTime={1}
               cooldownTime={1.5}
               className="inline-block"
-              textClassName="text-[#1E1E1E] font-heading font-semibold"
+              textClassName="text-text-primary font-heading font-semibold"
             />
           </span>
         </h1>
 
-        <h2 className="text-[#1E1E1E] font-heading font-semibold text-4xl sm:text-5xl md:text-6xl lg:text-7xl mb-6">
+        <h2 className="text-text-primary font-heading font-semibold text-4xl md:text-6xl mb-6">
           Let's Fix That.
         </h2>
 
         {/* Subheadline */}
-        <p className="max-w-2xl mx-auto text-[#334155] font-body text-lg sm:text-xl md:text-2xl font-normal leading-relaxed mb-10">
+        <p className="max-w-2xl mx-auto text-text-secondary font-body text-lg md:text-xl leading-relaxed mb-10">
           Build websites that convert. Automate workflows that scale.
-          <span className="block mt-2 font-semibold text-[#1E1E1E]">
+          <span className="block mt-2 font-semibold text-text-primary">
             Grow your business without the technical headaches.
           </span>
         </p>
 
         {/* Trust Badges */}
-        <div className="flex flex-wrap justify-center items-center gap-4 mb-8 text-sm text-[#475569] font-body">
+        <div className="flex flex-wrap justify-center items-center gap-4 mb-8 text-sm text-text-secondary font-body">
           <span className="inline-flex items-center gap-1">
             <span className="text-yellow-400">★★★★★</span>
-            <span className="font-medium">Trusted by small businesses</span>
+            <span className="font-medium">Trusted by 50+ small businesses</span>
           </span>
           <span className="hidden sm:inline mx-2">|</span>
           <span className="hidden sm:inline">AI-Powered Automation</span>
@@ -71,7 +71,7 @@ const Hero = () => {
             onClick={() =>
               document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })
             }
-            className="inline-flex items-center justify-center space-x-2 bg-primary text-white px-8 py-4 rounded-full text-lg font-semibold shadow-xl hover:bg-accent hover:scale-105 transition-transform duration-300"
+            className="inline-flex items-center justify-center space-x-2 bg-primary text-white px-8 py-4 rounded-full text-lg font-semibold shadow-xl hover:bg-primary-dark hover:scale-105 transition-all duration-300"
           >
             <span>Get Free Automation Audit</span>
             <ArrowRight className="w-5 h-5" />
@@ -79,16 +79,12 @@ const Hero = () => {
         </div>
 
         {/* Micro-Details */}
-        <div className="flex flex-wrap gap-4 justify-center mt-4 text-sm text-[#64748B] font-body">
+        <div className="flex flex-wrap gap-4 justify-center mt-4 text-sm text-text-tertiary font-body">
           <span>• Average 40% cost reduction</span>
           <span>• Custom web solutions</span>
           <span>• Workflow automation</span>
         </div>
       </div>
-
-      {/* Optional Floating Background Shapes */}
-      <div className="absolute -top-24 -left-24 w-72 h-72 rounded-full bg-gradient-to-br from-indigo-300 to-violet-400 opacity-30 blur-3xl pointer-events-none" />
-      <div className="absolute -bottom-24 -right-24 w-96 h-96 rounded-full bg-gradient-to-tr from-pink-300 to-yellow-300 opacity-20 blur-3xl pointer-events-none" />
     </section>
   );
 };
