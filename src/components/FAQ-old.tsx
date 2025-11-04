@@ -1,38 +1,39 @@
 import React, { useState } from 'react';
+import { ArrowRight } from 'lucide-react';
 
 const FAQ = () => {
   const [openFAQ, setOpenFAQ] = useState<number | null>(0);
 
   const faqs = [
     {
-      icon: "🛠️",
-      question: "Do I need technical skills?",
-      answer: "No technical skills required! We handle all the setup and deliver ready-to-use tools. Our team takes care of the complex technical work so you can focus on running your business. Everything is designed to be intuitive and user-friendly."
-    },
-    {
-      icon: "⚡",
-      question: "What kind of tasks can be automated?",
-      answer: "We can automate a wide range of repetitive tasks including client booking and scheduling, lead capture and qualification, email follow-ups and nurturing, customer support queries, data entry and management, content updates, and much more. If it's repetitive, we can likely automate it."
-    },
-    {
-      icon: "🔒",
-      question: "How secure is this?",
-      answer: "Security is our top priority. We use enterprise-grade encryption, secure data storage, and follow industry best practices for data protection. All integrations use secure OAuth protocols, and we're compliant with major data protection regulations. Your business data is safe with us."
+      icon: "🌐",
+      question: "Do you just build websites or handle the automation too?",
+      answer: "Both. We build the site and set up all the automation—booking, follow-ups, chatbots—so everything works together from day one."
     },
     {
       icon: "⏱️",
-      question: "How quickly will I see results?",
-      answer: "Most clients see immediate impact once their automation is deployed. The setup typically takes 1-2 weeks depending on complexity, but once live, you'll start saving time instantly. Many businesses report saving 10-20 hours per week within the first month."
+      question: "How long does it take?",
+      answer: "Most projects go live in 2-3 weeks. Week one is planning, week two is building, week three is testing and launch."
     },
     {
       icon: "💰",
-      question: "What's the cost?",
-      answer: "Pricing varies based on your specific needs and the complexity of automation required. We offer flexible plans to suit businesses of all sizes. Book a free consultation and we'll provide a custom quote based on your requirements and expected ROI."
+      question: "What does it cost?",
+      answer: "Depends on what you need. Simple site with booking starts around $X,XXX. We'll give you a fixed price after our first call—no surprises."
     },
     {
-      icon: "🔄",
-      question: "Can I integrate with my existing tools?",
-      answer: "Absolutely! We integrate seamlessly with popular tools like CRMs, email platforms, calendars, payment systems, and more. Our solutions are designed to work with your existing tech stack, not replace it. If you use a specific tool, just let us know and we'll make it work."
+      icon: "🛠️",
+      question: "Do I need to know how to code?",
+      answer: "Nope. We build everything and show you how to use it. If something breaks or needs tweaking, we handle that too."
+    },
+    {
+      icon: "🔌",
+      question: "Will this work with my current tools?",
+      answer: "Probably. We connect to most popular tools—Google Calendar, Stripe, Mailchimp, QuickBooks, etc. If you use something specific, just ask."
+    },
+    {
+      icon: "📈",
+      question: "What if I want to add more features later?",
+      answer: "Easy. We can add new automation, pages, or features anytime. Most changes take a few days, not weeks."
     }
   ];
 
@@ -40,65 +41,60 @@ const FAQ = () => {
     setOpenFAQ(openFAQ === index ? null : index);
   };
 
-  const scrollToContact = () => {
-    document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
-  };
-
   return (
-    <section id="faq" className="py-24 bg-gradient-to-br from-slate-50 to-purple-50">
+    <section id="faq" className="py-20 bg-background-secondary">
       <div className="max-w-4xl mx-auto px-6">
-        <div className="text-center mb-16">
-          <h2 className="text-5xl font-heading font-bold mb-4">
-            Frequently Asked{' '}
-            <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-              Questions
-            </span>
+        {/* Header */}
+        <div className="text-center mb-12">
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-text-primary">
+            Common Questions
           </h2>
-          <p className="text-xl font-body text-gray-600 max-w-2xl mx-auto leading-relaxed">
-            Everything you need to know about SimplifAI and how it can transform your business.
+          <p className="text-lg text-text-secondary max-w-2xl mx-auto">
+            Here's what most people ask before we start working together.
           </p>
         </div>
 
-        <div className="space-y-5">
+        {/* FAQ Items */}
+        <div className="space-y-4">
           {faqs.map((faq, index) => {
             const isOpen = openFAQ === index;
             
             return (
               <div
                 key={index}
-                className={`bg-white rounded-2xl overflow-hidden shadow-sm border border-purple-100/50 transition-all duration-300 hover:shadow-lg hover:border-purple-200/50 ${
-                  isOpen ? 'shadow-lg border-purple-200/50' : ''
+                className={`bg-background-primary rounded-2xl overflow-hidden shadow-sm border transition-all duration-300 hover:shadow-md ${
+                  isOpen ? 'shadow-md border-primary/30' : 'border-border'
                 }`}
               >
                 <button
                   onClick={() => toggleFAQ(index)}
-                  className={`w-full flex items-center justify-between p-7 text-left transition-all duration-300 ${
-                    isOpen ? 'bg-gradient-to-r from-blue-50/50 to-purple-50/50' : 'hover:bg-purple-50/30'
+                  className={`w-full flex items-center justify-between p-6 text-left transition-all duration-300 ${
+                    isOpen ? 'bg-primary/5' : 'hover:bg-background-subtle'
                   }`}
                 >
                   <div className="flex items-center gap-4 flex-1">
-                    <div className="w-11 h-11 rounded-xl bg-gradient-to-r from-blue-500 to-purple-600 flex items-center justify-center text-lg flex-shrink-0">
+                    <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-primary to-secondary flex items-center justify-center text-lg flex-shrink-0">
                       {faq.icon}
                     </div>
-                    <h3 className="text-lg font-heading font-bold text-gray-900 pr-4">
+                    <h3 className="text-base md:text-lg font-bold text-text-primary pr-4">
                       {faq.question}
                     </h3>
                   </div>
                   
-                  <div className={`w-8 h-8 rounded-full bg-purple-100 flex items-center justify-center transition-all duration-300 flex-shrink-0 ${
-                    isOpen ? 'bg-gradient-to-r from-blue-500 to-purple-600 rotate-180' : ''
+                  <div className={`w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center transition-all duration-300 flex-shrink-0 ${
+                    isOpen ? 'bg-primary rotate-180' : ''
                   }`}>
-                    <div className={`text-sm transition-colors ${isOpen ? 'text-white' : 'text-purple-600'}`}>
+                    <div className={`text-sm transition-colors ${isOpen ? 'text-white' : 'text-primary'}`}>
                       ▼
                     </div>
                   </div>
                 </button>
                 
-                <div className={`transition-all duration-400 overflow-hidden ${
+                <div className={`transition-all duration-300 overflow-hidden ${
                   isOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
                 }`}>
-                  <div className="px-7 pb-7 pl-20">
-                    <p className="font-body text-gray-600 leading-relaxed">
+                  <div className="px-6 pb-6 pl-16">
+                    <p className="text-text-secondary leading-relaxed">
                       {faq.answer}
                     </p>
                   </div>
@@ -108,20 +104,20 @@ const FAQ = () => {
           })}
         </div>
 
-        {/* CTA Section */}
-        <div className="mt-16 text-center p-12 bg-white rounded-3xl border-2 border-dashed border-purple-300/50">
-          <h3 className="text-2xl font-heading font-bold text-gray-900 mb-3">
-            Still have questions?
+        {/* CTA */}
+        <div className="mt-12 text-center p-10 bg-background-primary rounded-3xl border-2 border-dashed border-border">
+          <h3 className="text-2xl font-bold text-text-primary mb-3">
+            Still not sure?
           </h3>
-          <p className="font-body text-gray-600 mb-6">
-            We're here to help! Reach out and we'll answer any questions you have.
+          <p className="text-text-secondary mb-6">
+            Book a quick call and we'll walk you through exactly how it works.
           </p>
           <button
-            onClick={scrollToContact}
-            className="inline-flex items-center space-x-3 bg-gradient-to-r from-blue-500 to-purple-600 text-white px-8 py-4 rounded-full text-lg font-body font-semibold hover:scale-105 transition-transform duration-300 shadow-lg hover:shadow-xl"
+            onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+            className="inline-flex items-center gap-3 bg-primary text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-primary-dark hover:scale-105 transition-all duration-300 shadow-lg"
           >
-            <span>Contact Us</span>
-            <span className="text-xl">→</span>
+            <span>Let's Talk</span>
+            <ArrowRight className="w-5 h-5" />
           </button>
         </div>
       </div>
