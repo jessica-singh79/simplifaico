@@ -1,6 +1,6 @@
 import React, { useRef, useEffect, useState } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { Clock, Zap, Users, TrendingUp, Shield } from "lucide-react";
+import { Clock, Zap, Shield, TrendingUp } from "lucide-react";
 import CountUp from "react-countup";
 
 export function WhySimplifAISection() {
@@ -15,7 +15,6 @@ export function WhySimplifAISection() {
   const heightTransform = useTransform(scrollYProgress, [0, 1], [0, containerHeight]);
   const opacityTransform = useTransform(scrollYProgress, [0, 0.1], [0, 1]);
 
-  // Safe height calculation
   useEffect(() => {
     const updateHeight = () => {
       if (containerRef.current) {
@@ -31,54 +30,54 @@ export function WhySimplifAISection() {
   const reasons = [
     {
       icon: Clock,
-      title: "2-3 Week Implementation",
+      title: "Fast Turnaround",
       stat: 2.5,
       statLabel: " weeks",
       description:
-        "Most AI agencies take months to deploy. We have your first automation live in 2-3 weeks with a proven rapid deployment process.",
+        "Most agencies take months. We get your site live in 2-3 weeks with everything working—booking, follow-ups, the whole thing.",
       details: [
-        "Week 1: Discovery & setup with your team",
-        "Week 2: Build & test with your actual data",
-        "Week 3: Deploy & train your team to use it",
+        "Week 1: We map out your process and get started",
+        "Week 2: Build it out and test with real data",
+        "Week 3: Launch and show your team how to use it",
       ],
     },
     {
       icon: Shield,
-      title: "Your Data Stays Private",
+      title: "Your Data Stays Yours",
       stat: 100,
-      statLabel: "% confidential",
+      statLabel: "% private",
       description:
-        "We never use your business data to train AI models. Your conversations, documents, and processes stay completely private—unlike platforms that harvest data.",
+        "We don't train AI models on your customer data. Ever. What's yours stays yours—encrypted, compliant, and locked down.",
       details: [
-        "GDPR & SOC 2 compliant systems",
-        "Data encrypted at rest and in transit",
-        "Your data is never shared or sold",
+        "GDPR and SOC 2 compliant",
+        "Encrypted storage and transmission",
+        "We never share or sell your data",
       ],
     },
     {
       icon: TrendingUp,
-      title: "Measurable ROI From Day One",
+      title: "You'll See The Numbers",
       stat: 40,
-      statLabel: "% cost reduction",
+      statLabel: "% average savings",
       description:
-        "Every client gets a custom dashboard tracking hours saved, costs reduced, and process improvements. Our average client saves 25 hours/week within the first month.",
+        "Every project includes a dashboard showing hours saved, costs cut, and leads captured. Most clients save 25 hours a week within the first month.",
       details: [
-        "Real-time analytics dashboard",
-        "Monthly performance reports",
-        "Continuous optimization included",
+        "Live dashboard you can check anytime",
+        "Monthly reports showing what's working",
+        "We keep tuning things to perform better",
       ],
     },
     {
       icon: Zap,
-      title: "Integrations Out of the Box",
+      title: "Works With Your Tools",
       stat: 50,
-      statLabel: "+ tools",
+      statLabel: "+ integrations",
       description:
-        "Works with the tools you already use—no rip-and-replace. We connect to Salesforce, HubSpot, QuickBooks, Stripe, Google Workspace, Slack, and 45+ more platforms.",
+        "We plug into what you're already using—Salesforce, QuickBooks, Google Calendar, Stripe, whatever. No ripping out your current setup.",
       details: [
-        "Pre-built integrations for popular tools",
-        "Custom API connections available",
-        "Zapier & Make.com compatible",
+        "Pre-built connections to major platforms",
+        "Custom integrations if you need them",
+        "Plays nice with Zapier and Make",
       ],
     },
   ];
@@ -93,7 +92,7 @@ export function WhySimplifAISection() {
       <div className="max-w-7xl mx-auto pt-20 pb-10 px-4 md:px-8 lg:px-10 text-center">
         <h2 className="text-4xl md:text-5xl font-black leading-tight">
           <span className="bg-gradient-to-r from-text-primary via-primary to-secondary bg-clip-text text-transparent">
-            Why SimplifAI?
+            Why work with us?
           </span>
         </h2>
       </div>
@@ -112,7 +111,7 @@ export function WhySimplifAISection() {
               transition={{ duration: 0.6, delay: index * 0.2 }}
               className="flex flex-col md:flex-row md:gap-10 pt-4 md:pt-12"
             >
-              {/* Sticky Icon + Title */}
+              {/* Sticky Icon */}
               <div className="sticky flex items-center top-40 max-w-xs md:max-w-[220px] self-start">
                 <motion.div
                   animate={{ scale: [1, 1.1, 1] }}
