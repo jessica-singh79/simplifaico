@@ -14,30 +14,30 @@ const FeatureCard = ({
   description: string;
   visual?: React.ReactNode;
 }) => (
-  <div className="group relative p-8 rounded-2xl bg-background-primary border border-border-light shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 overflow-hidden">
+  <div className="group relative p-4 sm:p-6 md:p-8 rounded-xl md:rounded-2xl bg-background-primary border border-border-light shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 overflow-hidden">
     {/* Icon */}
-    <div className="w-14 h-14 rounded-full border-2 border-border flex items-center justify-center mb-6 group-hover:border-primary transition-colors">
-      <Icon className="w-7 h-7 text-text-tertiary group-hover:text-primary transition-colors" />
+    <div className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 rounded-full border-2 border-border flex items-center justify-center mb-3 sm:mb-4 md:mb-6 group-hover:border-primary transition-colors">
+      <Icon className="w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7 text-text-tertiary group-hover:text-primary transition-colors" />
     </div>
     
     {/* Label */}
-    <div className="text-xs font-bold text-text-tertiary uppercase tracking-wider mb-3">
+    <div className="text-[10px] sm:text-xs font-bold text-text-tertiary uppercase tracking-wider mb-2 md:mb-3">
       {label}
     </div>
     
     {/* Title */}
-    <h3 className="text-xl font-bold text-text-primary mb-3 leading-tight">
+    <h3 className="text-sm sm:text-base md:text-xl font-bold text-text-primary mb-2 md:mb-3 leading-tight">
       {title}
     </h3>
     
     {/* Description */}
-    <p className="text-sm text-text-secondary leading-relaxed">
+    <p className="text-xs sm:text-sm text-text-secondary leading-relaxed">
       {description}
     </p>
     
     {/* Visual Element (if provided) */}
     {visual && (
-      <div className="mt-6">
+      <div className="mt-4 md:mt-6">
         {visual}
       </div>
     )}
@@ -45,7 +45,7 @@ const FeatureCard = ({
 );
 
 const GrowthChart = () => (
-  <div className="relative h-32 flex items-end justify-between gap-1">
+  <div className="relative h-20 sm:h-24 md:h-32 flex items-end justify-between gap-1">
     {[20, 35, 45, 60, 55, 70, 85, 95, 100].map((height, i) => (
       <div
         key={i}
@@ -60,47 +60,47 @@ const GrowthChart = () => (
 );
 
 const LeadFlowVisual = () => (
-  <div className="flex items-center justify-between gap-2 mt-4">
+  <div className="flex items-center justify-between gap-1 sm:gap-2 mt-3 md:mt-4">
     <div className="flex flex-col items-center gap-1">
-      <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
-        <span className="text-xs font-bold text-primary">👤</span>
+      <div className="w-7 h-7 sm:w-8 sm:h-8 md:w-10 md:h-10 rounded-full bg-primary/10 flex items-center justify-center">
+        <span className="text-[10px] sm:text-xs font-bold text-primary">👤</span>
       </div>
-      <span className="text-xs text-text-tertiary">New Lead</span>
+      <span className="text-[9px] sm:text-[10px] md:text-xs text-text-tertiary">New Lead</span>
     </div>
-    <ArrowRight className="w-4 h-4 text-text-tertiary" />
+    <ArrowRight className="w-3 h-3 sm:w-4 sm:h-4 text-text-tertiary" />
     <div className="flex flex-col items-center gap-1">
-      <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
-        <MessageCircle className="w-4 h-4 text-primary" />
+      <div className="w-7 h-7 sm:w-8 sm:h-8 md:w-10 md:h-10 rounded-full bg-primary/10 flex items-center justify-center">
+        <MessageCircle className="w-3 h-3 sm:w-4 sm:h-4 text-primary" />
       </div>
-      <span className="text-xs text-text-tertiary">Chat</span>
+      <span className="text-[9px] sm:text-[10px] md:text-xs text-text-tertiary">Chat</span>
     </div>
-    <ArrowRight className="w-4 h-4 text-text-tertiary" />
+    <ArrowRight className="w-3 h-3 sm:w-4 sm:h-4 text-text-tertiary" />
     <div className="flex flex-col items-center gap-1">
-      <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
-        <Calendar className="w-4 h-4 text-primary" />
+      <div className="w-7 h-7 sm:w-8 sm:h-8 md:w-10 md:h-10 rounded-full bg-primary/10 flex items-center justify-center">
+        <Calendar className="w-3 h-3 sm:w-4 sm:h-4 text-primary" />
       </div>
-      <span className="text-xs text-text-tertiary">Booked</span>
+      <span className="text-[9px] sm:text-[10px] md:text-xs text-text-tertiary">Booked</span>
     </div>
   </div>
 );
 
 const About: React.FC = () => {
   return (
-    <section id="about" className="py-20 bg-background-secondary">
-      <div className="max-w-7xl mx-auto px-6">
+    <section id="about" className="py-12 sm:py-16 md:py-20 bg-background-secondary">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
         {/* Header */}
-        <header className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-text-primary leading-tight mb-4">
+        <header className="text-center mb-8 sm:mb-12 md:mb-16">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-text-primary leading-tight mb-3 md:mb-4">
             Here's what you get
           </h2>
-          <p className="max-w-3xl mx-auto text-lg md:text-xl text-text-secondary">
+          <p className="max-w-3xl mx-auto text-base sm:text-lg md:text-xl text-text-secondary px-4">
             You're stuck doing the same tasks every day—booking appointments, following up with leads, answering questions. 
             We build systems that handle this while you focus on growing your business.
           </p>
         </header>
 
-        {/* Feature Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
+        {/* Feature Grid - 2 columns on mobile, 3 on desktop */}
+        <div className="grid grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 md:gap-6 mb-10 sm:mb-12 md:mb-16">
           <FeatureCard
             icon={Globe}
             label="Web Design"
@@ -138,32 +138,32 @@ const About: React.FC = () => {
             visual={<GrowthChart />}
           />
           
-          <div className="p-8 rounded-2xl bg-gradient-to-br from-primary to-secondary text-white shadow-lg hover:shadow-2xl hover:-translate-y-1 transition-all duration-300">
-            <div className="text-sm font-bold uppercase tracking-wider mb-4 opacity-90">
+          <div className="p-4 sm:p-6 md:p-8 rounded-xl md:rounded-2xl bg-gradient-to-br from-primary to-secondary text-white shadow-lg hover:shadow-2xl hover:-translate-y-1 transition-all duration-300">
+            <div className="text-[10px] sm:text-xs font-bold uppercase tracking-wider mb-3 md:mb-4 opacity-90">
               The Result
             </div>
-            <h3 className="text-3xl font-bold mb-4">
+            <h3 className="text-xl sm:text-2xl md:text-3xl font-bold mb-3 md:mb-4">
               Everything Connected
             </h3>
-            <p className="text-sm opacity-95 leading-relaxed mb-6">
+            <p className="text-xs sm:text-sm opacity-95 leading-relaxed mb-4 md:mb-6">
               One system. No manual work between tools. Your website, booking, messaging, and support all working together.
             </p>
-            <div className="space-y-3">
-              <div className="flex items-center gap-2 text-sm">
-                <div className="w-5 h-5 rounded-full bg-white/20 flex items-center justify-center">
-                  <span className="text-xs">✓</span>
+            <div className="space-y-2 md:space-y-3">
+              <div className="flex items-center gap-2 text-xs sm:text-sm">
+                <div className="w-4 h-4 sm:w-5 sm:h-5 rounded-full bg-white/20 flex items-center justify-center">
+                  <span className="text-[10px] sm:text-xs">✓</span>
                 </div>
                 <span>Live in 2-3 weeks</span>
               </div>
-              <div className="flex items-center gap-2 text-sm">
-                <div className="w-5 h-5 rounded-full bg-white/20 flex items-center justify-center">
-                  <span className="text-xs">✓</span>
+              <div className="flex items-center gap-2 text-xs sm:text-sm">
+                <div className="w-4 h-4 sm:w-5 sm:h-5 rounded-full bg-white/20 flex items-center justify-center">
+                  <span className="text-[10px] sm:text-xs">✓</span>
                 </div>
                 <span>No tech expertise needed</span>
               </div>
-              <div className="flex items-center gap-2 text-sm">
-                <div className="w-5 h-5 rounded-full bg-white/20 flex items-center justify-center">
-                  <span className="text-xs">✓</span>
+              <div className="flex items-center gap-2 text-xs sm:text-sm">
+                <div className="w-4 h-4 sm:w-5 sm:h-5 rounded-full bg-white/20 flex items-center justify-center">
+                  <span className="text-[10px] sm:text-xs">✓</span>
                 </div>
                 <span>Full training included</span>
               </div>
@@ -172,15 +172,15 @@ const About: React.FC = () => {
         </div>
 
         {/* CTA */}
-        <div className="text-center">
+        <div className="text-center px-4">
           <button
             onClick={() => document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' })}
-            className="inline-flex items-center gap-3 bg-primary text-white px-8 py-4 rounded-full text-lg font-semibold shadow-lg hover:bg-primary-dark hover:scale-105 transition-all duration-300"
+            className="inline-flex items-center gap-2 sm:gap-3 bg-primary text-white px-6 sm:px-8 py-3 sm:py-4 rounded-full text-base sm:text-lg font-semibold shadow-lg hover:bg-primary-dark hover:scale-105 transition-all duration-300"
           >
             <span>See Real Examples</span>
-            <ArrowRight className="w-5 h-5" />
+            <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />
           </button>
-          <p className="mt-4 text-sm text-text-secondary max-w-xl mx-auto">
+          <p className="mt-3 sm:mt-4 text-xs sm:text-sm text-text-secondary max-w-xl mx-auto">
             Need something custom?{' '}
             <button 
               className="underline text-primary font-medium hover:text-primary-dark transition-colors" 
