@@ -3,7 +3,7 @@ import { ArrowRight } from "lucide-react";
 import { GooeyText } from "@/components/ui/gooey-text-morphing";
 
 const Hero = () => {
-  const morphTexts = ["Capture Leads", "Book Appointments", "Follow Up", "Answer Questions"];
+  const morphTexts = ["Capture Leads", "Book Meetings", "Follow Up", "Close Sales"];
 
   return (
     <section
@@ -59,7 +59,7 @@ const Hero = () => {
         </div>
       </div>
 
-      {/* Scroll indicator (optional) */}
+      {/* Scroll indicator */}
       <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
         <div className="w-6 h-10 border-2 border-text-tertiary rounded-full flex justify-center">
           <div className="w-1 h-3 bg-text-tertiary rounded-full mt-2"></div>
