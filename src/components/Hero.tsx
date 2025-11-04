@@ -3,7 +3,7 @@ import { ArrowRight } from "lucide-react";
 import { GooeyText } from "@/components/ui/gooey-text-morphing";
 
 const Hero = () => {
-  const morphTexts = ["Busywork", "Data Entry", "Follow-Ups", "Admin Tasks"];
+  const morphTexts = ["Busywork", "Data Entry", "Follow-Ups"];
 
   return (
     <section
