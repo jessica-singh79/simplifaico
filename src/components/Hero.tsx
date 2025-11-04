@@ -30,9 +30,9 @@ const Hero = () => {
 
         {/* Subheadline */}
         <p className="max-w-3xl mx-auto text-text-secondary font-body text-lg md:text-xl leading-relaxed mb-10 mt-6">
-          Smart websites + AI automation that captures leads, books appointments, and follows up 24/7.
+          We build websites with automation baked in. Your site captures leads, books appointments, and follows up—all day, every day.
           <span className="block mt-2 font-semibold text-text-primary">
-            No extra staff needed. Just results.
+            No extra staff. No manual work. Just more customers.
           </span>
         </p>
 
@@ -40,12 +40,12 @@ const Hero = () => {
         <div className="flex flex-wrap justify-center items-center gap-4 mb-8 text-sm md:text-base text-text-secondary font-body">
           <span className="inline-flex items-center gap-1">
             <span className="text-yellow-400">★★★★★</span>
-            <span className="font-medium">Lead-Generation Systems</span>
+            <span className="font-medium">Built for small businesses</span>
           </span>
           <span className="hidden sm:inline mx-2">|</span>
-          <span className="hidden sm:inline">Works 24/7</span>
+          <span className="hidden sm:inline">Works around the clock</span>
           <span className="hidden sm:inline mx-2">|</span>
-          <span className="hidden sm:inline">2-3 Week Setup</span>
+          <span className="hidden sm:inline">Live in 2-3 weeks</span>
         </div>
 
         {/* Main CTA Button */}
