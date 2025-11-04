@@ -3,7 +3,7 @@ import { ArrowRight } from "lucide-react";
 import { GooeyText } from "@/components/ui/gooey-text-morphing";
 
 const Hero = () => {
-  const morphTexts = ["Capture Leads", "Book Meetings", "Follow Up", "Close Sales"];
+  const morphTexts = ["Capture Every Lead", "Book Every Meeting", "Follow Up Every Time", "Close More Sales"];
 
   return (
     <section
@@ -12,8 +12,7 @@ const Hero = () => {
     >
       <div className="relative z-10 max-w-5xl w-full mx-auto">
         {/* Headline */}
-        <h1 className="text-text-primary font-heading font-bold tracking-tight text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight mb-4">
-          Your Business Should{" "}
+        <h1 className="text-text-primary font-heading font-bold tracking-tight text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight mb-3">
           <GooeyText
             texts={morphTexts}
             morphTime={1}
@@ -21,16 +20,15 @@ const Hero = () => {
             className="inline-block"
             textClassName="text-text-primary font-heading font-bold"
           />
-          {" "}Automatically
         </h1>
 
         <h2 className="text-text-primary font-heading font-semibold text-2xl sm:text-3xl md:text-4xl lg:text-5xl mb-6">
-          We Build It in 2-3 Weeks.
+          Without Lifting a Finger.
         </h2>
 
         {/* Subheadline */}
         <p className="max-w-2xl mx-auto text-text-secondary font-body text-base sm:text-lg md:text-xl leading-relaxed mb-8">
-          Websites with booking, follow-ups, and chat built in. No extra staff needed.
+          We build websites that capture leads, book meetings, and follow up—all on their own. Live in 2-3 weeks.
         </p>
 
         {/* Trust Badges */}
