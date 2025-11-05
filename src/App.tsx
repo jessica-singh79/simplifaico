@@ -2,7 +2,6 @@ import React from 'react';
 import { NavBarDemo } from './components/NavBarDemo';
 import Hero from './components/Hero';
 import About from './components/About';
-import { WhySimplifAISection } from './components/WhySimplifAISection';
 import FAQTabs from './components/FAQTabs';
 import Footer from './components/Footer';
 
@@ -12,7 +11,6 @@ function App() {
       <NavBarDemo />
       <Hero />
       <About />
-      <WhySimplifAISection />
       <FAQTabs />
       <Footer />
     </div>
