@@ -8,22 +8,13 @@ import Footer from './components/Footer';
 
 function App() {
   return (
-    <div className="relative min-h-screen">
-      {/* Navbar */}
+    <div className="relative min-h-screen bg-background-primary">
       <NavBarDemo />
-      
-      {/* Hero Section */}
-      <section className="relative z-10">
-        <Hero />
-      </section>
-      
-      {/* Main Content */}
-      <div className="bg-gradient-to-br from-gray-50 via-blue-50 to-green-50">
-        <About />
-        <WhySimplifAISection />
-        <FAQTabs />
-        <Footer />
-      </div>
+      <Hero />
+      <About />
+      <WhySimplifAISection />
+      <FAQTabs />
+      <Footer />
     </div>
   );
 }
