@@ -20,7 +20,7 @@ const Hero = () => {
 
         {/* Body */}
         <p className="max-w-2xl mx-auto text-text-secondary font-body font-normal text-base md:text-lg leading-relaxed mb-10">
-          Booking, follow-ups, support—done automatically. Custom-built for your business in 2-3 weeks.
+          Booking, follow-ups, and support done automatically. Custom-built for your business in 2-3 weeks.
         </p>
 
         {/* CTA Button */}
