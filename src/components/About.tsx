@@ -39,7 +39,7 @@ const About: React.FC = () => {
           </h2>
           <p className="max-w-3xl mx-auto text-base sm:text-lg md:text-xl text-text-secondary">
             Booking appointments, following up with leads, answering the same questions over and over. 
-            We build systems that handle this automatically—all connected, all working together—so you don't have to.
+            We build systems that handle this automatically. All connected, all working together, so you don't have to.
           </p>
         </header>
 
@@ -66,7 +66,7 @@ const About: React.FC = () => {
           <FeatureCard
             icon={MessageCircle}
             title="24/7 Assistant"
-            description="Answers common questions, qualifies leads, and books appointments—even at 2am. Escalates to you when it needs a real person."
+            description="Answers common questions, qualifies leads, and books appointments, even at 2am. Escalates to you when it needs a real person."
           />
         </div>
 
