@@ -31,53 +31,53 @@ export function WhySimplifAISection() {
     {
       icon: Clock,
       title: "Fast Turnaround",
-      stat: 2.5,
+      stat: 3,
       statLabel: " weeks",
       description:
-        "Most agencies take months. We get your site live in 2-3 weeks with everything working—booking, follow-ups, the whole thing.",
+        "Most agencies take months. We get your system live in 2-3 weeks with everything working.",
       details: [
-        "Week 1: We map out your process and get started",
-        "Week 2: Build it out and test with real data",
-        "Week 3: Launch and show your team how to use it",
+        "Week 1: Map your process and plan the build",
+        "Week 2: Build and test with your real data",
+        "Week 3: Launch and train your team",
       ],
     },
     {
       icon: Shield,
       title: "Your Data Stays Yours",
-      stat: 100,
-      statLabel: "% private",
+      stat: 0,
+      statLabel: "",
       description:
-        "We don't train AI models on your customer data. Ever. What's yours stays yours—encrypted, compliant, and locked down.",
+        "We don't touch your customer data. No AI training, no selling, no snooping. What's yours stays yours.",
       details: [
-        "GDPR and SOC 2 compliant",
         "Encrypted storage and transmission",
-        "We never share or sell your data",
+        "We never access sensitive customer info",
+        "You control who sees what",
       ],
     },
     {
       icon: TrendingUp,
-      title: "You'll See The Numbers",
-      stat: 40,
-      statLabel: "% average savings",
+      title: "Built to Save You Time",
+      stat: 0,
+      statLabel: "",
       description:
-        "Every project includes a dashboard showing hours saved, costs cut, and leads captured. Most clients save 25 hours a week within the first month.",
+        "Stop spending hours on booking, follow-ups, and answering the same questions. Let the system handle the repetitive stuff while you do real work.",
       details: [
-        "Live dashboard you can check anytime",
-        "Monthly reports showing what's working",
-        "We keep tuning things to perform better",
+        "Dashboard shows what's working",
+        "Track leads, bookings, and responses in real time",
+        "We tune things based on what you tell us",
       ],
     },
     {
       icon: Zap,
       title: "Works With Your Tools",
-      stat: 50,
-      statLabel: "+ integrations",
+      stat: 0,
+      statLabel: "",
       description:
-        "We plug into what you're already using—Salesforce, QuickBooks, Google Calendar, Stripe, whatever. No ripping out your current setup.",
+        "We connect to what you're already using. Google Calendar, Stripe, your CRM, whatever. No ripping out your current setup and starting over.",
       details: [
-        "Pre-built connections to major platforms",
-        "Custom integrations if you need them",
-        "Plays nice with Zapier and Make",
+        "Connects to the major platforms you know",
+        "Custom integrations for your specific tools",
+        "Built to work reliably without babysitting",
       ],
     },
   ];
@@ -128,7 +128,7 @@ export function WhySimplifAISection() {
                   whileHover={{ y: -5, boxShadow: "0px 20px 40px rgba(0,0,0,0.1)" }}
                   className="bg-background-primary rounded-2xl p-6 md:p-8 shadow-lg border border-border mt-4 md:mt-0"
                 >
-                  {/* Stat */}
+                  {/* Stat - only show if greater than 0 */}
                   {reason.stat > 0 && (
                     <div className="text-primary font-bold text-lg md:text-xl mb-3">
                       <CountUp
@@ -154,30 +154,3 @@ export function WhySimplifAISection() {
                         <div className="mt-1 w-2 h-2 rounded-full bg-primary flex-shrink-0" />
                         <span className="text-sm text-text-secondary">{detail}</span>
                       </div>
-                    ))}
-                  </div>
-                </motion.div>
-              </div>
-            </motion.div>
-          );
-        })}
-
-        {/* Animated Timeline Line */}
-        {containerHeight > 0 && (
-          <div
-            style={{ height: containerHeight + "px" }}
-            className="absolute md:left-16 left-10 top-0 w-[3px] bg-gradient-to-b from-transparent via-border to-transparent [mask-image:linear-gradient(to_bottom,transparent_0%,black_10%,black_90%,transparent_100%)]"
-          >
-            <motion.div
-              style={{
-                height: heightTransform,
-                opacity: opacityTransform,
-              }}
-              className="absolute inset-x-0 top-0 w-full bg-gradient-to-b from-primary via-secondary to-transparent rounded-full"
-            />
-          </div>
-        )}
-      </div>
-    </section>
-  );
-}
