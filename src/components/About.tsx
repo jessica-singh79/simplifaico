@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowRight, Globe, Calendar, Mail, MessageCircle, TrendingUp } from 'lucide-react';
+import { ArrowRight, Globe, Calendar, Mail, MessageCircle } from 'lucide-react';
 
 const FeatureCard = ({ 
   icon: Icon, 
@@ -39,12 +39,12 @@ const About: React.FC = () => {
           </h2>
           <p className="max-w-3xl mx-auto text-base sm:text-lg md:text-xl text-text-secondary">
             Booking appointments, following up with leads, answering the same questions over and over. 
-            We build systems that handle this automatically so you don't have to.
+            We build systems that handle this automatically—all connected, all working together—so you don't have to.
           </p>
         </header>
 
-        {/* Feature Grid - 2 columns on mobile, 3 on desktop */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 mb-12 sm:mb-16">
+        {/* Feature Grid - 2 columns on mobile, 4 in a row on desktop */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-12 sm:mb-16">
           <FeatureCard
             icon={Globe}
             title="Websites That Get You Customers"
@@ -65,44 +65,9 @@ const About: React.FC = () => {
           
           <FeatureCard
             icon={MessageCircle}
-            title="Support That's Always On"
-            description="Answers common questions, books appointments, qualifies leads. Hands off to you when it needs a human touch."
+            title="24/7 Assistant"
+            description="Answers common questions, qualifies leads, and books appointments—even at 2am. Escalates to you when it needs a real person."
           />
-          
-          <FeatureCard
-            icon={TrendingUp}
-            title="Every Lead Captured"
-            description="Forms that work. Tracking that's automatic. Leads routed to you instantly. Nothing gets missed."
-          />
-          
-          <div className="p-4 sm:p-6 md:p-8 rounded-xl md:rounded-2xl bg-gradient-to-br from-primary to-secondary text-white shadow-lg hover:shadow-2xl hover:-translate-y-1 transition-all duration-300">
-            <h3 className="text-lg sm:text-xl md:text-2xl font-bold mb-3 md:mb-4">
-              All Working Together
-            </h3>
-            <p className="text-sm sm:text-base opacity-95 leading-relaxed mb-4 md:mb-6">
-              One system. Everything connected. Your website, booking, messages, and support all running automatically.
-            </p>
-            <div className="space-y-2 md:space-y-3">
-              <div className="flex items-center gap-2 text-sm sm:text-base">
-                <div className="w-5 h-5 rounded-full bg-white/20 flex items-center justify-center flex-shrink-0">
-                  <span className="text-xs">✓</span>
-                </div>
-                <span>Live in 2-3 weeks</span>
-              </div>
-              <div className="flex items-center gap-2 text-sm sm:text-base">
-                <div className="w-5 h-5 rounded-full bg-white/20 flex items-center justify-center flex-shrink-0">
-                  <span className="text-xs">✓</span>
-                </div>
-                <span>No tech skills needed</span>
-              </div>
-              <div className="flex items-center gap-2 text-sm sm:text-base">
-                <div className="w-5 h-5 rounded-full bg-white/20 flex items-center justify-center flex-shrink-0">
-                  <span className="text-xs">✓</span>
-                </div>
-                <span>Training included</span>
-              </div>
-            </div>
-          </div>
         </div>
 
         {/* CTA */}
