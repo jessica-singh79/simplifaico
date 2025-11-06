@@ -118,9 +118,7 @@ const HowItWorks = () => {
                     Go Live
                   </h3>
                   <p className="text-sm text-text-secondary">
-                    Your system starts working. Appointments book themselves. Follow-ups send on time. Support runs around the clock.
-
-You focus on your actual business. We handle anything technical.
+                    Your system starts working. Appointments book themselves. Follow-ups send on time. Support runs around the clock. You focus on your actual business. We handle anything technical.
                   </p>
                 </div>
               </div>
