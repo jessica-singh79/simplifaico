@@ -181,7 +181,7 @@ const Footer = () => {
               <span className="text-2xl font-bold text-text-primary">SimplifAI</span>
             </div>
             <p className="text-text-secondary mb-6 text-sm sm:text-base">
-              Booking, follow-ups, and support that run automatically. Built for small businesses.
+              Booking, follow-ups, and support that run automatically. 
             </p>
           </div>
 
