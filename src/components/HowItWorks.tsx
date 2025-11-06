@@ -82,7 +82,7 @@ const HowItWorks = () => {
                     Free Call
                   </h3>
                   <p className="text-sm text-text-secondary">
-                    15 minutes. We figure out what's eating your time and if we can help.
+                    15 minutes. We'll map out what's taking your time and what we can automate.
                   </p>
                 </div>
               </div>
@@ -97,7 +97,7 @@ const HowItWorks = () => {
                 </div>
                 <div className="flex-1 pt-1">
                   <h3 className="text-lg font-bold text-text-primary mb-2">
-                    We Build It
+                    We Build Your System
                   </h3>
                   <p className="text-sm text-text-secondary">
                     We build it based on what you told us. You review it. When you're happy, we launch.
@@ -115,10 +115,12 @@ const HowItWorks = () => {
                 </div>
                 <div className="flex-1 pt-1">
                   <h3 className="text-lg font-bold text-text-primary mb-2">
-                    You Launch
+                    Go Live
                   </h3>
                   <p className="text-sm text-text-secondary">
-                    You launch. Everything runs itself. We're around if something breaks or you need changes.
+                    Your system starts working. Appointments book themselves. Follow-ups send on time. Support runs around the clock.
+
+You focus on your actual business. We handle anything technical.
                   </p>
                 </div>
               </div>
