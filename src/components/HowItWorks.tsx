@@ -3,15 +3,15 @@ import { Phone, ArrowRight } from 'lucide-react';
 
 const HowItWorks = () => {
   return (
-    <section className="py-16 sm:py-20 md:py-24 bg-background-primary">
+    <section id="how-it-works" className="py-16 sm:py-20 md:py-24 bg-background-primary">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         {/* Header */}
         <div className="text-center mb-12 md:mb-16">
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-text-primary mb-4">
-            How It Works
+            How This Works
           </h2>
           <p className="text-base sm:text-lg md:text-xl text-text-secondary max-w-2xl mx-auto">
-            Simple process. No confusion. You're up and running in weeks, not months.
+            Three steps. Fast. No confusion.
           </p>
         </div>
 
@@ -22,16 +22,13 @@ const HowItWorks = () => {
             {/* Step 1 */}
             <div className="flex-1 text-center">
               <div className="w-16 h-16 mx-auto rounded-full bg-background-secondary border-2 border-border flex items-center justify-center mb-4">
-                <span className="text-2xl font-bold text-text-primary">1</span>
+                <Phone className="w-7 h-7 text-text-tertiary" />
               </div>
               <h3 className="text-xl font-bold text-text-primary mb-2">
-                Free Consultation
+                Free Call
               </h3>
-              <p className="text-sm text-text-secondary mb-2">
-                15-minute call. We talk about what's eating up your time and how automation can fix it.
-              </p>
-              <p className="text-xs text-text-tertiary font-medium">
-                15 minutes
+              <p className="text-sm text-text-secondary">
+                15 minutes. We figure out what's eating your time and if we can help.
               </p>
             </div>
 
@@ -48,11 +45,8 @@ const HowItWorks = () => {
               <h3 className="text-xl font-bold text-text-primary mb-2">
                 We Build It
               </h3>
-              <p className="text-sm text-text-secondary mb-2">
-                We build your custom website and automation systems. You approve it before it goes live.
-              </p>
-              <p className="text-xs text-text-tertiary font-medium">
-                2-3 weeks
+              <p className="text-sm text-text-secondary">
+                We build it based on what you told us. You review it. When you're happy, we launch.
               </p>
             </div>
 
@@ -67,13 +61,10 @@ const HowItWorks = () => {
                 <span className="text-2xl font-bold text-text-primary">3</span>
               </div>
               <h3 className="text-xl font-bold text-text-primary mb-2">
-                Launch & Support
+                You Launch
               </h3>
-              <p className="text-sm text-text-secondary mb-2">
-                You go live. Systems run 24/7. We handle any issues and make adjustments as you grow.
-              </p>
-              <p className="text-xs text-text-tertiary font-medium">
-                Ongoing
+              <p className="text-sm text-text-secondary">
+                You launch. Everything runs itself. We're around if something breaks or you need changes.
               </p>
             </div>
           </div>
@@ -84,21 +75,17 @@ const HowItWorks = () => {
             <div className="relative">
               <div className="flex items-start gap-4">
                 <div className="w-12 h-12 rounded-full bg-background-secondary border-2 border-border flex items-center justify-center flex-shrink-0">
-                  <span className="text-xl font-bold text-text-primary">1</span>
+                  <Phone className="w-6 h-6 text-text-tertiary" />
                 </div>
                 <div className="flex-1 pt-1">
                   <h3 className="text-lg font-bold text-text-primary mb-2">
-                    Free Consultation
+                    Free Call
                   </h3>
-                  <p className="text-sm text-text-secondary mb-2">
-                    15-minute call. We talk about what's eating up your time and how automation can fix it.
-                  </p>
-                  <p className="text-xs text-text-tertiary font-medium">
-                    15 minutes
+                  <p className="text-sm text-text-secondary">
+                    15 minutes. We figure out what's eating your time and if we can help.
                   </p>
                 </div>
               </div>
-              {/* Connecting line */}
               <div className="absolute left-6 top-14 bottom-0 w-0.5 bg-border transform -translate-x-1/2"></div>
             </div>
 
@@ -112,15 +99,11 @@ const HowItWorks = () => {
                   <h3 className="text-lg font-bold text-text-primary mb-2">
                     We Build It
                   </h3>
-                  <p className="text-sm text-text-secondary mb-2">
-                    We build your custom website and automation systems. You approve it before it goes live.
-                  </p>
-                  <p className="text-xs text-text-tertiary font-medium">
-                    2-3 weeks
+                  <p className="text-sm text-text-secondary">
+                    We build it based on what you told us. You review it. When you're happy, we launch.
                   </p>
                 </div>
               </div>
-              {/* Connecting line */}
               <div className="absolute left-6 top-14 bottom-0 w-0.5 bg-border transform -translate-x-1/2"></div>
             </div>
 
@@ -132,13 +115,10 @@ const HowItWorks = () => {
                 </div>
                 <div className="flex-1 pt-1">
                   <h3 className="text-lg font-bold text-text-primary mb-2">
-                    Launch & Support
+                    You Launch
                   </h3>
-                  <p className="text-sm text-text-secondary mb-2">
-                    You go live. Systems run 24/7. We handle any issues and make adjustments as you grow.
-                  </p>
-                  <p className="text-xs text-text-tertiary font-medium">
-                    Ongoing
+                  <p className="text-sm text-text-secondary">
+                    You launch. Everything runs itself. We're around if something breaks or you need changes.
                   </p>
                 </div>
               </div>
@@ -148,15 +128,12 @@ const HowItWorks = () => {
 
         {/* CTA */}
         <div className="text-center">
-          <button
-            onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
-            className="inline-flex items-center gap-3 bg-primary text-white px-8 py-4 rounded-full text-lg font-semibold shadow-lg hover:bg-primary-dark hover:scale-105 transition-all duration-300"
-          >
-            <span>Start With a Free Call</span>
+          <button onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })} className="inline-flex items-center gap-3 bg-primary text-white px-8 py-4 rounded-full text-lg font-semibold shadow-lg hover:bg-primary-dark hover:scale-105 transition-all duration-300">
+            <span>Book Your Call</span>
             <Phone className="w-5 h-5" />
           </button>
           <p className="mt-4 text-sm text-text-secondary">
-            No commitment. Just a conversation about what you need.
+            No pressure. Just 15 minutes to see if we're a fit.
           </p>
         </div>
       </div>
