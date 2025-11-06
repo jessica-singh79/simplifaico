@@ -3,7 +3,10 @@ import { Phone, ArrowRight } from 'lucide-react';
 
 const HowItWorks = () => {
   return (
-    <section id="how-it-works" className="py-16 sm:py-20 md:py-24 bg-background-primary">
+    <section
+      id="how-it-works"
+      className="py-16 sm:py-20 md:py-24 bg-background-primary"
+    >
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         {/* Header */}
         <div className="text-center mb-12 md:mb-16">
@@ -28,7 +31,8 @@ const HowItWorks = () => {
                 Free Call
               </h3>
               <p className="text-sm text-text-secondary">
-                15 minutes. We figure out what's eating your time and if we can help.
+                15 minutes to see if we're a fit. We'll map out what's taking
+                your time and what we can automate.
               </p>
             </div>
 
@@ -43,10 +47,11 @@ const HowItWorks = () => {
                 <span className="text-2xl font-bold text-text-primary">2</span>
               </div>
               <h3 className="text-xl font-bold text-text-primary mb-2">
-                We Build It
+                We Build Your System
               </h3>
               <p className="text-sm text-text-secondary">
-                We build it based on what you told us. You review it. When you're happy, we launch.
+                We build it based on what you told us. You review it. When you're
+                happy, we launch.
               </p>
             </div>
 
@@ -61,10 +66,12 @@ const HowItWorks = () => {
                 <span className="text-2xl font-bold text-text-primary">3</span>
               </div>
               <h3 className="text-xl font-bold text-text-primary mb-2">
-                You Launch
+                Go Live
               </h3>
               <p className="text-sm text-text-secondary">
-                You launch. Everything runs itself. We're around if something breaks or you need changes.
+                Your system starts working. Appointments book themselves.
+                Follow-ups send on time. Support runs around the clock. You focus
+                on your actual business. We handle anything technical.
               </p>
             </div>
           </div>
@@ -82,7 +89,8 @@ const HowItWorks = () => {
                     Free Call
                   </h3>
                   <p className="text-sm text-text-secondary">
-                    15 minutes. We'll map out what's taking your time and what we can automate.
+                    15 minutes to see if we're a fit. We'll map out what's taking
+                    your time and what we can automate.
                   </p>
                 </div>
               </div>
@@ -100,7 +108,8 @@ const HowItWorks = () => {
                     We Build Your System
                   </h3>
                   <p className="text-sm text-text-secondary">
-                    We build it based on what you told us. You review it. When you're happy, we launch.
+                    We build it based on what you told us. You review it. When
+                    you're happy, we launch.
                   </p>
                 </div>
               </div>
@@ -118,7 +127,9 @@ const HowItWorks = () => {
                     Go Live
                   </h3>
                   <p className="text-sm text-text-secondary">
-                    Your system starts working. Appointments book themselves. Follow-ups send on time. Support runs around the clock. You focus on your actual business. We handle anything technical.
+                    Your system starts working. Appointments book themselves.
+                    Follow-ups send on time. Support runs around the clock. You
+                    focus on your actual business. We handle anything technical.
                   </p>
                 </div>
               </div>
@@ -128,7 +139,14 @@ const HowItWorks = () => {
 
         {/* CTA */}
         <div className="text-center">
-          <button onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })} className="inline-flex items-center gap-3 bg-primary text-white px-8 py-4 rounded-full text-lg font-semibold shadow-lg hover:bg-primary-dark hover:scale-105 transition-all duration-300">
+          <button
+            onClick={() =>
+              document
+                .getElementById('contact')
+                ?.scrollIntoView({ behavior: 'smooth' })
+            }
+            className="inline-flex items-center gap-3 bg-primary text-white px-8 py-4 rounded-full text-lg font-semibold shadow-lg hover:bg-primary-dark hover:scale-105 transition-all duration-300"
+          >
             <span>Book Your Call</span>
             <Phone className="w-5 h-5" />
           </button>
