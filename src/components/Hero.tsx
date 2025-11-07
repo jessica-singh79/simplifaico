@@ -1,6 +1,6 @@
 import React from "react";
 import { ArrowRight, ChevronDown } from "lucide-react";
-import { Particles } from "@/components/ui/particles";
+import { DottedSurface } from "@/components/ui/dotted-surface";
 
 const Hero = () => {
   return (
@@ -8,14 +8,8 @@ const Hero = () => {
       id="hero"
       className="relative min-h-screen flex flex-col items-center justify-center px-6 md:px-8 pb-20 overflow-hidden text-center bg-background-primary"
     >
-      {/* Particles Background */}
-      <Particles
-        className="absolute inset-0"
-        quantity={80}
-        ease={80}
-        color="#4F46E5"
-        refresh={false}
-      />
+      {/* Dotted Surface Background */}
+      <DottedSurface />
 
       <div className="relative z-10 max-w-4xl w-full mx-auto">
         {/* Headline */}
