@@ -1,10 +1,18 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { ArrowRight, ChevronDown } from "lucide-react";
 import { Particles } from "@/components/ui/particles";
 import Lottie from "lottie-react";
-import workflowAnimation from "/animations/workflow-cards.json";
 
 const Hero = () => {
+  const [animationData, setAnimationData] = useState(null);
+
+  useEffect(() => {
+    fetch('https://gist.githubusercontent.com/jessica-singh79/7b538f65bff0403da58ebc86dc63a2c2/raw/9c59ab2a6fdb3a84d04a5ae2ae8e62f74e17a97b/gistfile1.txt')
+      .then(response => response.json())
+      .then(data => setAnimationData(data))
+      .catch(error => console.error('Error loading animation:', error));
+  }, []);
+
   return (
     <section
       id="hero"
@@ -47,9 +55,11 @@ const Hero = () => {
 
       {/* Scroll Indicator with Workflow Animation */}
       <div className="absolute bottom-16 left-1/2 -translate-x-1/2 text-center z-10">
-        <div className="w-20 h-20 mx-auto mb-2 opacity-70">
-          <Lottie animationData={workflowAnimation} loop={true} />
-        </div>
+        {animationData && (
+          <div className="w-20 h-20 mx-auto mb-2 opacity-70">
+            <Lottie animationData={animationData} loop={true} />
+          </div>
+        )}
         <p className="text-xs text-text-tertiary font-medium">See it working</p>
         <ChevronDown className="w-6 h-6 text-text-tertiary animate-bounce mx-auto mt-1" />
       </div>
