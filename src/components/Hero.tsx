@@ -42,4 +42,18 @@ const Hero = () => {
             className="inline-flex items-center justify-center gap-2 bg-primary text-white px-8 py-4 rounded-full text-base font-semibold shadow-xl hover:bg-primary-dark hover:scale-105 transition-all duration-300"
           >
             <span>Get Free Consultation</span>
-            <ArrowRight className=
+            <ArrowRight className="w-5 h-5" />
+          </button>
+        </div>
+      </div>
+
+      {/* Scroll Indicator */}
+      <div className="absolute bottom-16 left-1/2 -translate-x-1/2 text-center z-10">
+        <p className="text-xs text-text-tertiary mb-2 font-medium">See it working</p>
+        <ChevronDown className="w-8 h-8 text-text-tertiary animate-bounce mx-auto" />
+      </div>
+    </section>
+  );
+};
+
+export default Hero;
