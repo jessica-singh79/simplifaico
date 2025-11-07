@@ -1,6 +1,8 @@
 import React from "react";
 import { ArrowRight, ChevronDown } from "lucide-react";
 import { Particles } from "@/components/ui/particles";
+import Lottie from "lottie-react";
+import workflowAnimation from "/animations/workflow-cards.json";
 
 const Hero = () => {
   return (
@@ -43,9 +45,13 @@ const Hero = () => {
         </div>
       </div>
 
+      {/* Scroll Indicator with Workflow Animation */}
       <div className="absolute bottom-16 left-1/2 -translate-x-1/2 text-center z-10">
-        <p className="text-xs text-text-tertiary mb-2 font-medium">See it working</p>
-        <ChevronDown className="w-8 h-8 text-text-tertiary animate-bounce mx-auto" />
+        <div className="w-20 h-20 mx-auto mb-2 opacity-70">
+          <Lottie animationData={workflowAnimation} loop={true} />
+        </div>
+        <p className="text-xs text-text-tertiary font-medium">See it working</p>
+        <ChevronDown className="w-6 h-6 text-text-tertiary animate-bounce mx-auto mt-1" />
       </div>
     </section>
   );
