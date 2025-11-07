@@ -1,5 +1,6 @@
 import React from "react";
 import { ArrowRight, ChevronDown } from "lucide-react";
+import { Particles } from "@/components/ui/particles";
 
 const Hero = () => {
   return (
@@ -7,6 +8,15 @@ const Hero = () => {
       id="hero"
       className="relative min-h-screen flex flex-col items-center justify-center px-6 md:px-8 pb-20 overflow-hidden text-center bg-background-primary"
     >
+      {/* Particles Background */}
+      <Particles
+        className="absolute inset-0"
+        quantity={80}
+        ease={80}
+        color="#4F46E5"
+        refresh={false}
+      />
+
       <div className="relative z-10 max-w-4xl w-full mx-auto">
         {/* Headline */}
         <h1 className="text-text-primary font-body font-bold tracking-tight text-3xl md:text-5xl leading-tight mb-4">
@@ -20,7 +30,7 @@ const Hero = () => {
 
         {/* Body */}
         <p className="max-w-2xl mx-auto text-text-secondary font-body font-normal text-base md:text-lg leading-relaxed mb-10">
-          Booking, follow-ups, and support done automatically. Custom-built for your business in 2-3 weeks.
+          Booking, follow-ups, and support done automatically. Custom-built for your business.
         </p>
 
         {/* CTA Button */}
@@ -38,7 +48,7 @@ const Hero = () => {
       </div>
 
       {/* Down Arrow */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce z-10">
         <ChevronDown className="w-8 h-8 text-text-tertiary" />
       </div>
     </section>
