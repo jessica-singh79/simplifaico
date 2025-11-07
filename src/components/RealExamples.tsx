@@ -28,30 +28,30 @@ const RealExamples = () => {
   ];
 
   return (
-    <section className="relative py-12 sm:py-16 md:py-20 bg-background-secondary">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 relative">
+    <section className="relative py-10 sm:py-14 md:py-16 bg-background-secondary">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 relative">
 
         {/* Subtle Glow Behind Box */}
         <div className="absolute inset-0 flex justify-center -z-10">
-          <div className="w-3/4 h-[60%] bg-primary/20 blur-3xl opacity-20 rounded-full"></div>
+          <div className="w-2/3 h-[50%] bg-primary/20 blur-3xl opacity-20 rounded-full"></div>
         </div>
 
         {/* Header */}
-        <div className="text-center mb-8 md:mb-10">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-text-primary mb-3">
+        <div className="text-center mb-6 md:mb-8">
+          <h2 className="text-3xl sm:text-4xl font-bold text-text-primary mb-2">
             Real Examples
           </h2>
-          <p className="text-base sm:text-lg md:text-xl text-text-secondary max-w-2xl mx-auto">
+          <p className="text-base sm:text-lg text-text-secondary max-w-xl mx-auto">
             Here's what we've built and how it works
           </p>
         </div>
 
         {/* Content Box */}
-        <div className="bg-background-primary rounded-2xl p-5 md:p-8 border border-border-light shadow-xl relative mb-6 transition-all duration-500">
+        <div className="bg-background-primary rounded-2xl p-5 md:p-6 border border-border-light shadow-xl max-w-4xl mx-auto relative mb-6 transition-all duration-500">
 
           {/* Title & Description */}
-          <div className="text-center mb-6 md:mb-8">
-            <h3 className="text-2xl md:text-3xl font-bold text-text-primary mb-2">
+          <div className="text-center mb-5 md:mb-6">
+            <h3 className="text-xl md:text-2xl font-bold text-text-primary mb-2">
               {examples[activeExample].title}
             </h3>
             <p className="text-sm md:text-base text-text-secondary max-w-2xl mx-auto">
@@ -62,17 +62,17 @@ const RealExamples = () => {
           {/* Content Area */}
           <div className="transition-opacity duration-500">
 
-            {/* 24/7 Support (Chat Assistant) */}
+            {/* 24/7 Support */}
             {activeExample === 0 && (
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-5 max-w-4xl mx-auto">
-                <div className="rounded-xl overflow-hidden border-2 border-primary/20 shadow-md hover:shadow-lg hover:border-primary/40 transition-all duration-300">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 md:gap-4 max-w-3xl mx-auto">
+                <div className="rounded-xl overflow-hidden border border-primary/20 shadow-md hover:shadow-lg hover:border-primary/40 transition-all duration-300">
                   <img
                     src="https://raw.githubusercontent.com/jessica-singh79/simplifaico/main/agent1.jpeg"
                     alt="Chat support response"
                     className="w-full h-auto"
                   />
                 </div>
-                <div className="rounded-xl overflow-hidden border-2 border-primary/20 shadow-md hover:shadow-lg hover:border-primary/40 transition-all duration-300">
+                <div className="rounded-xl overflow-hidden border border-primary/20 shadow-md hover:shadow-lg hover:border-primary/40 transition-all duration-300">
                   <img
                     src="https://raw.githubusercontent.com/jessica-singh79/simplifaico/main/agent2.jpeg"
                     alt="Booking automation flow"
@@ -86,11 +86,11 @@ const RealExamples = () => {
             {activeExample === 1 && (
               <div>
                 {/* Desktop layout */}
-                <div className="hidden md:flex items-center justify-center gap-4 max-w-5xl mx-auto">
+                <div className="hidden md:flex items-center justify-center gap-3 max-w-4xl mx-auto">
 
                   {/* Step 1: Tally Form */}
-                  <div className="flex-1 max-w-xs">
-                    <div className="rounded-xl overflow-hidden border-2 border-primary/20 shadow-md">
+                  <div className="flex-1 max-w-[200px]">
+                    <div className="rounded-xl overflow-hidden border border-primary/20 shadow-md">
                       <video
                         autoPlay
                         loop
@@ -105,46 +105,46 @@ const RealExamples = () => {
                         />
                       </video>
                     </div>
-                    <p className="text-xs md:text-sm text-text-tertiary text-center mt-2 font-medium">
+                    <p className="text-xs text-text-tertiary text-center mt-1 font-medium">
                       Form submitted
                     </p>
                   </div>
 
-                  <ArrowRight className="w-8 h-8 text-primary animate-pulse" />
+                  <ArrowRight className="w-6 h-6 text-primary animate-pulse" />
 
                   {/* Step 2: Gmail */}
-                  <div className="flex-1 max-w-xs">
-                    <div className="rounded-xl overflow-hidden border-2 border-primary/20 shadow-md">
+                  <div className="flex-1 max-w-[200px]">
+                    <div className="rounded-xl overflow-hidden border border-primary/20 shadow-md">
                       <img
                         src="https://raw.githubusercontent.com/jessica-singh79/simplifaico/main/GMAIL.jpg"
                         alt="Email notification"
                         className="w-full h-auto"
                       />
                     </div>
-                    <p className="text-xs md:text-sm text-text-tertiary text-center mt-2 font-medium">
+                    <p className="text-xs text-text-tertiary text-center mt-1 font-medium">
                       Email sent
                     </p>
                   </div>
 
-                  <ArrowRight className="w-8 h-8 text-primary animate-pulse" style={{ animationDelay: '0.5s' }} />
+                  <ArrowRight className="w-6 h-6 text-primary animate-pulse" style={{ animationDelay: '0.5s' }} />
 
                   {/* Step 3: Invoice */}
-                  <div className="flex-1 max-w-xs">
-                    <div className="rounded-xl overflow-hidden border-2 border-primary/20 shadow-md">
+                  <div className="flex-1 max-w-[200px]">
+                    <div className="rounded-xl overflow-hidden border border-primary/20 shadow-md">
                       <img
                         src="https://raw.githubusercontent.com/jessica-singh79/simplifaico/main/invoice.jpeg"
                         alt="Generated invoice"
                         className="w-full h-auto"
                       />
                     </div>
-                    <p className="text-xs md:text-sm text-text-tertiary text-center mt-2 font-medium">
+                    <p className="text-xs text-text-tertiary text-center mt-1 font-medium">
                       Invoice generated
                     </p>
                   </div>
                 </div>
 
                 {/* Mobile layout */}
-                <div className="md:hidden space-y-3 max-w-sm mx-auto">
+                <div className="md:hidden space-y-3 max-w-xs mx-auto">
                   <div className="rounded-lg overflow-hidden border border-primary/20 shadow-md">
                     <video autoPlay loop muted playsInline className="w-full h-auto">
                       <source
@@ -179,13 +179,13 @@ const RealExamples = () => {
         </div>
 
         {/* Dots Navigation */}
-        <div className="flex items-center justify-center gap-6">
+        <div className="flex items-center justify-center gap-5">
           <button
             onClick={() => setActiveExample(0)}
             className="flex flex-col items-center gap-2 group"
           >
             <div
-              className={`w-3 h-3 rounded-full transition-all duration-300 ${
+              className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${
                 activeExample === 0
                   ? 'bg-primary scale-125'
                   : 'bg-border hover:bg-primary/50'
@@ -207,7 +207,7 @@ const RealExamples = () => {
             className="flex flex-col items-center gap-2 group"
           >
             <div
-              className={`w-3 h-3 rounded-full transition-all duration-300 ${
+              className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${
                 activeExample === 1
                   ? 'bg-primary scale-125'
                   : 'bg-border hover:bg-primary/50'
