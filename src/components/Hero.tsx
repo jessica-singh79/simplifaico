@@ -17,6 +17,28 @@ const Hero = () => {
         refresh={false}
       />
 
+      {/* Floating Preview - Desktop Only */}
+      <div className="hidden xl:block absolute right-8 top-1/2 -translate-y-1/2 z-20 pointer-events-none">
+        <div className="relative">
+          {/* Glow effect behind preview */}
+          <div className="absolute inset-0 bg-primary/10 blur-3xl rounded-3xl"></div>
+          
+          {/* Chat preview */}
+          <div className="relative w-72 rounded-2xl border-2 border-primary/30 shadow-2xl overflow-hidden transform rotate-3 hover:rotate-0 transition-transform duration-500">
+            <img 
+              src="https://raw.githubusercontent.com/jessica-singh79/simplifaico/main/agent1.jpeg"
+              alt="SimplifAI Assistant Preview"
+              className="w-full h-auto"
+            />
+          </div>
+          
+          {/* Optional caption */}
+          <div className="absolute -bottom-6 left-1/2 -translate-x-1/2 bg-primary text-white px-4 py-2 rounded-full text-xs font-semibold shadow-lg whitespace-nowrap">
+            24/7 Assistant →
+          </div>
+        </div>
+      </div>
+
       <div className="relative z-10 max-w-4xl w-full mx-auto">
         {/* Headline */}
         <h1 className="text-text-primary font-body font-bold tracking-tight text-3xl md:text-5xl leading-tight mb-4">
