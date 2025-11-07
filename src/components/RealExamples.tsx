@@ -65,7 +65,7 @@ const RealExamples = () => {
             {/* 24/7 Support (Chatbot) */}
             {activeExample === 0 && (
               <div className="flex justify-center">
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 md:gap-4 max-w-3xl">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 md:gap-4 max-w-4xl">
                   {[1, 2].map((num) => (
                     <div
                       key={num}
@@ -74,7 +74,7 @@ const RealExamples = () => {
                       <img
                         src={`https://raw.githubusercontent.com/jessica-singh79/simplifaico/main/agent${num}.jpeg`}
                         alt={`Chat Support example ${num}`}
-                        className="object-cover w-full h-full"
+                        className="object-contain w-full h-full"
                       />
                     </div>
                   ))}
@@ -89,14 +89,14 @@ const RealExamples = () => {
                 <div className="hidden md:flex items-center justify-center gap-3 max-w-4xl mx-auto">
 
                   {/* Step 1: Tally Form */}
-                  <div className="flex-1 max-w-[200px]">
+                  <div className="flex-1 max-w-[230px]">
                     <div className="rounded-xl overflow-hidden border border-primary/20 shadow-md aspect-[4/3]">
                       <video
                         autoPlay
                         loop
                         muted
                         playsInline
-                        className="w-full h-full object-cover"
+                        className="w-full h-full object-contain"
                         style={{ filter: 'contrast(1.05) saturate(1.1)' }}
                       >
                         <source
@@ -113,12 +113,12 @@ const RealExamples = () => {
                   <ArrowRight className="w-6 h-6 text-primary animate-pulse" />
 
                   {/* Step 2: Gmail */}
-                  <div className="flex-1 max-w-[200px]">
+                  <div className="flex-1 max-w-[230px]">
                     <div className="rounded-xl overflow-hidden border border-primary/20 shadow-md aspect-[4/3]">
                       <img
                         src="https://raw.githubusercontent.com/jessica-singh79/simplifaico/main/GMAIL.jpg"
                         alt="Email notification"
-                        className="object-cover w-full h-full"
+                        className="object-contain w-full h-full"
                       />
                     </div>
                     <p className="text-xs text-text-tertiary text-center mt-1 font-medium">
@@ -129,12 +129,12 @@ const RealExamples = () => {
                   <ArrowRight className="w-6 h-6 text-primary animate-pulse" style={{ animationDelay: '0.5s' }} />
 
                   {/* Step 3: Invoice */}
-                  <div className="flex-1 max-w-[200px]">
+                  <div className="flex-1 max-w-[230px]">
                     <div className="rounded-xl overflow-hidden border border-primary/20 shadow-md aspect-[4/3]">
                       <img
                         src="https://raw.githubusercontent.com/jessica-singh79/simplifaico/main/invoice.jpeg"
                         alt="Generated invoice"
-                        className="object-cover w-full h-full"
+                        className="object-contain w-full h-full"
                       />
                     </div>
                     <p className="text-xs text-text-tertiary text-center mt-1 font-medium">
@@ -146,7 +146,7 @@ const RealExamples = () => {
                 {/* Mobile layout */}
                 <div className="md:hidden space-y-3 max-w-xs mx-auto">
                   <div className="rounded-lg overflow-hidden border border-primary/20 shadow-md aspect-[4/3]">
-                    <video autoPlay loop muted playsInline className="w-full h-full object-cover">
+                    <video autoPlay loop muted playsInline className="w-full h-full object-contain">
                       <source
                         src="https://raw.githubusercontent.com/jessica-singh79/simplifaico/main/tallyform.MP4"
                         type="video/mp4"
@@ -165,7 +165,7 @@ const RealExamples = () => {
                         <img
                           src={`https://raw.githubusercontent.com/jessica-singh79/simplifaico/main/${img}`}
                           alt={img.includes('GMAIL') ? 'Email' : 'Invoice'}
-                          className="object-cover w-full h-full"
+                          className="object-contain w-full h-full"
                         />
                       </div>
                     ))}
