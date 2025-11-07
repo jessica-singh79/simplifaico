@@ -54,14 +54,14 @@ const Hero = () => {
       </div>
 
       {/* Scroll Indicator with Workflow Animation */}
-      <div className="absolute bottom-16 left-1/2 -translate-x-1/2 text-center z-10">
+      <div className="absolute bottom-12 left-1/2 -translate-x-1/2 text-center z-10">
         {animationData && (
-          <div className="w-20 h-20 mx-auto mb-2 opacity-70">
+          <div className="w-32 h-32 md:w-40 md:h-40 mx-auto mb-3">
             <Lottie animationData={animationData} loop={true} />
           </div>
         )}
-        <p className="text-xs text-text-tertiary font-medium">See it working</p>
-        <ChevronDown className="w-6 h-6 text-text-tertiary animate-bounce mx-auto mt-1" />
+        <p className="text-sm text-text-tertiary font-medium mb-1">See it working</p>
+        <ChevronDown className="w-7 h-7 text-text-tertiary animate-bounce mx-auto" />
       </div>
     </section>
   );
