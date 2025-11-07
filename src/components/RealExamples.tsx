@@ -62,22 +62,22 @@ const RealExamples = () => {
           {/* Content Area */}
           <div className="transition-opacity duration-500">
 
-            {/* 24/7 Support */}
+            {/* 24/7 Support (Chatbot) */}
             {activeExample === 0 && (
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 md:gap-4 max-w-3xl mx-auto">
-                <div className="rounded-xl overflow-hidden border border-primary/20 shadow-md hover:shadow-lg hover:border-primary/40 transition-all duration-300">
-                  <img
-                    src="https://raw.githubusercontent.com/jessica-singh79/simplifaico/main/agent1.jpeg"
-                    alt="Chat support response"
-                    className="w-full h-auto"
-                  />
-                </div>
-                <div className="rounded-xl overflow-hidden border border-primary/20 shadow-md hover:shadow-lg hover:border-primary/40 transition-all duration-300">
-                  <img
-                    src="https://raw.githubusercontent.com/jessica-singh79/simplifaico/main/agent2.jpeg"
-                    alt="Booking automation flow"
-                    className="w-full h-auto"
-                  />
+              <div className="flex justify-center">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 md:gap-4 max-w-3xl">
+                  {[1, 2].map((num) => (
+                    <div
+                      key={num}
+                      className="rounded-xl overflow-hidden border border-primary/20 shadow-md hover:shadow-lg hover:border-primary/40 transition-all duration-300 aspect-[4/3] flex items-center justify-center bg-background-secondary/30"
+                    >
+                      <img
+                        src={`https://raw.githubusercontent.com/jessica-singh79/simplifaico/main/agent${num}.jpeg`}
+                        alt={`Chat Support example ${num}`}
+                        className="object-cover w-full h-full"
+                      />
+                    </div>
+                  ))}
                 </div>
               </div>
             )}
@@ -90,13 +90,13 @@ const RealExamples = () => {
 
                   {/* Step 1: Tally Form */}
                   <div className="flex-1 max-w-[200px]">
-                    <div className="rounded-xl overflow-hidden border border-primary/20 shadow-md">
+                    <div className="rounded-xl overflow-hidden border border-primary/20 shadow-md aspect-[4/3]">
                       <video
                         autoPlay
                         loop
                         muted
                         playsInline
-                        className="w-full h-auto"
+                        className="w-full h-full object-cover"
                         style={{ filter: 'contrast(1.05) saturate(1.1)' }}
                       >
                         <source
@@ -114,11 +114,11 @@ const RealExamples = () => {
 
                   {/* Step 2: Gmail */}
                   <div className="flex-1 max-w-[200px]">
-                    <div className="rounded-xl overflow-hidden border border-primary/20 shadow-md">
+                    <div className="rounded-xl overflow-hidden border border-primary/20 shadow-md aspect-[4/3]">
                       <img
                         src="https://raw.githubusercontent.com/jessica-singh79/simplifaico/main/GMAIL.jpg"
                         alt="Email notification"
-                        className="w-full h-auto"
+                        className="object-cover w-full h-full"
                       />
                     </div>
                     <p className="text-xs text-text-tertiary text-center mt-1 font-medium">
@@ -130,11 +130,11 @@ const RealExamples = () => {
 
                   {/* Step 3: Invoice */}
                   <div className="flex-1 max-w-[200px]">
-                    <div className="rounded-xl overflow-hidden border border-primary/20 shadow-md">
+                    <div className="rounded-xl overflow-hidden border border-primary/20 shadow-md aspect-[4/3]">
                       <img
                         src="https://raw.githubusercontent.com/jessica-singh79/simplifaico/main/invoice.jpeg"
                         alt="Generated invoice"
-                        className="w-full h-auto"
+                        className="object-cover w-full h-full"
                       />
                     </div>
                     <p className="text-xs text-text-tertiary text-center mt-1 font-medium">
@@ -145,8 +145,8 @@ const RealExamples = () => {
 
                 {/* Mobile layout */}
                 <div className="md:hidden space-y-3 max-w-xs mx-auto">
-                  <div className="rounded-lg overflow-hidden border border-primary/20 shadow-md">
-                    <video autoPlay loop muted playsInline className="w-full h-auto">
+                  <div className="rounded-lg overflow-hidden border border-primary/20 shadow-md aspect-[4/3]">
+                    <video autoPlay loop muted playsInline className="w-full h-full object-cover">
                       <source
                         src="https://raw.githubusercontent.com/jessica-singh79/simplifaico/main/tallyform.MP4"
                         type="video/mp4"
@@ -157,20 +157,18 @@ const RealExamples = () => {
                     Form → Email → Invoice
                   </p>
                   <div className="grid grid-cols-2 gap-2">
-                    <div className="rounded-lg overflow-hidden border border-primary/20">
-                      <img
-                        src="https://raw.githubusercontent.com/jessica-singh79/simplifaico/main/GMAIL.jpg"
-                        alt="Email"
-                        className="w-full h-auto"
-                      />
-                    </div>
-                    <div className="rounded-lg overflow-hidden border border-primary/20">
-                      <img
-                        src="https://raw.githubusercontent.com/jessica-singh79/simplifaico/main/invoice.jpeg"
-                        alt="Invoice"
-                        className="w-full h-auto"
-                      />
-                    </div>
+                    {['GMAIL.jpg', 'invoice.jpeg'].map((img, idx) => (
+                      <div
+                        key={idx}
+                        className="rounded-lg overflow-hidden border border-primary/20 aspect-[4/3]"
+                      >
+                        <img
+                          src={`https://raw.githubusercontent.com/jessica-singh79/simplifaico/main/${img}`}
+                          alt={img.includes('GMAIL') ? 'Email' : 'Invoice'}
+                          className="object-cover w-full h-full"
+                        />
+                      </div>
+                    ))}
                   </div>
                 </div>
               </div>
