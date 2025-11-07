@@ -31,9 +31,9 @@ const RealExamples = () => {
     <section className="relative py-10 sm:py-14 md:py-16 bg-background-secondary">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 relative">
 
-        {/* Subtle Glow Behind Box */}
-        <div className="absolute inset-0 flex justify-center -z-10">
-          <div className="w-2/3 h-[50%] bg-primary/20 blur-3xl opacity-20 rounded-full"></div>
+        {/* subtle glow (kept small) */}
+        <div className="absolute inset-0 flex justify-center -z-10 pointer-events-none">
+          <div className="w-2/3 h-[46%] bg-primary/16 blur-3xl opacity-25 rounded-full"></div>
         </div>
 
         {/* Header */}
@@ -46,8 +46,8 @@ const RealExamples = () => {
           </p>
         </div>
 
-        {/* Content Box */}
-        <div className="bg-background-primary rounded-2xl p-5 md:p-6 border border-border-light shadow-xl max-w-4xl mx-auto relative mb-6 transition-all duration-500">
+        {/* Content Box (kept border) */}
+        <div className="bg-background-primary rounded-2xl p-6 border border-border-light shadow-xl max-w-5xl mx-auto relative mb-6 transition-all duration-500">
 
           {/* Title & Description */}
           <div className="text-center mb-5 md:mb-6">
@@ -60,21 +60,22 @@ const RealExamples = () => {
           </div>
 
           {/* Content Area */}
-          <div className="transition-opacity duration-500">
+          <div className="transition-opacity duration-400">
 
             {/* 24/7 Support (Chatbot) */}
             {activeExample === 0 && (
               <div className="flex justify-center">
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 md:gap-4 max-w-4xl">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-8 items-start max-w-4xl">
                   {[1, 2].map((num) => (
                     <div
                       key={num}
-                      className="rounded-xl overflow-hidden border border-primary/20 shadow-md hover:shadow-lg hover:border-primary/40 transition-all duration-300 aspect-[4/3] flex items-center justify-center bg-background-secondary/30"
+                      className="rounded-xl overflow-hidden border border-primary/20 shadow-sm transition-all duration-300 bg-white flex items-center justify-center p-3 max-w-[320px] mx-auto"
                     >
+                      {/* image fully visible, not cropped */}
                       <img
                         src={`https://raw.githubusercontent.com/jessica-singh79/simplifaico/main/agent${num}.jpeg`}
                         alt={`Chat Support example ${num}`}
-                        className="object-contain w-full h-full"
+                        className="object-contain w-full h-[320px]"
                       />
                     </div>
                   ))}
@@ -86,18 +87,17 @@ const RealExamples = () => {
             {activeExample === 1 && (
               <div>
                 {/* Desktop layout */}
-                <div className="hidden md:flex items-center justify-center gap-3 max-w-4xl mx-auto">
-
-                  {/* Step 1: Tally Form */}
-                  <div className="flex-1 max-w-[230px]">
-                    <div className="rounded-xl overflow-hidden border border-primary/20 shadow-md aspect-[4/3]">
+                <div className="hidden md:flex items-center justify-center gap-6 max-w-5xl mx-auto">
+                  {/* Step 1 */}
+                  <div className="flex-1 max-w-[320px] mx-auto">
+                    <div className="rounded-xl overflow-hidden border border-primary/20 shadow-sm bg-white p-3">
                       <video
                         autoPlay
                         loop
                         muted
                         playsInline
-                        className="w-full h-full object-contain"
-                        style={{ filter: 'contrast(1.05) saturate(1.1)' }}
+                        className="object-contain w-full h-[320px]"
+                        style={{ filter: 'contrast(1.05) saturate(1.05)' }}
                       >
                         <source
                           src="https://raw.githubusercontent.com/jessica-singh79/simplifaico/main/tallyform.MP4"
@@ -105,121 +105,78 @@ const RealExamples = () => {
                         />
                       </video>
                     </div>
-                    <p className="text-xs text-text-tertiary text-center mt-1 font-medium">
-                      Form submitted
-                    </p>
+                    <p className="text-xs text-text-tertiary text-center mt-2 font-medium">Form submitted</p>
                   </div>
 
-                  <ArrowRight className="w-6 h-6 text-primary animate-pulse" />
+                  <div className="flex items-center justify-center">
+                    <ArrowRight className="w-6 h-6 text-primary" />
+                  </div>
 
-                  {/* Step 2: Gmail */}
-                  <div className="flex-1 max-w-[230px]">
-                    <div className="rounded-xl overflow-hidden border border-primary/20 shadow-md aspect-[4/3]">
+                  {/* Step 2 */}
+                  <div className="flex-1 max-w-[320px] mx-auto">
+                    <div className="rounded-xl overflow-hidden border border-primary/20 shadow-sm bg-white p-3">
                       <img
                         src="https://raw.githubusercontent.com/jessica-singh79/simplifaico/main/GMAIL.jpg"
                         alt="Email notification"
-                        className="object-contain w-full h-full"
+                        className="object-contain w-full h-[320px]"
                       />
                     </div>
-                    <p className="text-xs text-text-tertiary text-center mt-1 font-medium">
-                      Email sent
-                    </p>
+                    <p className="text-xs text-text-tertiary text-center mt-2 font-medium">Email sent</p>
                   </div>
 
-                  <ArrowRight className="w-6 h-6 text-primary animate-pulse" style={{ animationDelay: '0.5s' }} />
+                  <div className="flex items-center justify-center">
+                    <ArrowRight className="w-6 h-6 text-primary" />
+                  </div>
 
-                  {/* Step 3: Invoice */}
-                  <div className="flex-1 max-w-[230px]">
-                    <div className="rounded-xl overflow-hidden border border-primary/20 shadow-md aspect-[4/3]">
+                  {/* Step 3 */}
+                  <div className="flex-1 max-w-[320px] mx-auto">
+                    <div className="rounded-xl overflow-hidden border border-primary/20 shadow-sm bg-white p-3">
                       <img
                         src="https://raw.githubusercontent.com/jessica-singh79/simplifaico/main/invoice.jpeg"
                         alt="Generated invoice"
-                        className="object-contain w-full h-full"
+                        className="object-contain w-full h-[320px]"
                       />
                     </div>
-                    <p className="text-xs text-text-tertiary text-center mt-1 font-medium">
-                      Invoice generated
-                    </p>
+                    <p className="text-xs text-text-tertiary text-center mt-2 font-medium">Invoice generated</p>
                   </div>
                 </div>
 
                 {/* Mobile layout */}
                 <div className="md:hidden space-y-3 max-w-xs mx-auto">
-                  <div className="rounded-lg overflow-hidden border border-primary/20 shadow-md aspect-[4/3]">
-                    <video autoPlay loop muted playsInline className="w-full h-full object-contain">
+                  <div className="rounded-lg overflow-hidden border border-primary/20 shadow-sm bg-white p-2">
+                    <video autoPlay loop muted playsInline className="object-contain w-full h-[220px]">
                       <source
                         src="https://raw.githubusercontent.com/jessica-singh79/simplifaico/main/tallyform.MP4"
                         type="video/mp4"
                       />
                     </video>
                   </div>
-                  <p className="text-xs text-center text-text-tertiary">
-                    Form → Email → Invoice
-                  </p>
-                  <div className="grid grid-cols-2 gap-2">
-                    {['GMAIL.jpg', 'invoice.jpeg'].map((img, idx) => (
-                      <div
-                        key={idx}
-                        className="rounded-lg overflow-hidden border border-primary/20 aspect-[4/3]"
-                      >
-                        <img
-                          src={`https://raw.githubusercontent.com/jessica-singh79/simplifaico/main/${img}`}
-                          alt={img.includes('GMAIL') ? 'Email' : 'Invoice'}
-                          className="object-contain w-full h-full"
-                        />
-                      </div>
-                    ))}
+                  <p className="text-xs text-center text-text-tertiary">Form → Email → Invoice</p>
+                  <div className="grid grid-cols-2 gap-3">
+                    <div className="rounded-lg overflow-hidden border border-primary/20 shadow-sm bg-white p-2">
+                      <img src="https://raw.githubusercontent.com/jessica-singh79/simplifaico/main/GMAIL.jpg" alt="Email" className="object-contain w-full h-[140px]" />
+                    </div>
+                    <div className="rounded-lg overflow-hidden border border-primary/20 shadow-sm bg-white p-2">
+                      <img src="https://raw.githubusercontent.com/jessica-singh79/simplifaico/main/invoice.jpeg" alt="Invoice" className="object-contain w-full h-[140px]" />
+                    </div>
                   </div>
                 </div>
               </div>
             )}
+
           </div>
         </div>
 
         {/* Dots Navigation */}
         <div className="flex items-center justify-center gap-5">
-          <button
-            onClick={() => setActiveExample(0)}
-            className="flex flex-col items-center gap-2 group"
-          >
-            <div
-              className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${
-                activeExample === 0
-                  ? 'bg-primary scale-125'
-                  : 'bg-border hover:bg-primary/50'
-              }`}
-            />
-            <span
-              className={`text-xs font-medium transition-colors ${
-                activeExample === 0
-                  ? 'text-primary'
-                  : 'text-text-tertiary'
-              }`}
-            >
-              24/7 Support
-            </span>
+          <button onClick={() => setActiveExample(0)} className="flex flex-col items-center gap-2 group">
+            <div className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${activeExample === 0 ? 'bg-primary scale-125' : 'bg-border hover:bg-primary/50'}`} />
+            <span className={`text-xs font-medium transition-colors ${activeExample === 0 ? 'text-primary' : 'text-text-tertiary'}`}>24/7 Support</span>
           </button>
 
-          <button
-            onClick={() => setActiveExample(1)}
-            className="flex flex-col items-center gap-2 group"
-          >
-            <div
-              className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${
-                activeExample === 1
-                  ? 'bg-primary scale-125'
-                  : 'bg-border hover:bg-primary/50'
-              }`}
-            />
-            <span
-              className={`text-xs font-medium transition-colors ${
-                activeExample === 1
-                  ? 'text-primary'
-                  : 'text-text-tertiary'
-              }`}
-            >
-              BIMworx
-            </span>
+          <button onClick={() => setActiveExample(1)} className="flex flex-col items-center gap-2 group">
+            <div className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${activeExample === 1 ? 'bg-primary scale-125' : 'bg-border hover:bg-primary/50'}`} />
+            <span className={`text-xs font-medium transition-colors ${activeExample === 1 ? 'text-primary' : 'text-text-tertiary'}`}>BIMworx</span>
           </button>
         </div>
       </div>
