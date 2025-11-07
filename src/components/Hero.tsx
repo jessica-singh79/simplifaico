@@ -27,6 +27,15 @@ const Hero = () => {
         refresh={false}
       />
 
+      {/* Floating Animation - Desktop Only */}
+      {animationData && (
+        <div className="hidden xl:block absolute right-12 top-1/2 -translate-y-1/2 z-20 pointer-events-none">
+          <div className="w-48 h-48 opacity-80">
+            <Lottie animationData={animationData} loop={true} />
+          </div>
+        </div>
+      )}
+
       <div className="relative z-10 max-w-4xl w-full mx-auto">
         <h1 className="text-text-primary font-body font-bold tracking-tight text-3xl md:text-5xl leading-tight mb-4">
           Stop Wasting Hours on Work That Should Be Automatic
@@ -53,15 +62,10 @@ const Hero = () => {
         </div>
       </div>
 
-      {/* Scroll Indicator with Workflow Animation */}
-      <div className="absolute bottom-12 left-1/2 -translate-x-1/2 text-center z-10">
-        {animationData && (
-          <div className="w-32 h-32 md:w-40 md:h-40 mx-auto mb-3">
-            <Lottie animationData={animationData} loop={true} />
-          </div>
-        )}
-        <p className="text-sm text-text-tertiary font-medium mb-1">See it working</p>
-        <ChevronDown className="w-7 h-7 text-text-tertiary animate-bounce mx-auto" />
+      {/* Scroll Indicator */}
+      <div className="absolute bottom-16 left-1/2 -translate-x-1/2 text-center z-10">
+        <p className="text-xs text-text-tertiary mb-2 font-medium">See it working</p>
+        <ChevronDown className="w-8 h-8 text-text-tertiary animate-bounce mx-auto" />
       </div>
     </section>
   );
