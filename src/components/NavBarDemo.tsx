@@ -11,10 +11,14 @@ interface NavBarProps {
 
 export const NavBar: React.FC<NavBarProps> = ({ items }) => {
   return (
-    <nav className="fixed top-6 left-1/2 transform -translate-x-1/2 z-50 bg-background-primary/80 backdrop-blur-sm px-6 py-3 rounded-full shadow-lg border border-border-light">
+    <nav className="fixed top-6 left-1/2 transform -translate-x-1/2 z-50 bg-primary/95 backdrop-blur-sm px-8 py-3.5 rounded-full shadow-xl border border-primary-dark">
       <div className="flex gap-6 md:gap-8">
         {items.map((item, idx) => (
-          <a key={idx} href={item.url} className="text-text-primary font-body font-medium text-sm md:text-base hover:text-primary transition-colors">
+          <a 
+            key={idx} 
+            href={item.url} 
+            className="text-white font-body font-medium text-sm md:text-base hover:text-primary-50 transition-colors"
+          >
             {item.name}
           </a>
         ))}
@@ -26,9 +30,9 @@ export const NavBar: React.FC<NavBarProps> = ({ items }) => {
 export function NavBarDemo() {
   const navItems: NavItem[] = [
     { name: 'Home', url: '#hero' },
-    { name: 'About', url: '#about' },
-    { name: 'Why Us', url: '#why-simplifai' },
-    { name: 'FAQ', url: '#faq' },
+    { name: 'What We Build', url: '#about' },
+    { name: 'How It Works', url: '#how-it-works' },
+    { name: 'Real Examples', url: '#real-examples' },
     { name: 'Contact', url: '#contact' },
   ];
   
