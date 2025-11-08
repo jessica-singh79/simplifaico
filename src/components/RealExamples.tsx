@@ -51,7 +51,7 @@ const RealExamples = () => {
   };
 
   return (
-    <section className="relative py-16 md:py-20 bg-background-secondary">
+    <section id="real-examples" className="relative py-16 md:py-20 bg-background-secondary">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 relative">
 
         {/* subtle glow */}
