@@ -36,11 +36,11 @@ module.exports = {
         },
         
         // Backgrounds
-        background: {
-          primary: '#FFFFFF',
-          secondary: '#F8FAFC', // slate-50
-          subtle: '#EEF2FF',    // indigo-50
-        },
+       background: {
+  primary: '#F9FAFB',      // Light gray (was #FFFFFF)
+  secondary: '#F3F4F6',    // Medium gray (was #F8FAFC)
+  subtle: '#EEF2FF',       // Keep this
+},
         
         // Text
         text: {
