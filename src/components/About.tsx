@@ -1,251 +1,109 @@
-import { useEffect, useRef, useState } from "react";
+import React from 'react';
+import { ArrowRight, Globe, Calendar, Mail, MessageCircle } from 'lucide-react';
 
-interface ParticlesProps {
-  className?: string;
-  quantity?: number;
-  staticity?: number;
-  ease?: number;
-  size?: number;
-  refresh?: boolean;
-  color?: string;
-  vx?: number;
-  vy?: number;
-}
-
-export const Particles: React.FC<ParticlesProps> = ({
-  className = "",
-  quantity = 100,
-  staticity = 50,
-  ease = 50,
-  size = 1.2, // INCREASED from 0.4 to 1.2
-  refresh = false,
-  color = "#ffffff",
-  vx = 0,
-  vy = 0,
-}) => {
-  const canvasRef = useRef<HTMLCanvasElement>(null);
-  const canvasContainerRef = useRef<HTMLDivElement>(null);
-  const context = useRef<CanvasRenderingContext2D | null>(null);
-  const circles = useRef<Circle[]>([]);
-  const mousePosition = useRef<MousePosition>({ x: 0, y: 0 });
-  const mouseMoveRef = useRef<boolean>(false);
-  const canvasSize = useRef<{ w: number; h: number }>({ w: 0, h: 0 });
-  const dpr = typeof window !== "undefined" ? window.devicePixelRatio : 1;
-
-  useEffect(() => {
-    if (canvasRef.current) {
-      context.current = canvasRef.current.getContext("2d");
-    }
-    initCanvas();
-    animate();
-    window.addEventListener("resize", initCanvas);
-
-    return () => {
-      window.removeEventListener("resize", initCanvas);
-    };
-  }, [color]);
-
-  useEffect(() => {
-    onMouseMove();
-  }, [staticity, ease]);
-
-  useEffect(() => {
-    initCanvas();
-  }, [refresh]);
-
-  const initCanvas = () => {
-    resizeCanvas();
-    drawParticles();
-  };
-
-  const onMouseMove = () => {
-    if (canvasRef.current) {
-      const rect = canvasRef.current.getBoundingClientRect();
-      const { w, h } = canvasSize.current;
-      const x = mousePosition.current.x - rect.left - w / 2;
-      const y = mousePosition.current.y - rect.top - h / 2;
-      const inside = x < w / 2 && x > -w / 2 && y < h / 2 && y > -h / 2;
-      if (inside) {
-        circles.current.forEach((circle) => {
-          circle.x += (x - circle.x) / ease;
-          circle.y += (y - circle.y) / ease;
-        });
-      }
-    }
-  };
-
-  type Circle = {
-    x: number;
-    y: number;
-    translateX: number;
-    translateY: number;
-    size: number;
-    alpha: number;
-    targetAlpha: number;
-    dx: number;
-    dy: number;
-    magnetism: number;
-  };
-
-  type MousePosition = {
-    x: number;
-    y: number;
-  };
-
-  const resizeCanvas = () => {
-    if (canvasContainerRef.current && canvasRef.current && context.current) {
-      circles.current.length = 0;
-      canvasSize.current.w = canvasContainerRef.current.offsetWidth;
-      canvasSize.current.h = canvasContainerRef.current.offsetHeight;
-      canvasRef.current.width = canvasSize.current.w * dpr;
-      canvasRef.current.height = canvasSize.current.h * dpr;
-      canvasRef.current.style.width = `${canvasSize.current.w}px`;
-      canvasRef.current.style.height = `${canvasSize.current.h}px`;
-      context.current.scale(dpr, dpr);
-    }
-  };
-
-  const circleParams = (): Circle => {
-    const x = Math.floor(Math.random() * canvasSize.current.w);
-    const y = Math.floor(Math.random() * canvasSize.current.h);
-    const translateX = 0;
-    const translateY = 0;
-    const pSize = Math.floor(Math.random() * 2) + size;
-    const alpha = 0;
-    const targetAlpha = parseFloat((Math.random() * 0.6 + 0.1).toFixed(1));
-    const dx = (Math.random() - 0.5) * 0.1;
-    const dy = (Math.random() - 0.5) * 0.1;
-    const magnetism = 0.1 + Math.random() * 4;
-    return {
-      x,
-      y,
-      translateX,
-      translateY,
-      size: pSize,
-      alpha,
-      targetAlpha,
-      dx,
-      dy,
-      magnetism,
-    };
-  };
-
-  const rgb = hexToRgb(color);
-
-  const drawCircle = (circle: Circle, update = false) => {
-    if (context.current) {
-      const { x, y, translateX, translateY, size, alpha } = circle;
-      context.current.translate(translateX, translateY);
-      context.current.beginPath();
-      context.current.arc(x, y, size, 0, 2 * Math.PI);
-      context.current.fillStyle = `rgba(${rgb.join(", ")}, ${alpha})`;
-      context.current.fill();
-      context.current.setTransform(dpr, 0, 0, dpr, 0, 0);
-
-      if (!update) {
-        circles.current.push(circle);
-      }
-    }
-  };
-
-  const clearContext = () => {
-    if (context.current) {
-      context.current.clearRect(
-        0,
-        0,
-        canvasSize.current.w,
-        canvasSize.current.h
-      );
-    }
-  };
-
-  const drawParticles = () => {
-    clearContext();
-    const particleCount = quantity;
-    for (let i = 0; i < particleCount; i++) {
-      const circle = circleParams();
-      drawCircle(circle);
-    }
-  };
-
-  const remapValue = (
-    value: number,
-    start1: number,
-    end1: number,
-    start2: number,
-    end2: number
-  ): number => {
-    const remapped =
-      ((value - start1) * (end2 - start2)) / (end1 - start1) + start2;
-    return remapped > 0 ? remapped : 0;
-  };
-
-  const animate = () => {
-    clearContext();
-    circles.current.forEach((circle: Circle, i: number) => {
-      const edge = [
-        circle.x + circle.translateX - circle.size,
-        canvasSize.current.w - circle.x - circle.translateX - circle.size,
-        circle.y + circle.translateY - circle.size,
-        canvasSize.current.h - circle.y - circle.translateY - circle.size,
-      ];
-      const closestEdge = edge.reduce((a, b) => Math.min(a, b));
-      const remapClosestEdge = parseFloat(
-        remapValue(closestEdge, 0, 20, 0, 1).toFixed(2)
-      );
-      if (remapClosestEdge > 1) {
-        circle.alpha += 0.02;
-        if (circle.alpha > circle.targetAlpha) {
-          circle.alpha = circle.targetAlpha;
-        }
-      } else {
-        circle.alpha = circle.targetAlpha * remapClosestEdge;
-      }
-      circle.x += circle.dx + vx;
-      circle.y += circle.dy + vy;
-      circle.translateX +=
-        (mousePosition.current.x / (staticity / circle.magnetism) -
-          circle.translateX) /
-        ease;
-      circle.translateY +=
-        (mousePosition.current.y / (staticity / circle.magnetism) -
-          circle.translateY) /
-        ease;
-
-      drawCircle(circle, true);
-
-      if (
-        circle.x < -circle.size ||
-        circle.x > canvasSize.current.w + circle.size ||
-        circle.y < -circle.size ||
-        circle.y > canvasSize.current.h + circle.size
-      ) {
-        circles.current.splice(i, 1);
-        const newCircle = circleParams();
-        drawCircle(newCircle);
-      }
-    });
-    window.requestAnimationFrame(animate);
-  };
-
-  return (
-    <div className={className} ref={canvasContainerRef} aria-hidden="true">
-      <canvas ref={canvasRef} className="pointer-events-none" />
+const FeatureCard = ({ 
+  icon: Icon, 
+  title, 
+  description,
+  glowColor
+}: { 
+  icon: any; 
+  title: string; 
+  description: string;
+  glowColor: string;
+}) => (
+  <div className="group relative">
+    {/* Animated Glowing Background */}
+    <div className={`absolute -inset-0.5 bg-gradient-to-r ${glowColor} rounded-xl md:rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-all duration-500 animate-pulse`}></div>
+    
+    {/* Card Content */}
+    <div className="relative p-4 sm:p-6 md:p-8 rounded-xl md:rounded-2xl bg-background-primary border border-border-light hover:border-primary/50 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 h-full">
+      {/* Icon */}
+      <div className={`w-12 h-12 md:w-14 md:h-14 rounded-full bg-gradient-to-br ${glowColor.replace('/20', '/10')} flex items-center justify-center mb-4 md:mb-6 group-hover:scale-110 transition-transform duration-300`}>
+        <Icon className="w-6 h-6 md:w-7 md:h-7 text-primary" />
+      </div>
+      
+      {/* Title */}
+      <h3 className="text-base sm:text-lg md:text-xl font-bold text-text-primary mb-3 leading-tight">
+        {title}
+      </h3>
+      
+      {/* Description */}
+      <p className="text-sm sm:text-base text-text-secondary leading-relaxed">
+        {description}
+      </p>
     </div>
+  </div>
+);
+
+const About: React.FC = () => {
+  return (
+    <section id="about" className="py-16 sm:py-20 md:py-24 bg-background-secondary">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
+        {/* Header */}
+        <header className="text-center mb-12 sm:mb-16 md:mb-20">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-text-primary leading-tight mb-4">
+            What We Build
+          </h2>
+          <p className="max-w-3xl mx-auto text-base sm:text-lg md:text-xl text-text-secondary">
+            Booking appointments, following up with leads, answering the same questions over and over. 
+            We build systems that handle this automatically. All connected, all working together, so you don't have to.
+          </p>
+        </header>
+
+        {/* Feature Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-12 sm:mb-16">
+          <FeatureCard
+            icon={Globe}
+            title="Websites That Get You Customers"
+            description="Fast sites with booking and forms built in. No templates, no bloat, just what you need to turn visitors into customers."
+            glowColor="from-blue-500/20 to-indigo-500/20"
+          />
+          
+          <FeatureCard
+            icon={Calendar}
+            title="Booking Without the Back-and-Forth"
+            description="Synced to your calendar. Sends reminders. Handles reschedules. No more email ping-pong trying to find a time."
+            glowColor="from-violet-500/20 to-purple-500/20"
+          />
+          
+          <FeatureCard
+            icon={Mail}
+            title="Follow-Ups That Never Forget"
+            description="Email and SMS sent automatically at the right time. Leads don't slip through anymore."
+            glowColor="from-indigo-500/20 to-blue-500/20"
+          />
+          
+          <FeatureCard
+            icon={MessageCircle}
+            title="24/7 Assistant"
+            description="Answers common questions, qualifies leads, and books appointments, even at 2am. Escalates to you when it needs a real person."
+            glowColor="from-purple-500/20 to-violet-500/20"
+          />
+        </div>
+
+        {/* CTA */}
+        <div className="text-center">
+          <button
+            onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+            className="inline-flex items-center gap-3 bg-primary text-white px-8 py-4 rounded-full text-lg font-semibold shadow-lg hover:bg-primary-dark hover:scale-105 transition-all duration-300"
+          >
+            <span>Let's Build Yours</span>
+            <ArrowRight className="w-5 h-5" />
+          </button>
+          <p className="mt-4 text-sm text-text-secondary max-w-xl mx-auto">
+            Need something specific?{' '}
+            <button 
+              className="underline text-primary font-medium hover:text-primary-dark transition-colors" 
+              onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+            >
+              Talk to us
+            </button>.
+          </p>
+        </div>
+      </div>
+    </section>
   );
 };
 
-function hexToRgb(hex: string): number[] {
-  hex = hex.replace("#", "");
-  if (hex.length === 3) {
-    hex = hex
-      .split("")
-      .map((char) => char + char)
-      .join("");
-  }
-  const hexInt = parseInt(hex, 16);
-  const red = (hexInt >> 16) & 255;
-  const green = (hexInt >> 8) & 255;
-  const blue = hexInt & 255;
-  return [red, green, blue];
-}
+export default About;
