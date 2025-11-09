@@ -34,7 +34,7 @@ const Hero = () => {
             }
             className="inline-flex items-center justify-center gap-2 bg-primary text-white px-8 py-4 rounded-full text-base font-semibold shadow-xl hover:bg-primary-dark hover:scale-105 transition-all duration-300"
           >
-            <span>Get Free Consultation</span>
+            <span>Book Your Free Consultation</span>
             <ArrowRight className="w-5 h-5" />
           </button>
         </div>
