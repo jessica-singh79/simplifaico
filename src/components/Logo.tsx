@@ -12,7 +12,7 @@ const Logo: React.FC = () => {
     >
       <div className="flex items-center gap-2 bg-white/90 backdrop-blur-md px-4 py-2.5 rounded-full shadow-md hover:shadow-lg transition-all duration-300 hover:scale-105">
         <img 
-          src="/logo.png" 
+          src="https://raw.githubusercontent.com/jessica-singh79/simplifaico/main/logo.png"
           alt="SimplifAI" 
           className="h-7 w-auto"
         />
