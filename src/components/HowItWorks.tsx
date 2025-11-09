@@ -9,6 +9,7 @@ const HowItWorks = () => {
       title: "Free Call",
       description: "15 minutes to see if we're a fit. We'll map out what's taking your time and what we can automate.",
       gradient: "from-blue-500 to-indigo-500",
+      bgColor: "bg-blue-50",
       iconColor: "text-blue-600"
     },
     {
@@ -17,6 +18,7 @@ const HowItWorks = () => {
       title: "We Build Your System",
       description: "We build it based on what you told us. You review it. When you're happy, we launch.",
       gradient: "from-indigo-500 to-purple-500",
+      bgColor: "bg-indigo-50",
       iconColor: "text-indigo-600"
     },
     {
@@ -25,6 +27,7 @@ const HowItWorks = () => {
       title: "Go Live",
       description: "Your system starts working. Appointments book themselves. Follow-ups send on time. Support runs 24/7. You focus on your actual business.",
       gradient: "from-purple-500 to-violet-500",
+      bgColor: "bg-purple-50",
       iconColor: "text-purple-600"
     }
   ];
@@ -70,9 +73,9 @@ const HowItWorks = () => {
                     </span>
                   </div>
 
-                  {/* Icon - FIXED: Solid color, visible */}
-                  <div className={`w-16 h-16 mx-auto mb-6 rounded-2xl bg-gradient-to-br ${step.gradient} opacity-10 flex items-center justify-center group-hover:scale-110 transition-transform duration-300`}>
-                    <step.icon className={`w-8 h-8 ${step.iconColor}`} strokeWidth={2} />
+                  {/* Icon - FIXED: Solid background with visible icon */}
+                  <div className={`w-16 h-16 mx-auto mb-6 rounded-2xl ${step.bgColor} flex items-center justify-center group-hover:scale-110 transition-transform duration-300`}>
+                    <step.icon className={`w-8 h-8 ${step.iconColor}`} strokeWidth={2.5} />
                   </div>
 
                   {/* Title */}
@@ -111,9 +114,9 @@ const HowItWorks = () => {
                 </div>
 
                 <div className="flex items-start gap-4">
-                  {/* Icon - FIXED: Solid color, visible */}
-                  <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${step.gradient} opacity-10 flex items-center justify-center flex-shrink-0`}>
-                    <step.icon className={`w-6 h-6 ${step.iconColor}`} strokeWidth={2} />
+                  {/* Icon - FIXED: Solid background with visible icon */}
+                  <div className={`w-12 h-12 rounded-xl ${step.bgColor} flex items-center justify-center flex-shrink-0`}>
+                    <step.icon className={`w-6 h-6 ${step.iconColor}`} strokeWidth={2.5} />
                   </div>
 
                   <div className="flex-1 pt-1">
