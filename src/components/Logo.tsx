@@ -4,19 +4,19 @@ const Logo: React.FC = () => {
   return (
     <a 
       href="#hero" 
-      className="fixed top-6 left-6 z-50 group"
+      className="absolute top-6 left-6 z-40 group"
       onClick={(e) => {
         e.preventDefault();
         window.scrollTo({ top: 0, behavior: 'smooth' });
       }}
     >
-      <div className="flex items-center gap-3 bg-white/90 backdrop-blur-md px-4 py-2 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
+      <div className="flex items-center gap-2 bg-white/90 backdrop-blur-md px-4 py-2.5 rounded-full shadow-md hover:shadow-lg transition-all duration-300 hover:scale-105">
         <img 
           src="/logo.png" 
           alt="SimplifAI" 
-          className="h-8 w-auto"
+          className="h-7 w-auto"
         />
-        <span className="text-lg font-bold bg-gradient-to-r from-cyan-600 to-blue-600 bg-clip-text text-transparent">
+        <span className="text-lg font-semibold text-primary font-body">
           SimplifAI
         </span>
       </div>
