@@ -1,4 +1,5 @@
 import React from 'react';
+import Logo from './components/Logo';
 import { NavBarDemo } from './components/NavBarDemo';
 import Hero from './components/Hero';
 import About from './components/About';
@@ -9,6 +10,7 @@ import RealExamples from './components/RealExamples';
 function App() {
   return (
     <div className="relative min-h-screen bg-background-primary">
+      <Logo/>
       <NavBarDemo />
       <Hero />
       <About />
